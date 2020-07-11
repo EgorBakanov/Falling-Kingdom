@@ -15,7 +15,7 @@ namespace Nara.MFGJS2020
 
         [Range(1, 20)] [SerializeField] private int x = 2;
         [Range(1, 20)] [SerializeField] private int y = 2;
-        [Range(1, 6)] [SerializeField] private int maxHeight = 2;
+        [Range(1, 6)] [SerializeField] private int maxHeight = 4;
 
         [SerializeField] private Int2D initialHeights;
 

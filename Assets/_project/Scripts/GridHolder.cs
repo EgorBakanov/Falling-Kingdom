@@ -12,6 +12,7 @@ namespace Nara.MFGJS2020
         [FormerlySerializedAs("_level")] [SerializeField] private Level level;
         [Range(0f, 2f)] [SerializeField] private float spacing = 1f;
         [SerializeField] private Transform cell;
+        [SerializeField] private Material[] materials;
         [SerializeField] private bool showGizmos;
 
         private void Start()
@@ -32,6 +33,7 @@ namespace Nara.MFGJS2020
                     var t = Instantiate<Transform>(cell, transform);
                     t.position = start + new Vector3(i, 0, j) * spacing;
                     t.localScale = Vector3.up * _grid[i, j].Height / _grid.MaxHeight + new Vector3(1,0,1);
+                    t.GetComponentInChildren<Renderer>().sharedMaterial = materials[_grid[i, j].Height - 1];
                 }
             }
         }
