@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Egor\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Egor\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_My-First-Game-Jam-Summer-2020.-1515183610.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Egor\My-First-Game-Jam-Summer-2020" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="_project" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Core" t="Include">
+              <e p="Grid.cs" t="Include" />
+              <e p="Level.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="Int2DPropertyDrawer.cs" t="Include" />
+            </e>
+            <e p="GridHolder.cs" t="Include" />
+            <e p="MFGJS2020.asmdef" t="Include" />
+            <e p="Utility" t="Include">
+              <e p="Int2D.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Tests" t="Include">
+            <e p="EditMode" t="Include">
+              <e p="EditModeTests.asmdef" t="Include" />
+              <e p="GridTests.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="EditModeTests.csproj" t="IncludeRecursive" />
+      <e p="MFGJS2020.csproj" t="IncludeRecursive" />
+      <e p="My-First-Game-Jam-Summer-2020.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

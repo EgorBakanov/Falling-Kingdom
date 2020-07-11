@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98aba9ad29141adaaac8e710b4020a7, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  x: 5
+  y: 5
+  maxHeight: 5
+  initialHeights:
+  - values: 0500000001000000030000000400000005000000
+  - values: 0200000003000000020000000300000003000000
+  - values: 0000000000000000000000000000000000000000
+  - values: 0000000000000000000000000000000000000000
+  - values: 0000000000000000000000000000000000000000
