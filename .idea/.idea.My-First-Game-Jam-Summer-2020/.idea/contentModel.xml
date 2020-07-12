@@ -23,6 +23,13 @@
             <e p="MFGJS2020.asmdef" t="Include" />
             <e p="Utility" t="Include">
               <e p="Int2D.cs" t="Include" />
+              <e p="PriorityQueue" t="Include">
+                <e p="GenericPriorityQueue.cs" t="Include" />
+                <e p="GenericPriorityQueueNode.cs" t="Include" />
+                <e p="IFixedSizePriorityQueue.cs" t="Include" />
+                <e p="IPriorityQueue.cs" t="Include" />
+                <e p="SimplePriorityQueue.cs" t="Include" />
+              </e>
             </e>
             <e p="Visual" t="Include">
               <e p="GridHolder.cs" t="Include" />
