@@ -70,5 +70,15 @@ namespace Tests
             Assert.AreEqual(1,x);
             Assert.AreEqual(0,y);
         }
+
+        [Test]
+        public void GridCoordinateToIndexReturnCorrectValue()
+        {
+            var grid = new Grid(2,3);
+
+            int index = grid.CoordinateToIndex(1, 0);
+            
+            Assert.AreEqual(3,index);
+        }
     }
 }

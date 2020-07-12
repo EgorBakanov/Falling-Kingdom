@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 6dc407934c29d514999eff26a1e5c4b8, type: 2}
-  spacing: 1.1
+  spacing: 1.05
   tilePrefab: {fileID: 612204164748723521, guid: 24b6676b538bad64f9cf83158f1b309b,
     type: 3}
 --- !u!4 &2052816589

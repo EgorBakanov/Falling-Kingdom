@@ -7,7 +7,25 @@ namespace Nara.MFGJS2020.Core
     {
         public int Index { get; }
         public Grid Grid { get; }
-        public IGridObject GridObject { get; set; }
+        
+        public IGridObject GridObject
+        {
+            get => _gridObject;
+            set
+            {
+                _gridObject = value;
+                if (Height == 0)
+                {
+                    _gridObject?.OnTileFall();
+                    OnTileFall?.Invoke();
+                }
+                else
+                {
+                    _gridObject?.OnTileHeightChanged(Height, Height);
+                    OnTileHeightChanged?.Invoke(Height, Height);
+                }
+            }
+        }
 
         public int Height
         {
@@ -37,6 +55,7 @@ namespace Nara.MFGJS2020.Core
         public event Action<int, int> OnTileHeightChanged;
 
         private int _height;
+        private IGridObject _gridObject;
 
         public Tile(Grid grid, int id, int h)
         {

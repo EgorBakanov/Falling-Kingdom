@@ -8,6 +8,7 @@
         <e p="_project" t="Include">
           <e p="Scripts" t="Include">
             <e p="Core" t="Include">
+              <e p="EmptyGridObject.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
               <e p="IGridObject.cs" t="Include" />
               <e p="Tile.cs" t="Include" />
@@ -25,6 +26,7 @@
             </e>
             <e p="Visual" t="Include">
               <e p="GridHolder.cs" t="Include" />
+              <e p="GridObjectHolder.cs" t="Include" />
               <e p="TileHolder.cs" t="Include" />
             </e>
           </e>

@@ -54,6 +54,13 @@ namespace Nara.MFGJS2020.Core
             return (x, y);
         }
 
+        public int CoordinateToIndex(int x, int y)
+        {
+            x = Mathf.Clamp(x, 0, SizeX-1);
+            y = Mathf.Clamp(y, 0, SizeY - 1);
+            return x * SizeY + y;
+        }
+
         public Grid(int x, int y, int maxH, int[] heights)
         {
             SizeX = Mathf.Max(x, 1);

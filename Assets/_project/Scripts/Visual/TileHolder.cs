@@ -1,4 +1,5 @@
-﻿using Nara.MFGJS2020.Core;
+﻿using System;
+using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
 
@@ -37,6 +38,12 @@ namespace Nara.MFGJS2020.Visual
         public void OnTileFall()
         {
             visual.enabled = false;
+        }
+
+        private void OnDestroy()
+        {
+            Tile.OnTileFall -= OnTileFall;
+            Tile.OnTileHeightChanged -= OnTileHeightChanged;
         }
     }
 }
