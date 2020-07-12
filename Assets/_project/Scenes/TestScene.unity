@@ -359,13 +359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 6dc407934c29d514999eff26a1e5c4b8, type: 2}
   spacing: 1.1
-  cell: {fileID: 6991574745716324863, guid: 24b6676b538bad64f9cf83158f1b309b, type: 3}
-  materials:
-  - {fileID: 2100000, guid: d9031938bb880044eafb4ab88dcb6b1b, type: 2}
-  - {fileID: 2100000, guid: 97c8f27d358bd724a852c303a3ba8608, type: 2}
-  - {fileID: 2100000, guid: c64a8ae4b6c14874980a6bae0e6ab402, type: 2}
-  - {fileID: 2100000, guid: 704148eae857e39489d8ae2fe411c9c1, type: 2}
-  showGizmos: 1
+  tilePrefab: {fileID: 612204164748723521, guid: 24b6676b538bad64f9cf83158f1b309b,
+    type: 3}
 --- !u!4 &2052816589
 Transform:
   m_ObjectHideFlags: 0

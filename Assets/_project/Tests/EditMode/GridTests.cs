@@ -24,7 +24,7 @@ namespace Tests
         }
 
         [Test]
-        public void GridCellIsNotNullWithinCorrectRange()
+        public void GridTileIsNotNullWithinCorrectRange()
         {
             var grid = new Grid(3,4);
             
@@ -33,7 +33,7 @@ namespace Tests
         }
 
         [Test]
-        public void GridCellIsNullWithinWrongRange()
+        public void GridTileIsNullWithinWrongRange()
         {
             var grid = new Grid(3,4);
             
@@ -52,12 +52,23 @@ namespace Tests
         }
 
         [Test]
-        public void GridCellHeightWithinRange()
+        public void GridTileHeightWithinRange()
         {
             var grid = new Grid(1,2,2,new []{-1,3});
             
             Assert.GreaterOrEqual(grid[0].Height,0);
             Assert.LessOrEqual(grid[1].Height,grid.MaxHeight);
+        }
+
+        [Test]
+        public void GridIndexToCoordinateReturnCorrectValues()
+        {
+            var grid = new Grid(2,3);
+
+            (int x, int y) = grid.IndexToCoordinate(3);
+            
+            Assert.AreEqual(1,x);
+            Assert.AreEqual(0,y);
         }
     }
 }

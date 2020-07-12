@@ -5,44 +5,25 @@ namespace Nara.MFGJS2020.Core
     [System.Serializable]
     public class Grid
     {
-        public class Cell
-        {
-            public int Index { get; }
-            public Grid Grid { get; }
-            public int Height
-            {
-                get => _height;
-                set => _height = Mathf.Clamp(value, 0, Grid.MaxHeight);
-            }
-
-            private int _height;
-
-            public Cell(Grid grid, int id, int h)
-            {
-                Grid = grid;
-                Index = id;
-                Height = h;
-            }
-        }
-
         public int SizeX { get; private set; }
         public int SizeY { get; private set; }
         public int MaxHeight { get; private set; }
+        public int Size => SizeX * SizeY;
 
-        private Cell[] _cells;
+        private Tile[] _tiles;
 
-        public Cell this[int index]
+        public Tile this[int index]
         {
             get
             {
                 if (index < 0 || index > SizeX * SizeY)
                     return null;
 
-                return _cells[index];
+                return _tiles[index];
             }
         }
 
-        public Cell this[int x, int y]
+        public Tile this[int x, int y]
         {
             get
             {
@@ -52,26 +33,47 @@ namespace Nara.MFGJS2020.Core
                 if (y < 0 || y > SizeY)
                     return null;
 
-                return _cells[y + x * SizeY];
+                return _tiles[y + x * SizeY];
             }
         }
-        
-        public Grid(int x, int y, int maxH, int[] heights )
+
+        public (int x, int y) IndexToCoordinate(int index)
+        {
+            if (index >= SizeX * SizeY)
+            {
+                index %= SizeX * SizeY;
+            }
+            else if (index < 0)
+            {
+                index = 0;
+            }
+
+            int x = index / SizeY;
+            int y = index % SizeY;
+
+            return (x, y);
+        }
+
+        public Grid(int x, int y, int maxH, int[] heights)
         {
             SizeX = Mathf.Max(x, 1);
             SizeY = Mathf.Max(y, 1);
             MaxHeight = Mathf.Max(maxH, 1);
 
-            _cells = new Cell[SizeX * SizeY];
+            _tiles = new Tile[SizeX * SizeY];
 
-            for (int i = 0; i < SizeX*SizeY; i++)
+            for (int i = 0; i < SizeX * SizeY; i++)
             {
-                _cells[i] = new Cell(this,i,heights[i]);
+                _tiles[i] = new Tile(this, i, heights[i]);
             }
         }
-        
-        public Grid(int x, int y, int maxH) : this(x,y,maxH,new int[x*y]) {}
 
-        public Grid(int x, int y) : this(x,y,5,new int[x*y]) {}
+        public Grid(int x, int y, int maxH) : this(x, y, maxH, new int[x * y])
+        {
+        }
+
+        public Grid(int x, int y) : this(x, y, 5, new int[x * y])
+        {
+        }
     }
 }
