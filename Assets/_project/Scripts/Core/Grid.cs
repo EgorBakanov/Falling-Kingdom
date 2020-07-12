@@ -61,6 +61,11 @@ namespace Nara.MFGJS2020.Core
             return x * SizeY + y;
         }
 
+        public int CoordinateToIndex(Vector2Int coordinate)
+        {
+            return CoordinateToIndex(coordinate.x, coordinate.y);
+        }
+
         public Grid(int x, int y, int maxH, int[] heights)
         {
             SizeX = Mathf.Max(x, 1);

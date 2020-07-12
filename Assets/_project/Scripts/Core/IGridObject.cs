@@ -3,6 +3,7 @@
     public interface IGridObject
     {
         GridObjectType Type { get; }
+        int PathScore { get; }
         void OnTileHeightChanged(int newHeight, int oldHeight);
         void OnTileFall();
     }

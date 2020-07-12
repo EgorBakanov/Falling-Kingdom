@@ -10,6 +10,7 @@
             <e p="Core" t="Include">
               <e p="EmptyGridObject.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
+              <e p="GridPathFinder.cs" t="Include" />
               <e p="IGridObject.cs" t="Include" />
               <e p="Tile.cs" t="Include" />
             </e>

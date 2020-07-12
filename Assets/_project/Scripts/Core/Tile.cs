@@ -63,5 +63,10 @@ namespace Nara.MFGJS2020.Core
             Index = id;
             Height = h;
         }
+
+        public override int GetHashCode()
+        {
+            return Index;
+        }
     }
 }
