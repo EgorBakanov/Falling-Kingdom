@@ -361,6 +361,10 @@ MonoBehaviour:
   spacing: 1.05
   tilePrefab: {fileID: 612204164748723521, guid: 24b6676b538bad64f9cf83158f1b309b,
     type: 3}
+  gridObjectHolder: {fileID: 4151913613450273607, guid: 9e1974d0ce55699438959ae023a1dc92,
+    type: 3}
+  from: {x: 0, y: 0}
+  to: {x: 4, y: 6}
 --- !u!4 &2052816589
 Transform:
   m_ObjectHideFlags: 0
