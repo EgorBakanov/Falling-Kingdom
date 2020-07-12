@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Grid = Nara.MFGJS2020.Core.Grid;
 
 namespace Nara.MFGJS2020.Visual
@@ -18,8 +16,9 @@ namespace Nara.MFGJS2020.Visual
         [Range(0f, 2f)] [SerializeField] private float spacing = 1f;
         [SerializeField] private TileHolder tilePrefab;
 
+        public GridObjectHolder gridObjectHolder;
         public Vector2Int from, to;
-        private IEnumerable<Tile> path;
+        private IEnumerable<Tile> _path;
 
         private void Start()
         {
@@ -29,14 +28,25 @@ namespace Nara.MFGJS2020.Visual
                 return;
 
             Init(level.Generate());
+
+            InvokeRepeating("Test", 2f, 2f);
+        }
+
+        private void Test()
+        {
+            if (gridObjectHolder == null)
+                return;
+
+            var obj = Instantiate<GridObjectHolder>(gridObjectHolder);
+            var tile = _tiles[Random.Range(0, _grid.Size - 1)];
+            obj.Init(new EmptyGridObject(), tile);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                path = GridPathFinder.Find(_grid[_grid.CoordinateToIndex(from)], _grid[_grid.CoordinateToIndex(to)]);
-                Debug.Log((path == null) ? "Empty" : path.Count().ToString());
+                _path = GridPathFinder.Find(_grid[_grid.CoordinateToIndex(from)], _grid[_grid.CoordinateToIndex(to)]);
             }
         }
 
@@ -60,27 +70,27 @@ namespace Nara.MFGJS2020.Visual
 
         private void OnDrawGizmos()
         {
-            if (path == null)
+            if (_path == null)
                 return;
 
             Gizmos.color = Color.blue;
-            foreach (var tile in path)
+            foreach (var tile in _path)
             {
-                if(tile.Index == _grid.CoordinateToIndex(from) || tile.Index == _grid.CoordinateToIndex(to))
+                if (tile.Index == _grid.CoordinateToIndex(from) || tile.Index == _grid.CoordinateToIndex(to))
                     continue;
 
                 var pos = _tiles[tile.Index].transform.position + Vector3.up * 2;
-                Gizmos.DrawSphere(pos,.3f);
+                Gizmos.DrawSphere(pos, .3f);
                 ;
             }
-            
+
             Gizmos.color = Color.green;
             var posFrom = _tiles[_grid.CoordinateToIndex(from)].transform.position + Vector3.up * 2;
-            Gizmos.DrawSphere(posFrom,.5f);
-            
+            Gizmos.DrawSphere(posFrom, .5f);
+
             Gizmos.color = Color.red;
             var posTo = _tiles[_grid.CoordinateToIndex(to)].transform.position + Vector3.up * 2;
-            Gizmos.DrawSphere(posTo,.5f);
+            Gizmos.DrawSphere(posTo, .5f);
         }
     }
 }

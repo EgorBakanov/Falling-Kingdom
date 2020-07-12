@@ -7,7 +7,8 @@ namespace Nara.MFGJS2020.Visual
 {
     public class TileHolder : MonoBehaviour
     {
-        [SerializeField] private Renderer visual;
+        [SerializeField] private Renderer visualRenderer;
+        [SerializeField] private Transform visualTransform;
         public Tile Tile { get; private set; }
 
         private TileColorScheme _colorScheme;
@@ -29,15 +30,14 @@ namespace Nara.MFGJS2020.Visual
                 return;
             }
 
-            visual.sharedMaterial = _colorScheme[n];
+            visualRenderer.sharedMaterial = _colorScheme[n];
 
-            var t = visual.transform;
-            t.localScale = Vector3.up * n / Tile.Grid.MaxHeight + new Vector3(1,0,1);
+            visualTransform.localScale = Vector3.up * n / Tile.Grid.MaxHeight + new Vector3(1,0,1);
         }
 
         public void OnTileFall()
         {
-            visual.enabled = false;
+            visualRenderer.enabled = false;
         }
 
         private void OnDestroy()
