@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Nara.MFGJS2020.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
+using Grid = Nara.MFGJS2020.Core.Grid;
 
-namespace Nara.MFGJS2020
+namespace Nara.MFGJS2020.Visual
 {
     public class GridHolder : MonoBehaviour
     {

@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEngine.TestTools;
-using Nara.MFGJS2020;
+﻿using NUnit.Framework;
+using Nara.MFGJS2020.Core;
 
 namespace Tests
 {

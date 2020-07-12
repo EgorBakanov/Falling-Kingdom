@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Nara.MFGJS2020.Utility
+﻿namespace Nara.MFGJS2020.Utility
 {
     [System.Serializable]
     public class Int2D

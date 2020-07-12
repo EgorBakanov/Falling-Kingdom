@@ -1,8 +1,7 @@
-﻿using System;
-using Nara.MFGJS2020.Utility;
+﻿using Nara.MFGJS2020.Utility;
 using UnityEngine;
 
-namespace Nara.MFGJS2020
+namespace Nara.MFGJS2020.Core
 {
     [CreateAssetMenu(fileName = "New Level", menuName = "Level")]
     public class Level : ScriptableObject

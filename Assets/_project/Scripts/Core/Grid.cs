@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Nara.MFGJS2020
+namespace Nara.MFGJS2020.Core
 {
     [System.Serializable]
     public class Grid
