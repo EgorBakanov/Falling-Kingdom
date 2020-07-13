@@ -5,7 +5,7 @@ using UnityEngine;
 using Grid = Nara.MFGJS2020.Core.Grid;
 using UnityEngine.InputSystem;
 
-namespace Nara.MFGJS2020.Visual
+namespace Nara.MFGJS2020.Holders
 {
     public class GridHolder : MonoBehaviour
     {

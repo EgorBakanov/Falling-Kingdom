@@ -1,7 +1,7 @@
 ﻿using Nara.MFGJS2020.Core;
 using UnityEngine;
 
-namespace Nara.MFGJS2020.Visual
+namespace Nara.MFGJS2020.Holders
 {
     public class GridObjectHolder : MonoBehaviour
     {
@@ -35,9 +35,6 @@ namespace Nara.MFGJS2020.Visual
         
         private void OnTileFall()
         {
-#if UNITY_EDITOR
-            //Debug.Log($"{this.name} fell");     
-#endif
             Destroy(gameObject);
         }
 

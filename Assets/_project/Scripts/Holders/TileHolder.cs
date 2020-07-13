@@ -3,7 +3,7 @@ using Nara.MFGJS2020.Generators;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Nara.MFGJS2020.Visual
+namespace Nara.MFGJS2020.Holders
 {
     public class TileHolder : MonoBehaviour , IPointerClickHandler
     {
