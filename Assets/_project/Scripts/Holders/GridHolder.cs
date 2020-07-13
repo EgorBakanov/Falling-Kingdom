@@ -10,7 +10,6 @@ namespace Nara.MFGJS2020.Holders
     public class GridHolder : MonoBehaviour
     {
         private Grid _grid;
-        private TileHolder[] _tiles;
 
         [SerializeField] private Level level;
         [Range(0f, 2f)] [SerializeField] private float spacing = 1f;
@@ -19,6 +18,8 @@ namespace Nara.MFGJS2020.Holders
         public GridObjectHolder gridObjectHolder;
         public Vector2Int from, to;
         private IEnumerable<Tile> _path;
+
+        public TileHolder[] TileHolders { get; private set; }
 
         private void Start()
         {
@@ -41,7 +42,7 @@ namespace Nara.MFGJS2020.Holders
         public void Init(Grid grid)
         {
             _grid = grid;
-            _tiles = new TileHolder[_grid.Size];
+            TileHolders = new TileHolder[_grid.Size];
 
             var start = this.transform.position;
 
@@ -49,9 +50,9 @@ namespace Nara.MFGJS2020.Holders
             {
                 for (int j = 0; j < _grid.SizeY; j++)
                 {
-                    _tiles[_grid.CoordinateToIndex(i, j)] = Instantiate<TileHolder>(tilePrefab, transform);
-                    _tiles[_grid.CoordinateToIndex(i, j)].transform.position = start + new Vector3(i, 0, j) * spacing;
-                    _tiles[_grid.CoordinateToIndex(i, j)].Init(_grid[i, j], this, level.TileColorScheme);
+                    TileHolders[_grid.CoordinateToIndex(i, j)] = Instantiate<TileHolder>(tilePrefab, transform);
+                    TileHolders[_grid.CoordinateToIndex(i, j)].transform.position = start + new Vector3(i, 0, j) * spacing;
+                    TileHolders[_grid.CoordinateToIndex(i, j)].Init(_grid[i, j], this, level.TileColorScheme);
                 }
             }
         }
@@ -68,17 +69,17 @@ namespace Nara.MFGJS2020.Holders
                 if (tile.Index == _grid.CoordinateToIndex(from) || tile.Index == _grid.CoordinateToIndex(to))
                     continue;
 
-                var pos = _tiles[tile.Index].transform.position + Vector3.up * 2;
+                var pos = TileHolders[tile.Index].transform.position + Vector3.up * 2;
                 Gizmos.DrawSphere(pos, .3f);
                 ;
             }
 
             Gizmos.color = Color.green;
-            var posFrom = _tiles[_grid.CoordinateToIndex(from)].transform.position + Vector3.up * 2;
+            var posFrom = TileHolders[_grid.CoordinateToIndex(from)].transform.position + Vector3.up * 2;
             Gizmos.DrawSphere(posFrom, .5f);
 
             Gizmos.color = Color.red;
-            var posTo = _tiles[_grid.CoordinateToIndex(to)].transform.position + Vector3.up * 2;
+            var posTo = TileHolders[_grid.CoordinateToIndex(to)].transform.position + Vector3.up * 2;
             Gizmos.DrawSphere(posTo, .5f);
         }
 #endif

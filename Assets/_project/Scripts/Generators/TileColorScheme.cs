@@ -2,7 +2,7 @@
 
 namespace Nara.MFGJS2020.Generators
 {
-    [CreateAssetMenu(fileName = "New Tile Color Scheme", menuName = "TileColorScheme", order = 0)]
+    [CreateAssetMenu(fileName = "New Tile Color Scheme", menuName = "Tile Color Scheme")]
     public class TileColorScheme : ScriptableObject
     {
         [SerializeField] private Material[] materials;
