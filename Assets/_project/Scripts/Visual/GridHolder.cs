@@ -3,6 +3,7 @@ using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
 using Grid = Nara.MFGJS2020.Core.Grid;
+using UnityEngine.InputSystem;
 
 namespace Nara.MFGJS2020.Visual
 {
@@ -43,7 +44,7 @@ namespace Nara.MFGJS2020.Visual
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 _path = GridPathFinder.Find(_grid[_grid.CoordinateToIndex(from)], _grid[_grid.CoordinateToIndex(to)]);
             }

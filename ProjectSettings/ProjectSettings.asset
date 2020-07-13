@@ -660,6 +660,6 @@ PlayerSettings:
   projectName: My-First-Game-Jam-Summer-2020
   organizationId: nara7
   cloudEnabled: 0
-  enableNativePlatformBackendsForNewInputSystem: 0
-  disableOldInputManagerSupport: 0
+  enableNativePlatformBackendsForNewInputSystem: 1
+  disableOldInputManagerSupport: 1
   legacyClampBlendShapeWeights: 0

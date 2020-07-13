@@ -1,10 +1,11 @@
 ﻿using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Visual
 {
-    public class TileHolder : MonoBehaviour
+    public class TileHolder : MonoBehaviour , IPointerClickHandler
     {
         [SerializeField] private Renderer visualRenderer;
         [SerializeField] private Transform visualTransform;
@@ -43,6 +44,11 @@ namespace Nara.MFGJS2020.Visual
         {
             Tile.OnTileFall -= OnTileFall;
             Tile.OnTileHeightChanged -= OnTileHeightChanged;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Debug.Log($"{name} : {eventData.button}");
         }
     }
 }

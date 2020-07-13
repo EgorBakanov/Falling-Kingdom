@@ -36,7 +36,7 @@ namespace Nara.MFGJS2020.Visual
         private void OnTileFall()
         {
 #if UNITY_EDITOR
-            Debug.Log($"{this.name} fell");     
+            //Debug.Log($"{this.name} fell");     
 #endif
             Destroy(gameObject);
         }
