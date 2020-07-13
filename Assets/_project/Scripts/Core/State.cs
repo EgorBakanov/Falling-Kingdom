@@ -2,7 +2,7 @@
 using Nara.MFGJS2020.Holders;
 using UnityEngine.EventSystems;
 
-namespace Nara.MFGJS2020.GameStateMachine
+namespace Nara.MFGJS2020.Core
 {
     public abstract class State
     {
@@ -18,7 +18,12 @@ namespace Nara.MFGJS2020.GameStateMachine
             yield break;
         }
 
-        public virtual IEnumerator OnTileClick(TileHolder tile, PointerEventData eventData)
+        public virtual IEnumerator OnTileClick(Tile tile, PointerEventData eventData)
+        {
+            yield break;
+        }
+
+        public virtual IEnumerator OnUISubmit()
         {
             yield break;
         }

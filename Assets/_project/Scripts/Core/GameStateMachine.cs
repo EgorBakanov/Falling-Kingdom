@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Nara.MFGJS2020.GameStateMachine
+namespace Nara.MFGJS2020.Core
 {
     public class GameStateMachine : MonoBehaviour
     {

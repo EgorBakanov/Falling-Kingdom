@@ -1,4 +1,6 @@
-﻿namespace Nara.MFGJS2020.GameStateMachine
+﻿using Nara.MFGJS2020.Core;
+
+namespace Nara.MFGJS2020.States
 {
     public class WaitForPlayerActionState : State
     {
