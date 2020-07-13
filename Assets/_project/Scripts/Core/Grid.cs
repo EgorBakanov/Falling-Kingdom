@@ -2,7 +2,6 @@
 
 namespace Nara.MFGJS2020.Core
 {
-    [System.Serializable]
     public class Grid
     {
         public int SizeX { get; private set; }
@@ -12,42 +11,14 @@ namespace Nara.MFGJS2020.Core
 
         private Tile[] _tiles;
 
-        public Tile this[int index]
-        {
-            get
-            {
-                if (index < 0 || index > SizeX * SizeY)
-                    return null;
+        public Tile this[int index] => IsCorrectIndex(index) ? _tiles[index] : null;
 
-                return _tiles[index];
-            }
-        }
+        public Tile this[int x, int y] => IsCorrectCoordinate(x, y) ? _tiles[y + x * SizeY] : null;
 
-        public Tile this[int x, int y]
-        {
-            get
-            {
-                if (x < 0 || x > SizeX)
-                    return null;
-
-                if (y < 0 || y > SizeY)
-                    return null;
-
-                return _tiles[y + x * SizeY];
-            }
-        }
+        public Tile this[Vector2Int coordinate] => this[CoordinateToIndex(coordinate)];
 
         public (int x, int y) IndexToCoordinate(int index)
         {
-            if (index >= SizeX * SizeY)
-            {
-                index %= SizeX * SizeY;
-            }
-            else if (index < 0)
-            {
-                index = 0;
-            }
-
             int x = index / SizeY;
             int y = index % SizeY;
 
@@ -56,14 +27,27 @@ namespace Nara.MFGJS2020.Core
 
         public int CoordinateToIndex(int x, int y)
         {
-            x = Mathf.Clamp(x, 0, SizeX-1);
-            y = Mathf.Clamp(y, 0, SizeY - 1);
             return x * SizeY + y;
         }
 
         public int CoordinateToIndex(Vector2Int coordinate)
         {
             return CoordinateToIndex(coordinate.x, coordinate.y);
+        }
+
+        public bool IsCorrectIndex(int index)
+        {
+            return (index >= 0 && index < Size);
+        }
+
+        public bool IsCorrectCoordinate(int x, int y)
+        {
+            return (x >= 0 && x < SizeX && y >= 0 && y < SizeY);
+        }
+
+        public bool IsCorrectCoordinate(Vector2Int coordinate)
+        {
+            return IsCorrectCoordinate(coordinate.x, coordinate.y);
         }
 
         public Grid(int x, int y, int maxH, int[] heights)

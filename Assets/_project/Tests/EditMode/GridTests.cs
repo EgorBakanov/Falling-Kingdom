@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
-using Nara.MFGJS2020.Core;
+using UnityEngine;
+using Grid = Nara.MFGJS2020.Core.Grid;
 
 namespace Tests
 {
@@ -79,6 +80,45 @@ namespace Tests
             int index = grid.CoordinateToIndex(1, 0);
             
             Assert.AreEqual(3,index);
+        }
+
+        [Test]
+        public void GridIsCorrectIndexReturnCorrectValue()
+        {
+            var grid = new Grid(2,3);
+            
+            Assert.IsTrue(grid.IsCorrectIndex(3));
+            Assert.IsFalse(grid.IsCorrectIndex(-2));
+            Assert.IsFalse(grid.IsCorrectIndex(10));
+        }
+
+        [Test]
+        public void GridIsCorrectCoordinateReturnCorrectValue()
+        {
+            var grid = new Grid(2,3);
+            var correct = new Vector2Int(1,0);
+            var wrong1 = new Vector2Int(-1,0);
+            var wrong2 = new Vector2Int(10,0);
+            var wrong3 = new Vector2Int(1,-1);
+            var wrong4 = new Vector2Int(1,10);
+            var wrong5 = new Vector2Int(-1,-1);
+            var wrong6 = new Vector2Int(10,10);
+            
+            Assert.IsTrue(grid.IsCorrectCoordinate(correct));
+            Assert.IsTrue(grid.IsCorrectCoordinate(correct.x,correct.y));
+            
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong1));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong1.x,wrong1.y));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong2));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong2.x,wrong2.y));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong3));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong3.x,wrong3.y));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong4));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong4.x,wrong4.y));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong5));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong5.x,wrong5.y));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong6));
+            Assert.IsFalse(grid.IsCorrectCoordinate(wrong6.x,wrong6.y));
         }
     }
 }

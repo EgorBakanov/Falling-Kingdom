@@ -23,6 +23,16 @@ namespace Nara.MFGJS2020.Core
             yield break;
         }
 
+        public virtual IEnumerator OnTowerClick(PointerEventData eventData)
+        {
+            yield break;
+        }
+
+        public virtual IEnumerator OnActionButtonClick(int id, PointerEventData eventData)
+        {
+            yield break;
+        }
+
         public virtual IEnumerator OnUISubmit()
         {
             yield break;

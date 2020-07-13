@@ -12,7 +12,6 @@
     {
         None,
         Tower,
-        Palace,
         Enemy
     }
 }
