@@ -10,18 +10,16 @@
           <e p="Scripts" t="Include">
             <e p="Core" t="Include">
               <e p="EmptyGridObject.cs" t="Include" />
+              <e p="GameStateMachine.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
               <e p="GridPathFinder.cs" t="Include" />
               <e p="IGridObject.cs" t="Include" />
+              <e p="State.cs" t="Include" />
               <e p="Tile.cs" t="Include" />
             </e>
             <e p="Editor" t="Include">
               <e p="Int2DPropertyDrawer.cs" t="Include" />
               <e p="MFGJS2020-Editor.asmdef" t="Include" />
-            </e>
-            <e p="GameStateMachine" t="Include">
-              <e p="GameStateMachine.cs" t="Include" />
-              <e p="State.cs" t="Include" />
             </e>
             <e p="Generators" t="Include">
               <e p="Level.cs" t="Include" />
@@ -33,6 +31,21 @@
               <e p="TileHolder.cs" t="Include" />
             </e>
             <e p="MFGJS2020.asmdef" t="Include" />
+            <e p="States" t="Include">
+              <e p="ActivateAllState.cs" t="Include" />
+              <e p="BeginPlayerTurnState.cs" t="Include" />
+              <e p="CalculateNextMoveState.cs" t="Include" />
+              <e p="EndGameState.cs" t="Include" />
+              <e p="EndPlayerTurnState.cs" t="Include" />
+              <e p="EnemyTurnState.cs" t="Include" />
+              <e p="InitLevelState.cs" t="Include" />
+              <e p="LoseState.cs" t="Include" />
+              <e p="SelectLevelState.cs" t="Include" />
+              <e p="ShowNextEnemySpawnState.cs" t="Include" />
+              <e p="SpawnEnemyState.cs" t="Include" />
+              <e p="WaitForPlayerActionState.cs" t="Include" />
+              <e p="WinState.cs" t="Include" />
+            </e>
             <e p="Utility" t="Include">
               <e p="Int2D.cs" t="Include" />
               <e p="PriorityQueue" t="Include">
