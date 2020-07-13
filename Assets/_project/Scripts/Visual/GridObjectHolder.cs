@@ -1,5 +1,4 @@
-﻿using System;
-using Nara.MFGJS2020.Core;
+﻿using Nara.MFGJS2020.Core;
 using UnityEngine;
 
 namespace Nara.MFGJS2020.Visual
@@ -36,7 +35,9 @@ namespace Nara.MFGJS2020.Visual
         
         private void OnTileFall()
         {
-            Debug.Log($"{this.name} fell");
+#if UNITY_EDITOR
+            Debug.Log($"{this.name} fell");     
+#endif
             Destroy(gameObject);
         }
 

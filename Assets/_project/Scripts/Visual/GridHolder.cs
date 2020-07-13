@@ -2,7 +2,6 @@
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Grid = Nara.MFGJS2020.Core.Grid;
 
 namespace Nara.MFGJS2020.Visual
@@ -68,6 +67,7 @@ namespace Nara.MFGJS2020.Visual
             }
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (_path == null)
@@ -93,4 +93,5 @@ namespace Nara.MFGJS2020.Visual
             Gizmos.DrawSphere(posTo, .5f);
         }
     }
+#endif
 }

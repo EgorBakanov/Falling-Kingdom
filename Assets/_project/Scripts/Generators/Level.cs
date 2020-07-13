@@ -16,6 +16,7 @@ namespace Nara.MFGJS2020.Generators
 
         public TileColorScheme TileColorScheme => tileColorScheme;
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (initialHeights == null || initialHeights.x != x || initialHeights.y != y)
@@ -35,6 +36,7 @@ namespace Nara.MFGJS2020.Generators
                 if (tileColorScheme.Size != maxHeight)
                     Debug.Log("Tile Color Scheme size is not Equal to maximum tile height!");
         }
+#endif
 
         public Grid Generate()
         {

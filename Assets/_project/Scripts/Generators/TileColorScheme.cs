@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nara.MFGJS2020.Generators
 {

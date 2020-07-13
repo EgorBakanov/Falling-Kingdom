@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿#if true
+using UnityEngine;
+
+#endif
 
 namespace Nara.MFGJS2020.Core
 {
@@ -9,12 +12,16 @@ namespace Nara.MFGJS2020.Core
 
         public void OnTileHeightChanged(int newHeight, int oldHeight)
         {
+#if UNITY_EDITOR
             Debug.Log($"{oldHeight} => {newHeight}");
+#endif
         }
 
         public void OnTileFall()
         {
+#if UNITY_EDITOR
             Debug.Log("Fall");
+#endif
         }
     }
 }
