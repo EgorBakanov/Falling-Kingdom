@@ -16,6 +16,7 @@
             </e>
             <e p="Editor" t="Include">
               <e p="Int2DPropertyDrawer.cs" t="Include" />
+              <e p="MFGJS2020-Editor.asmdef" t="Include" />
             </e>
             <e p="Generators" t="Include">
               <e p="Level.cs" t="Include" />
@@ -48,6 +49,7 @@
         </e>
       </e>
       <e p="EditModeTests.csproj" t="IncludeRecursive" />
+      <e p="MFGJS2020-Editor.csproj" t="IncludeRecursive" />
       <e p="MFGJS2020.csproj" t="IncludeRecursive" />
       <e p="My-First-Game-Jam-Summer-2020.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

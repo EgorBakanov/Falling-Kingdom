@@ -92,6 +92,6 @@ namespace Nara.MFGJS2020.Visual
             var posTo = _tiles[_grid.CoordinateToIndex(to)].transform.position + Vector3.up * 2;
             Gizmos.DrawSphere(posTo, .5f);
         }
-    }
 #endif
+    }
 }

@@ -1,0 +1,17 @@
+{
+    "name": "MFGJS2020-Editor",
+    "references": [
+        "GUID:e8d12388a5bc2cc4dbf2a428a7f382ba"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
