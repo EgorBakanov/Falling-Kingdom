@@ -28,18 +28,6 @@ namespace Nara.MFGJS2020.Holders
                 return;
 
             Init(level.Generate());
-
-            InvokeRepeating("Test", 2f, 2f);
-        }
-
-        private void Test()
-        {
-            if (gridObjectHolder == null)
-                return;
-
-            var obj = Instantiate<GridObjectHolder>(gridObjectHolder);
-            var tile = _tiles[Random.Range(0, _grid.Size - 1)];
-            obj.Init(new EmptyGridObject(), tile);
         }
 
         private void Update()
@@ -63,7 +51,7 @@ namespace Nara.MFGJS2020.Holders
                 {
                     _tiles[_grid.CoordinateToIndex(i, j)] = Instantiate<TileHolder>(tilePrefab, transform);
                     _tiles[_grid.CoordinateToIndex(i, j)].transform.position = start + new Vector3(i, 0, j) * spacing;
-                    _tiles[_grid.CoordinateToIndex(i, j)].Init(_grid[i, j], level.TileColorScheme);
+                    _tiles[_grid.CoordinateToIndex(i, j)].Init(_grid[i, j], this, level.TileColorScheme);
                 }
             }
         }

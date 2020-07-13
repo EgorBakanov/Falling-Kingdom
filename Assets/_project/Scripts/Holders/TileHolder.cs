@@ -5,21 +5,23 @@ using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Holders
 {
-    public class TileHolder : MonoBehaviour , IPointerClickHandler
+    public class TileHolder : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private Renderer visualRenderer;
         [SerializeField] private Transform visualTransform;
         public Tile Tile { get; private set; }
+        public GridHolder GridHolder { get; private set; }
 
         private TileColorScheme _colorScheme;
 
-        public void Init(Tile tile, TileColorScheme colorScheme)
+        public void Init(Tile tile, GridHolder gridHolder, TileColorScheme colorScheme)
         {
             Tile = tile;
+            GridHolder = gridHolder;
             _colorScheme = colorScheme;
             Tile.OnTileHeightChanged += OnTileHeightChanged;
             Tile.OnTileFall += OnTileFall;
-            OnTileHeightChanged(Tile.Height,0);
+            OnTileHeightChanged(Tile.Height, 0);
         }
 
         public void OnTileHeightChanged(int n, int _)
@@ -32,7 +34,7 @@ namespace Nara.MFGJS2020.Holders
 
             visualRenderer.sharedMaterial = _colorScheme[n];
 
-            visualTransform.localScale = Vector3.up * n / Tile.Grid.MaxHeight + new Vector3(1,0,1);
+            visualTransform.localScale = Vector3.up * n / Tile.Grid.MaxHeight + new Vector3(1, 0, 1);
         }
 
         public void OnTileFall()
@@ -48,7 +50,34 @@ namespace Nara.MFGJS2020.Holders
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log($"{name} : {eventData.button}");
+            if(Tile.Height == 0)
+                return;
+            
+            switch (eventData.button)
+            {
+                case PointerEventData.InputButton.Left:
+                {
+                    Tile.Height++;
+                    return;
+                }
+                case PointerEventData.InputButton.Right:
+                {
+                    Tile.Height--;
+                    return;
+                }
+                case PointerEventData.InputButton.Middle:
+                {
+                    if(Tile.GridObject != null)
+                        return;
+                    if (GridHolder.gridObjectHolder == null)
+                        return;
+
+                    var obj = Instantiate(GridHolder.gridObjectHolder);
+                    obj.Init(new EmptyGridObject(), this);
+                    
+                    return;
+                }
+            }
         }
     }
 }
