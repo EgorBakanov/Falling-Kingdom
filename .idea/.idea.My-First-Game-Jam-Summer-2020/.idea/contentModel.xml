@@ -19,6 +19,10 @@
               <e p="Int2DPropertyDrawer.cs" t="Include" />
               <e p="MFGJS2020-Editor.asmdef" t="Include" />
             </e>
+            <e p="GameStateMachine" t="Include">
+              <e p="GameStateMachine.cs" t="Include" />
+              <e p="State.cs" t="Include" />
+            </e>
             <e p="Generators" t="Include">
               <e p="Level.cs" t="Include" />
               <e p="TileColorScheme.cs" t="Include" />

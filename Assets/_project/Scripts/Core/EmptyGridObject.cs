@@ -1,9 +1,4 @@
-﻿#if true
-using UnityEngine;
-
-#endif
-
-namespace Nara.MFGJS2020.Core
+﻿namespace Nara.MFGJS2020.Core
 {
     public class EmptyGridObject : IGridObject
     {
