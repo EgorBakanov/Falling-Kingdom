@@ -3,19 +3,19 @@ using UnityEngine;
 
 namespace Nara.MFGJS2020.Holders
 {
-    public class GridObjectHolder : MonoBehaviour
+    public abstract class GridObjectHolder<T> : MonoBehaviour where T : IGridObject
     {
         [SerializeField] private Transform visualRoot;
-        public virtual IGridObject Object { get; private set; }
+        public virtual T GridObject { get; private set; }
         public TileHolder TileHolder { get; private set; }
         public Transform VisualRoot => visualRoot;
 
-        public void Init(IGridObject obj, TileHolder tileHolder)
+        public virtual void Init(T obj, TileHolder tileHolder)
         {
-            Object = obj;
+            GridObject = obj;
             TileHolder = tileHolder;
             SubscribeOnTile(TileHolder.Tile);
-            TileHolder.Tile.GridObject = Object;
+            TileHolder.Tile.GridObject = GridObject;
         }
 
         private void SubscribeOnTile(Tile tile)
@@ -23,19 +23,19 @@ namespace Nara.MFGJS2020.Holders
             tile.OnTileFall += OnTileFall;
             tile.OnTileHeightChanged += OnTileHeightChanged;
         }
-        
+
         private void UnsubscribeOnTile(Tile tile)
         {
             tile.OnTileFall -= OnTileFall;
             tile.OnTileHeightChanged -= OnTileHeightChanged;
         }
-        
-        private void OnTileHeightChanged(int newHeight, int _)
+
+        protected virtual void OnTileHeightChanged(int newHeight, int _)
         {
             this.transform.position = GetPosition(TileHolder, newHeight);
         }
-        
-        private void OnTileFall()
+
+        protected virtual void OnTileFall()
         {
             Destroy(gameObject);
         }
@@ -45,7 +45,7 @@ namespace Nara.MFGJS2020.Holders
             return tileHolder.transform.position + Vector3.up * height / TileHolder.Tile.Grid.MaxHeight;
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             UnsubscribeOnTile(TileHolder.Tile);
         }

@@ -41,6 +41,7 @@
               <e p="GridHolder.cs" t="Include" />
               <e p="GridObjectHolder.cs" t="Include" />
               <e p="TileHolder.cs" t="Include" />
+              <e p="TowerHolder.cs" t="Include" />
             </e>
             <e p="MFGJS2020.asmdef" t="Include" />
             <e p="States" t="Include">

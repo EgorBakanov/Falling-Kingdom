@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 3424342969575279183}
   - component: {fileID: 4151913613450273607}
   m_Layer: 0
-  m_Name: TestObject
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3721964330677160075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934e3c9cbb3a418b9e86931dfb969cf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 512b825aac9046d089412295eb836caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   visualRoot: {fileID: 6821460174692398250}

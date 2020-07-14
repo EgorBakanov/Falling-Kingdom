@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
@@ -11,20 +10,20 @@ namespace Nara.MFGJS2020.Control
 {
     public class TowerManager : MonoBehaviour
     {
-        [SerializeField] private GridObjectHolder towerPrefab;
+        [SerializeField] private TowerHolder towerPrefab;
         [Range(.1f, 3f)] [SerializeField] private float initialisationTime = .7f;
 
         private int selectedPreset = -1;
-        private List<GridObjectHolder> towers;
+        private List<TowerHolder> towers;
 
         public TowerPreset[] AvailableToBuildTowers => GameManager.Instance.GetCurrentLevel().AvailableToBuildTowers;
         public Level.TowerInPosition[] InitialTowers => GameManager.Instance.GetCurrentLevel().InitialTowers;
-        public GridObjectHolder TowerPrefab => towerPrefab;
-        public IEnumerable<GridObjectHolder> Towers => towers;
+        public TowerHolder TowerPrefab => towerPrefab;
+        public IEnumerable<TowerHolder> Towers => towers;
 
         private void Awake()
         {
-            towers = new List<GridObjectHolder>();
+            towers = new List<TowerHolder>();
         }
 
         public void SelectPreset(int i)
@@ -75,6 +74,12 @@ namespace Nara.MFGJS2020.Control
         private void OnDestroy()
         {
             Clear();
+        }
+
+        public void DestroyTower(TowerHolder towerHolder)
+        {
+            towers.Remove(towerHolder);
+            Destroy(towerHolder.gameObject);
         }
     }
 }

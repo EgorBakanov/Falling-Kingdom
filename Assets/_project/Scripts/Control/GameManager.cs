@@ -1,10 +1,8 @@
-﻿using System;
-using Nara.MFGJS2020.Core;
+﻿using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using Nara.MFGJS2020.Holders;
 using Nara.MFGJS2020.States;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nara.MFGJS2020.Control
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -34,11 +33,11 @@ namespace Nara.MFGJS2020.Core
             StartCoroutine(SafeStart(_state.OnTileClick(tile,eventData)));
         }
         
-        public void OnTowerClick(PointerEventData eventData)
+        public void OnTowerClick(IGridObject tower,PointerEventData eventData)
         {
             if(IsRunning)
                 return;
-            StartCoroutine(SafeStart(_state.OnTowerClick(eventData)));
+            StartCoroutine(SafeStart(_state.OnTowerClick(tower, eventData)));
         }
 
         public void OnTowerActionButtonClick(int id)

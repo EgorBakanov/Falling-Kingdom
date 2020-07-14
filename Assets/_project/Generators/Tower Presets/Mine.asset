@@ -17,5 +17,6 @@ MonoBehaviour:
   cantBuildZoneSize: 0
   expandBuildZoneSize: 2
   initialActivity: 1
-  visualPrefab: {fileID: 0}
+  visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
+    type: 3}
   description: 

@@ -1,5 +1,7 @@
-﻿using Nara.MFGJS2020.Core;
+﻿using System;
+using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
+using UnityEngine;
 
 namespace Nara.MFGJS2020.GridObject
 {
@@ -10,18 +12,39 @@ namespace Nara.MFGJS2020.GridObject
         public int PathScore => Health;
         public int CantBuildZoneSize => Preset.CantBuildZoneSize;
         public int ExpandBuildZoneSize => Preset.ExpandBuildZoneSize;
-        public int Health { get; }
+
+        public int Health
+        {
+            get => _health;
+            set
+            {
+                _health = Mathf.Clamp(value, 0, MaxHealth);
+                if (_health == 0)
+                    Die();
+            }
+        }
+
+        public void Die()
+        {
+            Tile.GridObject = null;
+            OnDie?.Invoke();
+        }
+
         public int MaxHealth => Preset.MaxHealth;
         public TowerPreset Preset { get; }
+
+        public event Action OnDie;
+        
+        private int _health;
         
         public void OnTileHeightChanged(int newHeight, int oldHeight)
         {
-            //throw new System.NotImplementedException();
+            Health -= Mathf.Abs(oldHeight - newHeight);
         }
 
         public void OnTileFall()
         {
-            //throw new System.NotImplementedException();
+            Die();
         }
 
         public Tower(TowerPreset preset, Tile tile)

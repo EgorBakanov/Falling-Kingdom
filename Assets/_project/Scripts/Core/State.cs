@@ -15,7 +15,7 @@ namespace Nara.MFGJS2020.Core
             yield break;
         }
 
-        public virtual IEnumerator OnTowerClick(PointerEventData eventData)
+        public virtual IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
         {
             yield break;
         }

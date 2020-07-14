@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
-using UnityEngine;
 
 namespace Nara.MFGJS2020.States
 {
@@ -9,7 +8,6 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            Debug.Log("SelectLevelState");
             if (GameManager.Instance.HasNextLevel)
             {
                 GameManager.Instance.NextLevel();

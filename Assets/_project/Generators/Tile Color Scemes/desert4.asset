@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da367d1ec04d88442ab9fc8996d44b91, type: 3}
-  m_Name: desert
+  m_Name: desert4
   m_EditorClassIdentifier: 
   materials:
   - {fileID: 2100000, guid: 76285349c8166b4469b89cf5e8a5ad4b, type: 2}
