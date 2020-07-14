@@ -5,8 +5,10 @@ namespace Nara.MFGJS2020.Holders
 {
     public class GridObjectHolder : MonoBehaviour
     {
-        public IGridObject Object { get; private set; }
+        [SerializeField] private Transform visualRoot;
+        public virtual IGridObject Object { get; private set; }
         public TileHolder TileHolder { get; private set; }
+        public Transform VisualRoot => visualRoot;
 
         public void Init(IGridObject obj, TileHolder tileHolder)
         {

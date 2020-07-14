@@ -11,7 +11,7 @@ namespace Nara.MFGJS2020.Control
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
-        [SerializeField] private GameStateMachine gameStateMachine;
+        [SerializeField] private GameStateMachine stateMachine;
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private GridHolder gridHolder;
         [SerializeField] private AudioManager audioManager;
@@ -20,7 +20,7 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private EnemyManager enemyManager;
 
         public GridHolder GridHolder => gridHolder;
-        public GameStateMachine GameStateMachine => gameStateMachine;
+        public GameStateMachine StateMachine => stateMachine;
         public AudioManager AudioManager => audioManager;
 
         public UIManager UiManager => uiManager;
@@ -30,7 +30,7 @@ namespace Nara.MFGJS2020.Control
 
         private int _currentLevel = 0;
 
-        public Level GetNextLevel() => levelManager.Get(_currentLevel++);
+        public void NextLevel() => _currentLevel++;
         public Level GetCurrentLevel() => levelManager.Get(_currentLevel);
 
         private void Awake()
@@ -45,14 +45,14 @@ namespace Nara.MFGJS2020.Control
 
         private void Start()
         {
-            gameStateMachine.State = new BeginState();
+            stateMachine.SetState(new BeginState());
         }
 
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            if (gameStateMachine == null)
-                gameStateMachine = GetComponent<GameStateMachine>();
+            if (stateMachine == null)
+                stateMachine = GetComponent<GameStateMachine>();
 
             if (levelManager == null)
                 levelManager = GetComponent<LevelManager>();

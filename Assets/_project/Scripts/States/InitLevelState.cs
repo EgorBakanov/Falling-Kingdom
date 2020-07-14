@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
+using UnityEngine;
 
 namespace Nara.MFGJS2020.States
 {
@@ -7,8 +9,15 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            // TODO InitLevelState
-            return base.Start();
+            Debug.Log("InitLevelState");
+            GameManager.Instance.GridHolder.Clear();
+            GameManager.Instance.TowerManager.Clear();
+            
+            var level = GameManager.Instance.GetCurrentLevel();
+            var grid = level.GenerateGrid();
+
+            yield return GameManager.Instance.GridHolder.Init(grid, level.TileColorScheme);
+            yield return GameManager.Instance.TowerManager.CreateInitialTowers();
         }
     }
 }

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae079defd90417f9d8ddfd33317e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 0}
 --- !u!114 &457707821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5e249fd4c09b54782fa2ef11835668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStateMachine: {fileID: 457707821}
+  stateMachine: {fileID: 457707821}
   levelManager: {fileID: 11400000, guid: 86c2a182bbfc7f648b5a6fdeb2dac972, type: 2}
   gridHolder: {fileID: 1555785375}
   audioManager: {fileID: 0}
@@ -403,6 +404,7 @@ MonoBehaviour:
   spacing: 1.05
   tilePrefab: {fileID: 612204164748723521, guid: 24b6676b538bad64f9cf83158f1b309b,
     type: 3}
+  initialisationTime: 0.5
 --- !u!4 &1555785376
 Transform:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ namespace Nara.MFGJS2020.Holders
             if(Tile.Height == 0)
                 return;
             
-            GameManager.Instance.GameStateMachine.OnTileClick(Tile,eventData);
+            GameManager.Instance.StateMachine.OnTileClick(Tile,eventData);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,43 +9,22 @@ namespace Nara.MFGJS2020.Core
     {
         private State _state;
 
-        public State State
-        {
-            set
-            {
-                if(IsRunning)
-                    return;
-                _state = value;
-                StartCoroutine(SafeStart(_state.Start()));
-            }
-        }
-
         public void SetState(State state)
         {
-            if(IsRunning)
-                return;
+            if(_current != null)
+                StopCoroutine(_current);
             _state = state;
-            StartCoroutine(SafeStart(_state.Start()));
+            _current = StartCoroutine(SafeStart(_state.Start()));
         }
 
-        public void SetStateNextFrame(State state)
-        {
-            StartCoroutine(StartNextFrame(state));
-        }
-        
         public bool IsRunning { get; private set; }
+        private Coroutine _current;
 
         private IEnumerator SafeStart(IEnumerator routine)
         {
             IsRunning = true;
             yield return routine;
             IsRunning = false;
-        }
-
-        private IEnumerator StartNextFrame(State state)
-        {
-            yield return null;
-            SetState(state);
         }
         
         public void OnTileClick(Tile tile, PointerEventData eventData)
