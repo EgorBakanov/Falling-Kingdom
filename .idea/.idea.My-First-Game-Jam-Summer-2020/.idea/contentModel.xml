@@ -9,14 +9,18 @@
         <e p="_project" t="Include">
           <e p="Scripts" t="Include">
             <e p="Control" t="Include">
+              <e p="AudioManager.cs" t="Include" />
+              <e p="EnemyManager.cs" t="Include" />
               <e p="GameManager.cs" t="Include" />
               <e p="LevelManager.cs" t="Include" />
+              <e p="TowerManager.cs" t="Include" />
+              <e p="UIManager.cs" t="Include" />
             </e>
             <e p="Core" t="Include">
               <e p="EmptyGridObject.cs" t="Include" />
               <e p="GameStateMachine.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
-              <e p="GridPathFinder.cs" t="Include" />
+              <e p="GridUtility.cs" t="Include" />
               <e p="IGridObject.cs" t="Include" />
               <e p="State.cs" t="Include" />
               <e p="Tile.cs" t="Include" />
@@ -38,6 +42,7 @@
             <e p="States" t="Include">
               <e p="ActivateAllState.cs" t="Include" />
               <e p="BeginPlayerTurnState.cs" t="Include" />
+              <e p="BeginState.cs" t="Include" />
               <e p="CalculateNextMoveState.cs" t="Include" />
               <e p="CreateTowerState.cs" t="Include" />
               <e p="EndGameState.cs" t="Include" />

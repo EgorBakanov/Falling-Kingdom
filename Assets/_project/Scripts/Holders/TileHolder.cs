@@ -73,7 +73,7 @@ namespace Nara.MFGJS2020.Holders
                         return;
 
                     var obj = Instantiate(GridHolder.gridObjectHolder);
-                    obj.Init(new EmptyGridObject(), this);
+                    obj.Init(new EmptyGridObject(Tile), this);
                     
                     return;
                 }

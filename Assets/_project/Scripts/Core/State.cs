@@ -6,13 +6,6 @@ namespace Nara.MFGJS2020.Core
 {
     public abstract class State
     {
-        public GameStateMachine GameStateMachine { get; }
-        
-        public State(GameStateMachine gameStateMachine)
-        {
-            GameStateMachine = gameStateMachine;
-        }
-        
         public virtual IEnumerator Start()
         {
             yield break;
@@ -28,7 +21,7 @@ namespace Nara.MFGJS2020.Core
             yield break;
         }
 
-        public virtual IEnumerator OnActionButtonClick(int id)
+        public virtual IEnumerator OnTowerActionButtonClick(int id)
         {
             yield break;
         }

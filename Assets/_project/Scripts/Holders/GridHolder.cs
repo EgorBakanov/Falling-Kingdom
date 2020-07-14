@@ -35,7 +35,7 @@ namespace Nara.MFGJS2020.Holders
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                _path = GridPathFinder.Find(_grid[_grid.CoordinateToIndex(from)], _grid[_grid.CoordinateToIndex(to)]);
+                _path = GridUtility.FindPath(_grid[_grid.CoordinateToIndex(from)], _grid[_grid.CoordinateToIndex(to)]);
             }
         }
 

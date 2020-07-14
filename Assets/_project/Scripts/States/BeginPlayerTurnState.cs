@@ -5,10 +5,6 @@ namespace Nara.MFGJS2020.States
 {
     public class BeginPlayerTurnState : State
     {
-        public BeginPlayerTurnState(GameStateMachine gameStateMachine) : base(gameStateMachine)
-        {
-        }
-
         public override IEnumerator Start()
         {
             // TODO BeginPlayerTurnState

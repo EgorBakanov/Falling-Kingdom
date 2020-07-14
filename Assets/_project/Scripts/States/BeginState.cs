@@ -3,11 +3,11 @@ using Nara.MFGJS2020.Core;
 
 namespace Nara.MFGJS2020.States
 {
-    public class CreateTowerState : State
+    public class BeginState : State
     {
         public override IEnumerator Start()
         {
-            // TODO CreateTowerState
+            // TODO BeginState
             return base.Start();
         }
     }

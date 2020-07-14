@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Priority_Queue;
 using UnityEngine;
 
 namespace Nara.MFGJS2020.Core
 {
-    public static class GridPathFinder
+    public static class GridUtility
     {
         private struct Distance
         {
@@ -12,7 +13,28 @@ namespace Nara.MFGJS2020.Core
             public Tile From;
         }
 
-        public static IEnumerable<Tile> Find(Tile from, Tile to)
+        public static IEnumerable<Tile> SquaredZone(Tile from, int size)
+        {
+            var result = new List<Tile>();
+
+            var grid = from.Grid;
+            (int x, int y) = grid.IndexToCoordinate(from.Index);
+
+            for (int i = x - size; i <= x + size; i++)
+            {
+                for (int j = y - size; j <= y + size; j++)
+                {
+                    if (grid.IsCorrectCoordinate(x,y))
+                    {
+                        result.Add(grid[x,y]);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public static IEnumerable<Tile> FindPath(Tile from, Tile to)
         {
             if (from.Grid != to.Grid)
                 return null;
@@ -42,6 +64,9 @@ namespace Nara.MFGJS2020.Core
                     var g = TravelWeight(current, neighbor) + distances[current.Index].Amount;
                     var h = Heuristic(neighbor, to);
                     var f = g + h;
+                    
+                    if(g >= grid.Size)
+                        continue;
                     
                     if (neighbor == to)
                     {
