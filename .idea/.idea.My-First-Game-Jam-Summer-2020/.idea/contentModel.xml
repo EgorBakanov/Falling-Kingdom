@@ -17,7 +17,6 @@
               <e p="UIManager.cs" t="Include" />
             </e>
             <e p="Core" t="Include">
-              <e p="EmptyGridObject.cs" t="Include" />
               <e p="GameStateMachine.cs" t="Include" />
               <e p="Grid.cs" t="Include" />
               <e p="GridUtility.cs" t="Include" />
@@ -32,6 +31,10 @@
             <e p="Generators" t="Include">
               <e p="Level.cs" t="Include" />
               <e p="TileColorScheme.cs" t="Include" />
+            </e>
+            <e p="GridObjects" t="Include">
+              <e p="Enemy.cs" t="Include" />
+              <e p="Tower.cs" t="Include" />
             </e>
             <e p="Holders" t="Include">
               <e p="GridHolder.cs" t="Include" />
@@ -51,6 +54,7 @@
               <e p="InitLevelState.cs" t="Include" />
               <e p="LoseState.cs" t="Include" />
               <e p="NotEnoughMoneyState.cs" t="Include" />
+              <e p="OnBeginPlayerTurnTowerActionState.cs" t="Include" />
               <e p="SelectLevelState.cs" t="Include" />
               <e p="ShowNextEnemySpawnState.cs" t="Include" />
               <e p="SpawnEnemyState.cs" t="Include" />

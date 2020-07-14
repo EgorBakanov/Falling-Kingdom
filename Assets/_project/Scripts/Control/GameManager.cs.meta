@@ -3,7 +3,14 @@ guid: 2a5e249fd4c09b54782fa2ef11835668
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameStateMachine: {instanceID: 0}
+  - levelManager: {fileID: 11400000, guid: 86c2a182bbfc7f648b5a6fdeb2dac972, type: 2}
+  - gridHolder: {instanceID: 0}
+  - audioManager: {instanceID: 0}
+  - uiManager: {instanceID: 0}
+  - towerManager: {instanceID: 0}
+  - enemyManager: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

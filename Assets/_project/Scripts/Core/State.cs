@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Nara.MFGJS2020.Holders;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Core

@@ -1,4 +1,5 @@
-﻿using Nara.MFGJS2020.Core;
+﻿using Nara.MFGJS2020.Control;
+using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -53,31 +54,7 @@ namespace Nara.MFGJS2020.Holders
             if(Tile.Height == 0)
                 return;
             
-            switch (eventData.button)
-            {
-                case PointerEventData.InputButton.Left:
-                {
-                    Tile.Height++;
-                    return;
-                }
-                case PointerEventData.InputButton.Right:
-                {
-                    Tile.Height--;
-                    return;
-                }
-                case PointerEventData.InputButton.Middle:
-                {
-                    if(Tile.GridObject != null)
-                        return;
-                    if (GridHolder.gridObjectHolder == null)
-                        return;
-
-                    var obj = Instantiate(GridHolder.gridObjectHolder);
-                    obj.Init(new EmptyGridObject(Tile), this);
-                    
-                    return;
-                }
-            }
+            GameManager.Instance.GameStateMachine.OnTileClick(Tile,eventData);
         }
     }
 }

@@ -8,9 +8,9 @@ using UnityEngine.Serialization;
 
 namespace Nara.MFGJS2020.Control
 {
-    public class GameController : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        public GameController Instance { get; private set; }
+        public static GameManager Instance { get; private set; }
         [SerializeField] private GameStateMachine gameStateMachine;
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private GridHolder gridHolder;
@@ -31,6 +31,7 @@ namespace Nara.MFGJS2020.Control
         private int _currentLevel = 0;
 
         public Level GetNextLevel() => levelManager.Get(_currentLevel++);
+        public Level GetCurrentLevel() => levelManager.Get(_currentLevel);
 
         private void Awake()
         {
