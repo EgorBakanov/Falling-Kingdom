@@ -39,15 +39,21 @@
               <e p="ActivateAllState.cs" t="Include" />
               <e p="BeginPlayerTurnState.cs" t="Include" />
               <e p="CalculateNextMoveState.cs" t="Include" />
+              <e p="CreateTowerState.cs" t="Include" />
               <e p="EndGameState.cs" t="Include" />
               <e p="EndPlayerTurnState.cs" t="Include" />
               <e p="EnemyTurnState.cs" t="Include" />
               <e p="InitLevelState.cs" t="Include" />
               <e p="LoseState.cs" t="Include" />
+              <e p="NotEnoughMoneyState.cs" t="Include" />
               <e p="SelectLevelState.cs" t="Include" />
               <e p="ShowNextEnemySpawnState.cs" t="Include" />
               <e p="SpawnEnemyState.cs" t="Include" />
+              <e p="TowerActionChooseTileState.cs" t="Include" />
+              <e p="TowerActionState.cs" t="Include" />
+              <e p="TowerBuyChooseTileState.cs" t="Include" />
               <e p="WaitForPlayerActionState.cs" t="Include" />
+              <e p="WaitForPlayerPickTowerActionState.cs" t="Include" />
               <e p="WinState.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
