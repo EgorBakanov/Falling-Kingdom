@@ -43,7 +43,7 @@ namespace Nara.MFGJS2020.Control
 
         private void Start()
         {
-            stateMachine.SetState(new BeginState());
+            stateMachine.Init(new BeginState(),new LoseState());
         }
 
 #if UNITY_EDITOR

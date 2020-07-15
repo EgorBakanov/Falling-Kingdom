@@ -29,6 +29,7 @@
               <e p="MFGJS2020-Editor.asmdef" t="Include" />
             </e>
             <e p="Generators" t="Include">
+              <e p="EnemyPreset.cs" t="Include" />
               <e p="Level.cs" t="Include" />
               <e p="TileColorScheme.cs" t="Include" />
               <e p="TowerPreset.cs" t="Include" />
@@ -38,6 +39,7 @@
               <e p="Tower.cs" t="Include" />
             </e>
             <e p="Holders" t="Include">
+              <e p="EnemyHolder.cs" t="Include" />
               <e p="GridHolder.cs" t="Include" />
               <e p="GridObjectHolder.cs" t="Include" />
               <e p="TileHolder.cs" t="Include" />
@@ -57,6 +59,7 @@
               <e p="LoseState.cs" t="Include" />
               <e p="NotEnoughMoneyState.cs" t="Include" />
               <e p="OnBeginPlayerTurnTowerActionState.cs" t="Include" />
+              <e p="OnEndPlayerTurnTowerActionState.cs" t="Include" />
               <e p="SelectLevelState.cs" t="Include" />
               <e p="ShowNextEnemySpawnState.cs" t="Include" />
               <e p="SpawnEnemyState.cs" t="Include" />

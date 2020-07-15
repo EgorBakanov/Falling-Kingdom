@@ -1,5 +1,5 @@
 ﻿using Nara.MFGJS2020.Control;
-using Nara.MFGJS2020.GridObject;
+using Nara.MFGJS2020.GridObjects;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Holders

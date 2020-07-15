@@ -34,7 +34,7 @@ namespace Nara.MFGJS2020.States
                 {
                     var gridHolder = GameManager.Instance.GridHolder;
                     var preset = GameManager.Instance.TowerManager.AvailableToBuildTowers[0];
-                    GameManager.Instance.TowerManager.CreateTower(preset, gridHolder.TileHolders[tile.Index]);
+                    yield return GameManager.Instance.TowerManager.CreateTower(preset, gridHolder.TileHolders[tile.Index]);
                     break;
                 }
             }

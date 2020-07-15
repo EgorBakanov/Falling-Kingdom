@@ -44,5 +44,10 @@ namespace Nara.MFGJS2020.Core
         {
             yield break;
         }
+        
+        public virtual IEnumerator OnTargetTowerDestroyed()
+        {
+            yield break;
+        }
     }
 }

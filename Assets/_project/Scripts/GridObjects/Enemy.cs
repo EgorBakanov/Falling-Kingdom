@@ -1,6 +1,6 @@
 ﻿using Nara.MFGJS2020.Core;
 
-namespace Nara.MFGJS2020.GridObject
+namespace Nara.MFGJS2020.GridObjects
 {
     public class Enemy : IGridObject
     {

@@ -3,7 +3,7 @@ using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using UnityEngine;
 
-namespace Nara.MFGJS2020.GridObject
+namespace Nara.MFGJS2020.GridObjects
 {
     public class Tower : IGridObject
     {
