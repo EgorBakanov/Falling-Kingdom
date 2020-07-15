@@ -34,6 +34,29 @@ namespace Nara.MFGJS2020.Core
             return result;
         }
 
+        public static Tile FindFallbackMove(Tile from)
+        {
+            Tile result = null;
+            var neighbors = GetNeighbors(from);
+            var minCost = from.Grid.MaxHeight;
+
+            foreach (var neighbor in neighbors)
+            {
+                var cost = TravelWeight(from, neighbor);
+                if (cost < minCost)
+                {
+                    minCost = cost;
+                    result = neighbor;
+                }
+                else if (cost == minCost)
+                {
+                    result = (Random.Range(0, 1) == 1) ? result : neighbor;
+                }
+            }
+            
+            return result;
+        }
+        
         public static IEnumerable<Tile> FindPath(Tile from, Tile to)
         {
             if (from.Grid != to.Grid)

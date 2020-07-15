@@ -16,6 +16,7 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private UIManager uiManager;
         [SerializeField] private TowerManager towerManager;
         [SerializeField] private EnemyManager enemyManager;
+        [SerializeField] private CameraController cameraController;
 
         public GridHolder GridHolder => gridHolder;
         public GameStateMachine StateMachine => stateMachine;
@@ -23,6 +24,7 @@ namespace Nara.MFGJS2020.Control
         public UIManager UiManager => uiManager;
         public TowerManager TowerManager => towerManager;
         public EnemyManager EnemyManager => enemyManager;
+        public CameraController CameraController => cameraController;
         public bool HasNextLevel => _currentLevel < levelManager.Size;
         public int CurrentMoney { get; set; }
         public int CurrentTurn { get; set; }

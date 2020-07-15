@@ -16,38 +16,15 @@ namespace Nara.MFGJS2020.States
             var level = GameManager.Instance.GetCurrentLevel();
             var grid = level.GenerateGrid();
 
+            yield return GameManager.Instance.CameraController.SetBackground(level.SkyColor);
             yield return GameManager.Instance.GridHolder.Init(grid, level.TileColorScheme);
             yield return GameManager.Instance.TowerManager.CreateInitialTowers();
 
             GameManager.Instance.CurrentMoney = level.InitialMoney;
             GameManager.Instance.CurrentTurn = 0;
-            
-            // For test
-            yield return new WaitForSeconds(3f);
+            yield return GameManager.Instance.UiManager.ShowRemainingTurnsCounter();
             
             GameManager.Instance.StateMachine.SetState(new ShowNextEnemySpawnState());
-        }
-
-        // For tests
-        public override IEnumerator OnTileClick(Tile tile, PointerEventData eventData)
-        {
-            switch (eventData.button)
-            {
-                case PointerEventData.InputButton.Left:
-                    tile.Height--;
-                    break;
-                case PointerEventData.InputButton.Right:
-                    tile.Height++;
-                    break;
-                case PointerEventData.InputButton.Middle:
-                {
-                    var gridHolder = GameManager.Instance.GridHolder;
-                    var preset = GameManager.Instance.TowerManager.AvailableToBuildTowers[0];
-                    yield return GameManager.Instance.TowerManager.CreateTower(preset, gridHolder.TileHolders[tile.Index]);
-                    break;
-                }
-            }
-            yield break;
         }
     }
 }

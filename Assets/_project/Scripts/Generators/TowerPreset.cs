@@ -6,6 +6,7 @@ namespace Nara.MFGJS2020.Generators
     [CreateAssetMenu(fileName = "New Tower Preset", menuName = "Tower Preset")]
     public class TowerPreset : ScriptableObject
     {
+        [Range(0, 100)] [SerializeField] private int cost;
         [Range(1, 15)] [SerializeField] private int startHealth = 1;
         [Range(1, 15)] [SerializeField] private int maxHealth = 1;
         [Range(0, 10)] [SerializeField] private int cantBuildZoneSize = 0;
@@ -14,6 +15,7 @@ namespace Nara.MFGJS2020.Generators
         [SerializeField] private GameObject visualPrefab;
         [TextArea][SerializeField] private String description;
 
+        public int Cost => cost;
         public int StartHealth => startHealth;
         public int MaxHealth => maxHealth;
         public bool InitialActivity => initialActivity;

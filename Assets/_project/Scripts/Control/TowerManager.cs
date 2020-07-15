@@ -14,6 +14,7 @@ namespace Nara.MFGJS2020.Control
         [Range(.1f, 3f)] [SerializeField] private float timeOnTowerCreate = .4f;
 
         private int _selectedPreset = -1;
+        private Tower _selectedTower;
         private List<TowerHolder> _currentTowers;
         private TowerHolder _currentTargetTower;
 
@@ -31,7 +32,12 @@ namespace Nara.MFGJS2020.Control
 
         public void SelectPreset(int i)
         {
-            _selectedPreset = Mathf.Clamp(i, 0, AvailableToBuildTowers.Length);
+            _selectedPreset = Mathf.Clamp(i, 0, AvailableToBuildTowers.Length - 1);
+        }
+
+        public void SelectTower(Tower tower)
+        {
+            _selectedTower = tower;
         }
 
         public IEnumerator CreateSelectedTower(Tile tile)
@@ -107,6 +113,14 @@ namespace Nara.MFGJS2020.Control
             {
                 _currentTargetTower = null;
                 GameManager.Instance.StateMachine.OnTargetTowerDestroyed();
+            }
+        }
+
+        public void ActivateAll()
+        {
+            foreach (var tower in CurrentTowers)
+            {
+                tower.GridObject.IsActive = true;
             }
         }
     }

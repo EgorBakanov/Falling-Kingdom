@@ -113,5 +113,13 @@ namespace Nara.MFGJS2020.Control
             _currentSpawners.Remove(enemySpawnerHolder);
             Destroy(enemySpawnerHolder.gameObject);
         }
+
+        public void ActivateAll()
+        {
+            foreach (var enemy in CurrentEnemies)
+            {
+                enemy.GridObject.IsActive = true;
+            }
+        }
     }
 }

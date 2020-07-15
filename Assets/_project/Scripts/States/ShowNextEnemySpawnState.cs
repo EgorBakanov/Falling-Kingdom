@@ -11,11 +11,7 @@ namespace Nara.MFGJS2020.States
         {
             var turn = GameManager.Instance.CurrentTurn;
             yield return GameManager.Instance.EnemyManager.CreateSpawnerWave(turn);
-            //GameManager.Instance.StateMachine.SetState(new CalculateNextMoveState());
-            
-            // For test
-            yield return new WaitForSeconds(2f);
-            GameManager.Instance.StateMachine.SetState(new SpawnEnemyState());
+            GameManager.Instance.StateMachine.SetState(new CalculateNextMoveState());
         }
     }
 }

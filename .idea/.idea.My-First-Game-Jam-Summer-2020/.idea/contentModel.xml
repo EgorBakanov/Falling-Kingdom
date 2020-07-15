@@ -10,6 +10,7 @@
           <e p="Scripts" t="Include">
             <e p="Control" t="Include">
               <e p="AudioManager.cs" t="Include" />
+              <e p="CameraController.cs" t="Include" />
               <e p="EnemyManager.cs" t="Include" />
               <e p="GameManager.cs" t="Include" />
               <e p="LevelManager.cs" t="Include" />
@@ -65,6 +66,7 @@
               <e p="SelectLevelState.cs" t="Include" />
               <e p="ShowNextEnemySpawnState.cs" t="Include" />
               <e p="SpawnEnemyState.cs" t="Include" />
+              <e p="StateUtility.cs" t="Include" />
               <e p="TowerActionChooseTileState.cs" t="Include" />
               <e p="TowerActionState.cs" t="Include" />
               <e p="TowerBuyChooseTileState.cs" t="Include" />
