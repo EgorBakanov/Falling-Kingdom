@@ -12,6 +12,14 @@ namespace Nara.MFGJS2020.Holders
             GridObject.OnDie += OnDie;
         }
 
+        protected override void OnTileHeightChanged(int newHeight, int oldHeight)
+        {
+        }
+
+        protected override void OnTileFall()
+        {
+        }
+
         public void OnPointerClick(PointerEventData eventData)
         {
             GameManager.Instance.StateMachine.OnTowerClick(GridObject, eventData);

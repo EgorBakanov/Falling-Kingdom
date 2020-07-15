@@ -9,7 +9,7 @@ namespace Nara.MFGJS2020.Holders
     {
         [Range(0f, 2f)] [SerializeField] private float spacing = 1f;
         [SerializeField] private TileHolder tilePrefab;
-        [Range(.1f, 3f)] [SerializeField] private float initialisationTime = .5f;
+        [Range(.05f, 3f)] [SerializeField] private float timeOnRowCreate = .1f;
 
         public Grid Grid { get; private set; }
         public TileHolder[] TileHolders { get; private set; }
@@ -27,7 +27,7 @@ namespace Nara.MFGJS2020.Holders
             TileHolders = new TileHolder[Grid.Size];
 
             var start = this.transform.position;
-            var wait = new WaitForSeconds(initialisationTime / Grid.SizeX);
+            var wait = new WaitForSeconds(timeOnRowCreate);
 
             for (int i = 0; i < Grid.SizeX; i++)
             {

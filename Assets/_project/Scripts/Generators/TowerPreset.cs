@@ -12,7 +12,7 @@ namespace Nara.MFGJS2020.Generators
         [Range(0, 10)] [SerializeField] private int expandBuildZoneSize = 0;
         [SerializeField] private bool initialActivity = false;
         [SerializeField] private GameObject visualPrefab;
-        [SerializeField] private String description;
+        [TextArea][SerializeField] private String description;
 
         public int StartHealth => startHealth;
         public int MaxHealth => maxHealth;

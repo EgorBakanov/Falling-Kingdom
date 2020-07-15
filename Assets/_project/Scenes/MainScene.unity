@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -222,6 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06fbd40a2ac4f69acfb264da396bdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 4295061915816995921, guid: 83c42d7f5dbf17647ae40a6dddef7231,
+    type: 3}
+  spawnerPrefab: {fileID: 8452387321300325746, guid: 72aaa69ed037b2a4dbabf4f87838b1b2,
+    type: 3}
+  timeOnSpawnerCreate: 0.4
+  timeOnSpawnerOpen: 0.4
 --- !u!114 &457707820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 4151913613450273607, guid: 9e1974d0ce55699438959ae023a1dc92,
     type: 3}
-  initialisationTime: 0.7
+  timeOnTowerCreate: 0.4
 --- !u!114 &457707821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +412,7 @@ MonoBehaviour:
   spacing: 1.05
   tilePrefab: {fileID: 612204164748723521, guid: 24b6676b538bad64f9cf83158f1b309b,
     type: 3}
-  initialisationTime: 1
+  timeOnRowCreate: 0.1
 --- !u!4 &1555785376
 Transform:
   m_ObjectHideFlags: 0

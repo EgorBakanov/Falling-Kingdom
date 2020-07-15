@@ -36,10 +36,12 @@
             </e>
             <e p="GridObjects" t="Include">
               <e p="Enemy.cs" t="Include" />
+              <e p="EnemySpawner.cs" t="Include" />
               <e p="Tower.cs" t="Include" />
             </e>
             <e p="Holders" t="Include">
               <e p="EnemyHolder.cs" t="Include" />
+              <e p="EnemySpawnerHolder.cs" t="Include" />
               <e p="GridHolder.cs" t="Include" />
               <e p="GridObjectHolder.cs" t="Include" />
               <e p="TileHolder.cs" t="Include" />

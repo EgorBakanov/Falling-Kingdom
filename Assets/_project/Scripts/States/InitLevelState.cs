@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.States
@@ -17,6 +18,14 @@ namespace Nara.MFGJS2020.States
 
             yield return GameManager.Instance.GridHolder.Init(grid, level.TileColorScheme);
             yield return GameManager.Instance.TowerManager.CreateInitialTowers();
+
+            GameManager.Instance.CurrentMoney = level.InitialMoney;
+            GameManager.Instance.CurrentTurn = 0;
+            
+            // For test
+            yield return new WaitForSeconds(3f);
+            
+            GameManager.Instance.StateMachine.SetState(new ShowNextEnemySpawnState());
         }
 
         // For tests

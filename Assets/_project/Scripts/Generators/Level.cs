@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Nara.MFGJS2020.Utility;
 using Grid = Nara.MFGJS2020.Core.Grid;
 using UnityEngine;
@@ -23,21 +24,55 @@ namespace Nara.MFGJS2020.Generators
             }
         }
 
+        [Serializable]
+        public class EnemySpawnerInPosition
+        {
+            [SerializeField] private EnemyPreset preset;
+            [SerializeField] private Vector2Int position;
+
+            public EnemyPreset Preset => preset;
+
+            public Vector2Int Position
+            {
+                get => position;
+                set => position = value;
+            }
+        }
+
+        [Serializable]
+        public class EnemySpawnerScheduleElement
+        {
+            [SerializeField] private EnemySpawnerInPosition[] schedule;
+
+            public EnemySpawnerInPosition[] Schedule
+            {
+                get => schedule;
+                set => schedule = value;
+            }
+        }
+
+        [SerializeField] private int initialMoney = 0;
+        [SerializeField] private int turnsToSurvive = 1;
         [Range(1, 20)] [SerializeField] private int x = 2;
         [Range(1, 20)] [SerializeField] private int y = 2;
         [Range(1, 6)] [SerializeField] private int maxHeight = 4;
 
         [SerializeField] private Int2D initialHeights;
         [SerializeField] private TileColorScheme tileColorScheme;
+        [SerializeField] private Color skyColor = Color.white;
         [SerializeField] private TowerPreset[] availableToBuildTowers;
         [SerializeField] private TowerInPosition targetTower;
         [SerializeField] private TowerInPosition[] otherInitialTowers;
+        [SerializeField] private EnemySpawnerScheduleElement[] enemySpawnerSchedule;
 
         public TileColorScheme TileColorScheme => tileColorScheme;
         public TowerPreset[] AvailableToBuildTowers => availableToBuildTowers;
         public TowerInPosition TargetTower => targetTower;
         public TowerInPosition[] OtherInitialTowers => otherInitialTowers;
-
+        public int InitialMoney => initialMoney;
+        public int TurnsToSurvive => turnsToSurvive;
+        public Color SkyColor => skyColor;
+        public EnemySpawnerScheduleElement[] EnemySpawnerSchedule => enemySpawnerSchedule;
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -78,6 +113,28 @@ namespace Nara.MFGJS2020.Generators
                 if (initialHeights[_x, _y] == 0)
                 {
                     Debug.Log($"Tower <{tp.Preset.name}> will be destroyed on level start!");
+                }
+            }
+
+            if (enemySpawnerSchedule == null || enemySpawnerSchedule.Length != turnsToSurvive)
+            {
+                enemySpawnerSchedule = new EnemySpawnerScheduleElement[turnsToSurvive];
+            }
+
+            for (int i = 0; i < enemySpawnerSchedule.Length; i++)
+            {
+                var se = enemySpawnerSchedule[i];
+                if (se.Schedule == null)
+                    continue;
+
+                for (int j = 0; j < se.Schedule.Length; j++)
+                {
+                    var spawer = se.Schedule[j];
+
+                    var _x = Mathf.Clamp(spawer.Position.x, 0, x - 1);
+                    var _y = Mathf.Clamp(spawer.Position.y, 0, y - 1);
+
+                    spawer.Position = new Vector2Int(_x, _y);
                 }
             }
         }

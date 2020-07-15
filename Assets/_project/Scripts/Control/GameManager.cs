@@ -20,14 +20,15 @@ namespace Nara.MFGJS2020.Control
         public GridHolder GridHolder => gridHolder;
         public GameStateMachine StateMachine => stateMachine;
         public AudioManager AudioManager => audioManager;
-
         public UIManager UiManager => uiManager;
-
         public TowerManager TowerManager => towerManager;
+        public EnemyManager EnemyManager => enemyManager;
         public bool HasNextLevel => _currentLevel < levelManager.Size;
-
+        public int CurrentMoney { get; set; }
+        public int CurrentTurn { get; set; }
+        
         private int _currentLevel = 0;
-
+        
         public void NextLevel() => _currentLevel++;
         public Level GetCurrentLevel() => levelManager.Get(_currentLevel);
 

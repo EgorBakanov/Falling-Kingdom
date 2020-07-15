@@ -93,7 +93,7 @@ namespace Nara.MFGJS2020.Core
             return null;
         }
 
-        private static IEnumerable<Tile> GetNeighbors(Tile parent)
+        public static IEnumerable<Tile> GetNeighbors(Tile parent)
         {
             var result = new List<Tile>();
             var grid = parent.Grid;

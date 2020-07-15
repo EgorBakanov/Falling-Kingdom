@@ -11,7 +11,7 @@ namespace Nara.MFGJS2020.Control
     public class TowerManager : MonoBehaviour
     {
         [SerializeField] private TowerHolder towerPrefab;
-        [Range(.1f, 3f)] [SerializeField] private float initialisationTime = .7f;
+        [Range(.1f, 3f)] [SerializeField] private float timeOnTowerCreate = .4f;
 
         private int _selectedPreset = -1;
         private List<TowerHolder> _currentTowers;
@@ -42,19 +42,19 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator CreateInitialTowers()
         {
             var grid = GameManager.Instance.GridHolder.Grid;
-            var wait = new WaitForSeconds(initialisationTime / (InitialTowers.Length + 1));
-            
+            var wait = new WaitForSeconds(timeOnTowerCreate);
+
             var index = grid.CoordinateToIndex(TargetTower.Position);
             var tileHolder = GameManager.Instance.GridHolder.TileHolders[index];
 
-            yield return CreateTargetTower(TargetTower.Preset,tileHolder, wait);
+            yield return CreateTargetTower(TargetTower.Preset, tileHolder, wait);
 
             foreach (var tower in InitialTowers)
             {
                 index = grid.CoordinateToIndex(tower.Position);
                 tileHolder = GameManager.Instance.GridHolder.TileHolders[index];
 
-                yield return CreateTower(tower.Preset,tileHolder, wait);
+                yield return CreateTower(tower.Preset, tileHolder, wait);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Nara.MFGJS2020.Control
             obj.Init(tower, tile);
             _currentTowers.Add(obj);
             _currentTargetTower = obj;
-            
+
             yield return wait;
         }
 
@@ -85,7 +85,8 @@ namespace Nara.MFGJS2020.Control
         {
             foreach (var tower in CurrentTowers)
             {
-                Destroy(tower);
+                if (tower != null)
+                    Destroy(tower.gameObject);
             }
 
             _currentTowers.Clear();

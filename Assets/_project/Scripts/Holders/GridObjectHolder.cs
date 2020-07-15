@@ -21,28 +21,24 @@ namespace Nara.MFGJS2020.Holders
         private void SubscribeOnTile(Tile tile)
         {
             tile.OnTileFall += OnTileFall;
+            tile.OnTileHeightChanged += SetPosition;
             tile.OnTileHeightChanged += OnTileHeightChanged;
         }
 
         private void UnsubscribeOnTile(Tile tile)
         {
             tile.OnTileFall -= OnTileFall;
+            tile.OnTileHeightChanged -= SetPosition;
             tile.OnTileHeightChanged -= OnTileHeightChanged;
         }
 
-        protected virtual void OnTileHeightChanged(int newHeight, int _)
-        {
-            this.transform.position = GetPosition(TileHolder, newHeight);
-        }
+        protected abstract void OnTileHeightChanged(int newHeight, int oldHeight);
+        protected abstract void OnTileFall();
 
-        protected virtual void OnTileFall()
+        private void SetPosition(int newHeight, int _)
         {
-            Destroy(gameObject);
-        }
-
-        private Vector3 GetPosition(TileHolder tileHolder, int height)
-        {
-            return tileHolder.transform.position + Vector3.up * height / TileHolder.Tile.Grid.MaxHeight;
+            var newPos = TileHolder.transform.position + Vector3.up * newHeight / TileHolder.Tile.Grid.MaxHeight;
+            this.transform.position = newPos;
         }
 
         protected virtual void OnDestroy()

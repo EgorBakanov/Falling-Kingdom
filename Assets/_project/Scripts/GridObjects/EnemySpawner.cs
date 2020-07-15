@@ -3,15 +3,14 @@ using Nara.MFGJS2020.Generators;
 
 namespace Nara.MFGJS2020.GridObjects
 {
-    public class Enemy : IGridObject
+    public class EnemySpawner : IGridObject
     {
         public Tile Tile { get; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
         public int PathScore => Tile.Grid.Size;
-        public int CantBuildZoneSize => Preset.CantBuildZoneSize;
+        public int CantBuildZoneSize => 0;
         public EnemyPreset Preset { get; }
-        public Tile MoveIntention { get; set; }
-        
+
         public void OnTileHeightChanged(int newHeight, int oldHeight)
         {
         }
@@ -21,12 +20,10 @@ namespace Nara.MFGJS2020.GridObjects
             Tile.GridObject = null;
         }
 
-        public Enemy(EnemyPreset preset, Tile tile)
+        public EnemySpawner(EnemyPreset preset, Tile tile)
         {
-            Tile = tile;
             Preset = preset;
-            IsActive = Preset.InitialActivity;
-            MoveIntention = null;
+            Tile = tile;
         }
     }
 }
