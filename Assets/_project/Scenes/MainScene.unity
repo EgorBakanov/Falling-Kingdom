@@ -469,29 +469,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1705913791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2857645711846693432, guid: 75459f369839a62499d2b148d0f1a75c,
-    type: 3}
-  m_PrefabInstance: {fileID: 124504972}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1705913797 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2857645711846693438, guid: 75459f369839a62499d2b148d0f1a75c,
-    type: 3}
-  m_PrefabInstance: {fileID: 124504972}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1705913799
+--- !u!114 &1705913799 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1118979397153187831, guid: 75459f369839a62499d2b148d0f1a75c,
+    type: 3}
+  m_PrefabInstance: {fileID: 124504972}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705913791}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d64e1a73a3744fc968515ed76c5488d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1705913797}
-  colorChangeTime: 2

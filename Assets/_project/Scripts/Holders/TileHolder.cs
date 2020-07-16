@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Holders
 {
-    public class TileHolder : MonoBehaviour, IPointerClickHandler
+    public class TileHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Renderer visualRenderer;
         [SerializeField] private Transform visualTransform;
@@ -55,6 +55,16 @@ namespace Nara.MFGJS2020.Holders
                 return;
             
             GameManager.Instance.StateMachine.OnTileClick(Tile,eventData);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            
         }
     }
 }

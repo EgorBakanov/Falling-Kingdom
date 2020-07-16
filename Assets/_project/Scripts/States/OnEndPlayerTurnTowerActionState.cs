@@ -9,7 +9,7 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator Start()
         {
             // TODO OnEndPlayerTurnTowerActionState
-            GameManager.Instance.StateMachine.SetState(new SpawnEnemyState());
+            GameManager.Instance.StateMachine.SetState(new EndPlayerTurnState());
             yield break;
         }
     }

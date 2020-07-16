@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.States
 {
@@ -12,6 +10,7 @@ namespace Nara.MFGJS2020.States
         {
             GameManager.Instance.GridHolder.Clear();
             GameManager.Instance.TowerManager.Clear();
+            GameManager.Instance.EnemyManager.Clear();
             
             var level = GameManager.Instance.GetCurrentLevel();
             var grid = level.GenerateGrid();

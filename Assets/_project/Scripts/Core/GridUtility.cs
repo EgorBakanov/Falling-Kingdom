@@ -38,7 +38,7 @@ namespace Nara.MFGJS2020.Core
         {
             Tile result = null;
             var neighbors = GetNeighbors(from);
-            var minCost = from.Grid.MaxHeight;
+            var minCost = from.Grid.Size;
 
             foreach (var neighbor in neighbors)
             {

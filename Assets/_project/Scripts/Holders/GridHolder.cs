@@ -49,7 +49,7 @@ namespace Nara.MFGJS2020.Holders
 
             for (int i = 0; i < TileHolders.Length; i++)
             {
-                Destroy(TileHolders[i]);
+                Destroy(TileHolders[i].gameObject);
             }
 
             TileHolders = null;

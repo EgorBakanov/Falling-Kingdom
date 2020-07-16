@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test
   m_EditorClassIdentifier: 
   initialMoney: 0
-  turnsToSurvive: 3
+  turnsToSurvive: 15
   x: 10
   y: 10
   maxHeight: 4
@@ -35,12 +35,22 @@ MonoBehaviour:
   enemySpawnerSchedule:
   - schedule:
     - preset: {fileID: 11400000, guid: be8539a1b26cdac4c95445f5698b7c29, type: 2}
-      position: {x: 8, y: 6}
+      position: {x: 8, y: 7}
     - preset: {fileID: 11400000, guid: be8539a1b26cdac4c95445f5698b7c29, type: 2}
-      position: {x: 8, y: 2}
+      position: {x: 7, y: 2}
+  - schedule: []
   - schedule:
     - preset: {fileID: 11400000, guid: be8539a1b26cdac4c95445f5698b7c29, type: 2}
-      position: {x: 7, y: 4}
-  - schedule:
-    - preset: {fileID: 11400000, guid: be8539a1b26cdac4c95445f5698b7c29, type: 2}
-      position: {x: 3, y: 7}
+      position: {x: 5, y: 8}
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []
+  - schedule: []

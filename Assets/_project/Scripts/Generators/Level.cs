@@ -77,9 +77,16 @@ namespace Nara.MFGJS2020.Generators
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            if (initialHeights == null || initialHeights.x != x || initialHeights.y != y)
+            if (initialHeights == null)
             {
                 initialHeights = new Int2D(x, y);
+            }
+
+            if (initialHeights.x != x || initialHeights.y != y)
+            {
+                Array.Resize(ref initialHeights.m,x*y);
+                initialHeights.x = x;
+                initialHeights.y = y;
             }
 
             for (int i = 0; i < x; i++)
@@ -116,14 +123,21 @@ namespace Nara.MFGJS2020.Generators
                 }
             }
 
-            if (enemySpawnerSchedule == null || enemySpawnerSchedule.Length != turnsToSurvive)
+            if (enemySpawnerSchedule == null)
             {
                 enemySpawnerSchedule = new EnemySpawnerScheduleElement[turnsToSurvive];
+            }
+
+            if (enemySpawnerSchedule.Length != turnsToSurvive)
+            {
+                Array.Resize(ref enemySpawnerSchedule,turnsToSurvive);
             }
 
             for (int i = 0; i < enemySpawnerSchedule.Length; i++)
             {
                 var se = enemySpawnerSchedule[i];
+                if(se == null)
+                    continue;
                 if (se.Schedule == null)
                     continue;
 

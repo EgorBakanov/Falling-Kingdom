@@ -9,19 +9,10 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            foreach (var enemy in GameManager.Instance.EnemyManager.CurrentEnemies)
-            {
-                enemy.GridObject.MoveIntention = CalculateNextMove(enemy.GridObject);
-            }
-            
+            var target = GameManager.Instance.TowerManager.CurrentTargetTower;
+            GameManager.Instance.EnemyManager.CalculateNextMoves(target.GridObject);
             GameManager.Instance.StateMachine.SetState(new OnBeginPlayerTurnTowerActionState());
             yield break;
-        }
-
-        private Tile CalculateNextMove(Enemy enemy)
-        {
-            // TODO
-            return null;
         }
     }
 }

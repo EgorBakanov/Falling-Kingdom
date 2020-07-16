@@ -8,7 +8,8 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            // TODO EnemyTurnState
+            yield return GameManager.Instance.EnemyManager.PerformNextMoves();
+            
             if (GameManager.Instance.CurrentTurn < GameManager.Instance.GetCurrentLevel().TurnsToSurvive)
             {
                 GameManager.Instance.StateMachine.SetState(new ActivateAllState());
@@ -17,8 +18,6 @@ namespace Nara.MFGJS2020.States
             {
                 GameManager.Instance.StateMachine.SetState(new WinState());
             }
-
-            yield break;
         }
     }
 }

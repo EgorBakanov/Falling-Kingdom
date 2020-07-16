@@ -1,11 +1,12 @@
 ﻿using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
+using UnityEngine;
 
 namespace Nara.MFGJS2020.GridObjects
 {
     public class Enemy : IGridObject
     {
-        public Tile Tile { get; }
+        public Tile Tile { get; private set; }
         public bool IsActive { get; set; }
         public int PathScore => Tile.Grid.Size;
         public int CantBuildZoneSize => Preset.CantBuildZoneSize;
@@ -28,6 +29,13 @@ namespace Nara.MFGJS2020.GridObjects
             Preset = preset;
             IsActive = Preset.InitialActivity;
             MoveIntention = null;
+        }
+
+        public void Move(Tile tile)
+        {
+            //Debug.Log($"{Tile.Grid.IndexToCoordinate(Tile.Index)} => {tile.Grid.IndexToCoordinate(tile.Index)}");
+            Tile = tile;
+            tile.GridObject = this;
         }
     }
 }

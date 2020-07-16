@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2857645711846693426}
   - component: {fileID: 2857645711846693437}
   - component: {fileID: 2857645711846693427}
+  - component: {fileID: 1118979397153187831}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -187,3 +188,17 @@ MonoBehaviour:
     type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+--- !u!114 &1118979397153187831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857645711846693432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d64e1a73a3744fc968515ed76c5488d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 2857645711846693438}
+  colorChangeTime: 2

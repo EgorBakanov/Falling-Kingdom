@@ -7,12 +7,6 @@ namespace Nara.MFGJS2020.Core
 {
     public class GameStateMachine : MonoBehaviour
     {
-        // tests
-        private void Update()
-        {
-            Debug.Log(_state.GetType());
-        }
-
         private State _state;
         private State _onTargetTowerDestroyedState;
 
@@ -30,6 +24,7 @@ namespace Nara.MFGJS2020.Core
             if(_current != null)
                 StopCoroutine(_current);
             _state = state;
+            Debug.Log(_state.GetType());
             _current = StartCoroutine(SafeStart(_state.Start()));
         }
 

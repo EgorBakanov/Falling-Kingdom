@@ -7,7 +7,7 @@ namespace Nara.MFGJS2020.Holders
     {
         [SerializeField] private Transform visualRoot;
         public virtual T GridObject { get; private set; }
-        public TileHolder TileHolder { get; private set; }
+        public TileHolder TileHolder { get; protected set; }
         public Transform VisualRoot => visualRoot;
 
         public virtual void Init(T obj, TileHolder tileHolder)
@@ -37,8 +37,12 @@ namespace Nara.MFGJS2020.Holders
 
         private void SetPosition(int newHeight, int _)
         {
-            var newPos = TileHolder.transform.position + Vector3.up * newHeight / TileHolder.Tile.Grid.MaxHeight;
-            this.transform.position = newPos;
+            this.transform.position = GetPlacementPosition(newHeight);
+        }
+
+        protected Vector3 GetPlacementPosition(int newHeight)
+        {
+            return TileHolder.transform.position + Vector3.up * newHeight / TileHolder.Tile.Grid.MaxHeight;
         }
 
         protected virtual void OnDestroy()

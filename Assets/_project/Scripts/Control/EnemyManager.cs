@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using Nara.MFGJS2020.GridObjects;
 using Nara.MFGJS2020.Holders;
@@ -119,6 +121,46 @@ namespace Nara.MFGJS2020.Control
             foreach (var enemy in CurrentEnemies)
             {
                 enemy.GridObject.IsActive = true;
+            }
+        }
+
+        public void CalculateNextMoves(IGridObject target)
+        {
+            var targetTile = target.Tile;
+            foreach (var enemyHolder in CurrentEnemies)
+            {
+                var enemy = enemyHolder.GridObject;
+                var currentTile = enemy.Tile;
+                var path = GridUtility.FindPath(currentTile, targetTile);
+
+                enemy.MoveIntention = path?.First();
+
+                enemy.MoveIntention = enemy.MoveIntention ?? GridUtility.FindFallbackMove(currentTile);
+            }
+        }
+
+        public IEnumerator PerformNextMoves()
+        {
+            var wait = new WaitForSeconds(timeOnSpawnerCreate);
+            foreach (var enemyHolder in CurrentEnemies)
+            {
+                var target = enemyHolder.GridObject.MoveIntention;
+
+                if (target == null || !enemyHolder.GridObject.IsActive)
+                    continue;
+
+                if (target.GridObject != null)
+                {
+                    target.Height--;
+                }
+                else
+                {
+                    yield return enemyHolder.Move(target);
+                }
+
+                enemyHolder.GridObject.IsActive = false;
+
+                yield return wait;
             }
         }
     }
