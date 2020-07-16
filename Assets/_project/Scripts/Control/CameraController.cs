@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -13,7 +12,25 @@ namespace Nara.MFGJS2020.Control
 
         public IEnumerator SetBackground(Color skyColor)
         {
-            yield return camera.DOColor(skyColor, colorChangeTime);
+            if (camera.backgroundColor != skyColor)
+            {
+                yield return camera.DOColor(skyColor, colorChangeTime).WaitForCompletion();
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+        
+        public IEnumerator OutlineZones()
+        {
+            // TODO
+            yield return null;
+        }
+        
+        public IEnumerator UnoutlineZones()
+        {
+            yield return null;
         }
 
 #if UNITY_EDITOR

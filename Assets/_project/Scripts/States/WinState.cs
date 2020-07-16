@@ -12,7 +12,7 @@ namespace Nara.MFGJS2020.States
             yield return GameManager.Instance.UiManager.ShowWinMessage();
         }
 
-        public override IEnumerator OnUISubmit()
+        public override IEnumerator OnSubmit()
         {
             yield return GameManager.Instance.UiManager.HideWinMessage();
             GameManager.Instance.StateMachine.SetState(new SelectLevelState());

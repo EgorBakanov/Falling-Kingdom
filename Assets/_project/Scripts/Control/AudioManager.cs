@@ -8,5 +8,10 @@ namespace Nara.MFGJS2020.Control
         {
             // TODO
         }
+
+        public void StartBackground()
+        {
+            // TODO
+        }
     }
 }

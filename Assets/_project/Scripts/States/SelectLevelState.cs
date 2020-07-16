@@ -8,9 +8,9 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
+            GameManager.Instance.NextLevel();
             if (GameManager.Instance.HasNextLevel)
             {
-                GameManager.Instance.NextLevel();
                 GameManager.Instance.StateMachine.SetState(new InitLevelState());
             }
             else

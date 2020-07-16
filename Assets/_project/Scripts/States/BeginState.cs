@@ -8,9 +8,9 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            // TODO BeginState
+            GameManager.Instance.AudioManager.StartBackground();
+            yield return GameManager.Instance.UiManager.ShowTitle();
             GameManager.Instance.StateMachine.SetState(new SelectLevelState());
-            yield break;
         }
     }
 }

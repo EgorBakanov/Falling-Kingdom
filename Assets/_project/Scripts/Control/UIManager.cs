@@ -8,55 +8,103 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator ShowWinMessage()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator HideWinMessage()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator ShowBeginTurnMessage()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator ShowPlayerUI()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator UpdateRemainingTurnsCounter()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator ShowRemainingTurnsCounter()
         {
             // TODO
-            yield break;
+            yield return null;
         }
         
         public IEnumerator HideRemainingTurnsCounter()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator HideAllUI()
         {
             // TODO
-            yield break;
+            yield return null;
         }
 
         public IEnumerator HidePlayerUI()
         {
             // TODO
-            yield break;
+            yield return null;
+        }
+
+        public IEnumerator ShowEndTurnMessage()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator ShowLoseMessage()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator HideLoseMessage()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator ShowTitle()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator ShowNotEnoughMoney()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator UpdateMoneyCounter()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator HideTowerActionBar()
+        {
+            // TODO
+            yield return null;
+        }
+
+        public IEnumerator ShowCancelButton()
+        {
+            // TODO
+            yield return null;
         }
     }
 }

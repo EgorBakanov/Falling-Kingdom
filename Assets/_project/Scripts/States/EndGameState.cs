@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Nara.MFGJS2020.Core;
+using UnityEngine.SceneManagement;
 
 namespace Nara.MFGJS2020.States
 {
@@ -7,8 +8,8 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            // TODO EndGameState
-            return base.Start();
+            SceneManager.LoadScene(1);
+            yield break;
         }
     }
 }

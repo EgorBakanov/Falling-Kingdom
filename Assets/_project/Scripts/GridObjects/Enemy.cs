@@ -9,6 +9,7 @@ namespace Nara.MFGJS2020.GridObjects
         public bool IsActive { get; set; }
         public int PathScore => Tile.Grid.Size;
         public int CantBuildZoneSize => Preset.CantBuildZoneSize;
+        public int ExpandBuildZoneSize => 0;
         public EnemyPreset Preset { get; }
         public Tile MoveIntention { get; set; }
         

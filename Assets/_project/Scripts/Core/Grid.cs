@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Nara.MFGJS2020.Core
 {
     public class Grid
     {
-        public int SizeX { get; private set; }
-        public int SizeY { get; private set; }
-        public int MaxHeight { get; private set; }
+        public int SizeX { get; }
+        public int SizeY { get; }
+        public int MaxHeight { get; }
         public int Size => SizeX * SizeY;
+        public HashSet<Tile> BuildZone { get; }
+        public HashSet<Tile> CantBuildZone { get; }
 
         private Tile[] _tiles;
 
@@ -62,6 +65,8 @@ namespace Nara.MFGJS2020.Core
             {
                 _tiles[i] = new Tile(this, i, heights[i]);
             }
+            BuildZone = new HashSet<Tile>();
+            CantBuildZone = new HashSet<Tile>();
         }
 
         public Grid(int x, int y, int maxH) : this(x, y, maxH, new int[x * y])
@@ -70,6 +75,11 @@ namespace Nara.MFGJS2020.Core
 
         public Grid(int x, int y) : this(x, y, 5, new int[x * y])
         {
+        }
+
+        public void RecalculateZones()
+        {
+            // TODO
         }
     }
 }

@@ -1,5 +1,16 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "Arvtesh",
+      "url": "https://registry.npmjs.org/",
+      "scopes": [
+        "com.unityfx"
+      ]
+    }
+  ],
   "dependencies": {
+    "com.unityfx.outline": "0.8.0",
+    "com.unityfx.outline.urp": "0.1.0",
     "com.unity.cinemachine": "2.6.0",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",

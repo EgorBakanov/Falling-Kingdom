@@ -15,6 +15,7 @@ namespace Nara.MFGJS2020.Control
 
         private int _selectedPreset = -1;
         private Tower _selectedTower;
+        private Tile _selectedTile;
         private List<TowerHolder> _currentTowers;
         private TowerHolder _currentTargetTower;
 
@@ -25,24 +26,30 @@ namespace Nara.MFGJS2020.Control
         public IEnumerable<TowerHolder> CurrentTowers => _currentTowers;
         public TowerHolder CurrentTargetTower => _currentTargetTower;
 
-        private void Awake()
+        private void Awake() => _currentTowers = new List<TowerHolder>();
+        private void OnDestroy() => Clear();
+        public void SelectPreset(int i) => _selectedPreset = Mathf.Clamp(i, 0, AvailableToBuildTowers.Length - 1);
+        public void SelectTower(Tower tower) => _selectedTower = tower;
+        public void SelectTile(Tile tile) => _selectedTile = tile;
+        public void DeselectTile() => _selectedTile = null;
+        public void DeselectPreset() => _selectedPreset = -1;
+        public void DeselectTower() => _selectedTower = null;
+        public int SelectedPreset => _selectedPreset;
+
+        public void DeselectAll()
         {
-            _currentTowers = new List<TowerHolder>();
+            DeselectPreset();
+            DeselectTile();
+            DeselectTower();
         }
 
-        public void SelectPreset(int i)
+        public IEnumerator CreateSelectedTower()
         {
-            _selectedPreset = Mathf.Clamp(i, 0, AvailableToBuildTowers.Length - 1);
-        }
+            var tile = GameManager.Instance.GridHolder.TileHolders[_selectedTile.Index];
+            var preset = AvailableToBuildTowers[_selectedPreset];
+            var wait = new WaitForSeconds(timeOnTowerCreate);
 
-        public void SelectTower(Tower tower)
-        {
-            _selectedTower = tower;
-        }
-
-        public IEnumerator CreateSelectedTower(Tile tile)
-        {
-            yield break;
+            yield return CreateTower(preset, tile, wait);
         }
 
         public IEnumerator CreateInitialTowers()
@@ -96,11 +103,6 @@ namespace Nara.MFGJS2020.Control
             }
 
             _currentTowers.Clear();
-        }
-
-        private void OnDestroy()
-        {
-            Clear();
         }
 
         public void DestroyTower(TowerHolder towerHolder)

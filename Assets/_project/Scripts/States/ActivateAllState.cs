@@ -10,8 +10,8 @@ namespace Nara.MFGJS2020.States
         {
             GameManager.Instance.EnemyManager.ActivateAll();
             GameManager.Instance.TowerManager.ActivateAll();
-            GameManager.Instance.StateMachine.SetState(new ShowNextEnemySpawnState());
             yield return GameManager.Instance.UiManager.UpdateRemainingTurnsCounter();
+            GameManager.Instance.StateMachine.SetState(new ShowNextEnemySpawnState());
         }
     }
 }

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f30bd7fcb1f5d0d41a19cc2e122be227
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 8404be70184654265930450def6a9037, type: 3}
+  generateWrapperCode: 1
+  wrapperCodePath: Assets/_project/Scripts/Control/InputManager.cs
+  wrapperClassName: InputManager
+  wrapperCodeNamespace: Nara.MFGJS2020.Control

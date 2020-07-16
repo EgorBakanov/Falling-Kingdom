@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
 
 namespace Nara.MFGJS2020.States
@@ -8,7 +9,8 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator Start()
         {
             // TODO OnEndPlayerTurnTowerActionState
-            return base.Start();
+            GameManager.Instance.StateMachine.SetState(new SpawnEnemyState());
+            yield break;
         }
     }
 }

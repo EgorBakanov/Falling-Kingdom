@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +7,12 @@ namespace Nara.MFGJS2020.Core
 {
     public class GameStateMachine : MonoBehaviour
     {
+        // tests
+        private void Update()
+        {
+            Debug.Log(_state.GetType());
+        }
+
         private State _state;
         private State _onTargetTowerDestroyedState;
 
@@ -55,35 +62,35 @@ namespace Nara.MFGJS2020.Core
         {
             if(IsRunning)
                 return;
-            StartCoroutine(SafeStart(_state.OnTowerActionButtonClick(id)));
+            StartCoroutine(SafeStart(_state.OnTowerAction(id)));
         }
 
         public void OnBuyTowerButtonClick(int id)
         {
             if(IsRunning)
                 return;
-            StartCoroutine(SafeStart(_state.OnBuyTowerButtonClick(id)));
+            StartCoroutine(SafeStart(_state.OnBuyTower(id)));
         }
 
-        public void OnUISubmit()
+        public void OnSubmit()
         {
             if(IsRunning)
                 return;
-            StartCoroutine(SafeStart(_state.OnUISubmit()));
+            StartCoroutine(SafeStart(_state.OnSubmit()));
         }
         
-        public void OnUICancel()
+        public void OnCancel()
         {
             if(IsRunning)
                 return;
-            StartCoroutine(SafeStart(_state.OnUICancel()));
+            StartCoroutine(SafeStart(_state.OnCancel()));
         }
         
-        public void OnUIEndTurn()
+        public void OnEndTurn()
         {
             if(IsRunning)
                 return;
-            StartCoroutine(SafeStart(_state.OnUIEndTurn()));
+            StartCoroutine(SafeStart(_state.OnEndTurn()));
         }
 
         public void OnTargetTowerDestroyed()
