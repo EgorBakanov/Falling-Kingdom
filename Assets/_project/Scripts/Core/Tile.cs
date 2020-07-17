@@ -32,21 +32,20 @@ namespace Nara.MFGJS2020.Core
             get => _height;
             set
             {
-                int newVal = Mathf.Clamp(value, 0, Grid.MaxHeight);
-                if (newVal != _height)
+                int oldVal = _height;
+                _height = Mathf.Clamp(value, 0, Grid.MaxHeight);
+                if (oldVal != _height)
                 {
-                    if (newVal == 0)
+                    if (_height == 0)
                     {
                         GridObject?.OnTileFall();
                         OnTileFall?.Invoke();
                     }
                     else
                     {
-                        GridObject?.OnTileHeightChanged(newVal, _height);
-                        OnTileHeightChanged?.Invoke(newVal, _height);
+                        GridObject?.OnTileHeightChanged(_height, oldVal);
+                        OnTileHeightChanged?.Invoke(_height, oldVal);
                     }
-
-                    _height = newVal;
                 }
             }
         }

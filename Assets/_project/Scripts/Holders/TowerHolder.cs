@@ -1,5 +1,6 @@
 ﻿using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.GridObjects;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Holders
@@ -14,6 +15,7 @@ namespace Nara.MFGJS2020.Holders
 
         protected override void OnTileHeightChanged(int newHeight, int oldHeight)
         {
+            Debug.Log($"{TileHolder.GridHolder.Grid.IndexToCoordinate(TileHolder.Tile.Index)} <OnTileHeightChanged> : {oldHeight} => {newHeight}");
         }
 
         protected override void OnTileFall()
@@ -27,6 +29,7 @@ namespace Nara.MFGJS2020.Holders
 
         public void OnDie()
         {
+            UnsubscribeOnTile(TileHolder.Tile);
             GameManager.Instance.TowerManager.DestroyTower(this);
         }
 

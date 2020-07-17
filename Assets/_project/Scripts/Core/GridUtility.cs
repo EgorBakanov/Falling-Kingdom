@@ -24,9 +24,9 @@ namespace Nara.MFGJS2020.Core
             {
                 for (int j = y - size; j <= y + size; j++)
                 {
-                    if (grid.IsCorrectCoordinate(x,y))
+                    if (grid.IsCorrectCoordinate(i,j))
                     {
-                        result.Add(grid[x,y]);
+                        result.Add(grid[i,j]);
                     }
                 }
             }

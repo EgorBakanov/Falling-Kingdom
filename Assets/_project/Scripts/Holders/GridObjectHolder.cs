@@ -28,7 +28,6 @@ namespace Nara.MFGJS2020.Holders
         {
             GridObject = obj;
             TileHolder = tileHolder;
-            SubscribeOnTile(TileHolder.Tile);
             TileHolder.Tile.GridObject = GridObject;
         }
 
@@ -49,15 +48,15 @@ namespace Nara.MFGJS2020.Holders
         protected abstract void OnTileHeightChanged(int newHeight, int oldHeight);
         protected abstract void OnTileFall();
 
-        private void SetPosition(int newHeight, int _)
+        private void SetPosition(int newHeight, int oldHeight)
         {
-            this.transform.position = GetPlacementPosition(TileHolder.Tile);
+            Debug.Log($"{TileHolder.GridHolder.Grid.IndexToCoordinate(TileHolder.Tile.Index)} <SetPosition> : {oldHeight} => {newHeight}");
+            this.transform.position = GetPlacementPosition(TileHolder);
         }
 
-        protected Vector3 GetPlacementPosition(Tile tile)
+        protected static Vector3 GetPlacementPosition(TileHolder tile)
         {
-            var tileHolder = GameManager.Instance.GridHolder.TileHolders[tile.Index];
-            return tileHolder.transform.position + Vector3.up * tileHolder.Tile.Height / tileHolder.Tile.Grid.MaxHeight;
+            return tile.transform.position + Vector3.up * tile.Tile.Height / tile.Tile.Grid.MaxHeight;
         }
 
         protected virtual void OnDestroy()

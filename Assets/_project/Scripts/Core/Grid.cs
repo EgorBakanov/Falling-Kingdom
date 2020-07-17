@@ -79,7 +79,23 @@ namespace Nara.MFGJS2020.Core
 
         public void RecalculateZones()
         {
-            // TODO
+            BuildZone.Clear();
+            CantBuildZone.Clear();
+
+            foreach (var tile in _tiles)
+            {
+                var obj = tile.GridObject;
+                if(obj == null)
+                    continue;
+
+                var build = GridUtility.SquaredZone(tile, obj.ExpandBuildZoneSize);
+                var cantBuild = GridUtility.SquaredZone(tile, obj.CantBuildZoneSize);
+
+                BuildZone.UnionWith(build);
+                CantBuildZone.UnionWith(cantBuild);
+            }
+
+            BuildZone.ExceptWith(CantBuildZone);
         }
     }
 }

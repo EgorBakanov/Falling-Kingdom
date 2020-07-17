@@ -11,6 +11,7 @@ namespace Nara.MFGJS2020.States
         public static IEnumerator OnEndTurn()
         {
             GameManager.Instance.SelectionManager.DeselectAll();
+            GameManager.Instance.SelectionManager.WaitForPlayerSelection = false;
             yield return GameManager.Instance.UiManager.HidePlayerUI();
             GameManager.Instance.StateMachine.SetState(new OnEndPlayerTurnTowerActionState());
         }

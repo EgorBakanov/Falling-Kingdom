@@ -142,6 +142,7 @@ namespace Nara.MFGJS2020.Control
 
                 enemy.MoveIntention = enemy.MoveIntention ?? GridUtility.FindFallbackMove(currentTile);
 
+                if (enemy.MoveIntention == null) continue;
                 var targetHolder = enemyHolder.TileHolder.GridHolder.TileHolders[enemy.MoveIntention.Index];
                 GameManager.Instance.SelectionManager.AddToEnemyTarget(targetHolder.gameObject);
                 yield return wait;
@@ -163,15 +164,15 @@ namespace Nara.MFGJS2020.Control
 
                 var targetHolder = enemyHolder.TileHolder.GridHolder.TileHolders[target.Index];
                 GameManager.Instance.SelectionManager.AddToEnemyTarget(targetHolder.gameObject);
+                yield return wait;
                 
                 if (target.GridObject != null || target.Height - enemyHolder.TileHolder.Tile.Height > 1)
                 {
-                    yield return wait;
                     target.Height--;
                 }
                 else
                 {
-                    yield return enemyHolder.Move(target,moveJumpPower,timeToMove);
+                    yield return enemyHolder.Move(targetHolder,moveJumpPower,timeToMove);
                 }
 
                 enemyHolder.GridObject.IsActive = false;

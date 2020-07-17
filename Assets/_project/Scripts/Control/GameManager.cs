@@ -1,4 +1,5 @@
-﻿using Nara.MFGJS2020.Core;
+﻿using System;
+using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using Nara.MFGJS2020.Holders;
 using Nara.MFGJS2020.States;
@@ -51,6 +52,12 @@ namespace Nara.MFGJS2020.Control
             {
                 _inputManager = new InputManager();
             }
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+                stateMachine.OnBuyTowerButtonClick(0);
         }
 
         private void Start()

@@ -1,10 +1,11 @@
 ﻿using DG.Tweening;
+using Nara.MFGJS2020.Control;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Visuals
 {
-    public class ScaleOnEnterAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+    public class ScaleOnEnterAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] [Range(0, 2f)] private float amount = 1.2f;
         [SerializeField] [Range(0, 2f)] private float duration = .1f;
@@ -20,20 +21,13 @@ namespace Nara.MFGJS2020.Visuals
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if(!GameManager.Instance.SelectionManager.WaitForPlayerSelection)
+                return;
+
             PlayAnimation(endScale);
         }
 
         public void OnPointerExit(PointerEventData eventData)
-        {
-            PlayAnimation(startScale);
-        }
-
-        public void OnSelect(BaseEventData eventData)
-        {
-            PlayAnimation(endScale);
-        }
-
-        public void OnDeselect(BaseEventData eventData)
         {
             PlayAnimation(startScale);
         }

@@ -20,21 +20,26 @@ namespace Nara.MFGJS2020.Holders
             GameManager.Instance.EnemyManager.DestroyEnemy(this);
         }
 
-        public IEnumerator Move(Tile tile, float jumpPower, float duration)
+        public IEnumerator Move(TileHolder tile, float jumpPower, float duration)
         {
             yield return transform.DOJump(GetPlacementPosition(tile), jumpPower, 1,duration).WaitForCompletion();
-            TileHolder = TileHolder.GridHolder.TileHolders[tile.Index];
-            GridObject.Move(tile);
+            GridObject.Move(tile.Tile);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if(!GameManager.Instance.SelectionManager.WaitForPlayerSelection)
+                return;
+            
             var target = TileHolder.GridHolder.TileHolders[GridObject.MoveIntention.Index];
             GameManager.Instance.SelectionManager.AddToEnemyTarget(target.gameObject);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if(!GameManager.Instance.SelectionManager.WaitForPlayerSelection)
+                return;
+            
             var target = TileHolder.GridHolder.TileHolders[GridObject.MoveIntention.Index];
             GameManager.Instance.SelectionManager.RemoveFromEnemyTarget(target.gameObject);
         }

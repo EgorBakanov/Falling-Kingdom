@@ -10,6 +10,8 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator Start()
         {
             GameManager.Instance.GridHolder.Grid.RecalculateZones();
+            GameManager.Instance.SelectionManager.DeselectAll();
+            GameManager.Instance.SelectionManager.WaitForPlayerSelection = true;
             yield break;
         }
 

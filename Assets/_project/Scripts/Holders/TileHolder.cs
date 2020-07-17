@@ -59,12 +59,18 @@ namespace Nara.MFGJS2020.Holders
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if(!GameManager.Instance.SelectionManager.WaitForPlayerSelection)
+                return;
             
+            GameManager.Instance.SelectionManager.AddTile(this);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            if(!GameManager.Instance.SelectionManager.WaitForPlayerSelection)
+                return;
+
+            GameManager.Instance.SelectionManager.RemoveTile(this);
         }
     }
 }
