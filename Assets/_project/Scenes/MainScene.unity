@@ -348,10 +348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineLayers: {fileID: 11400000, guid: 967bd4eef6132c44b8b7fbe0ebba0b66, type: 2}
-  buildZoneId: 0
-  cantBuildZoneId: 1
-  targetId: 2
-  enemyTargetId: 3
+  goodTargetId: 0
+  badTargetId: 1
+  enemyTargetId: 2
 --- !u!1 &1371121429
 GameObject:
   m_ObjectHideFlags: 0

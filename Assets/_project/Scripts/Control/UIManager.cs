@@ -106,5 +106,11 @@ namespace Nara.MFGJS2020.Control
             // TODO
             yield return null;
         }
+
+        public IEnumerator ShowTowerActionBar()
+        {
+            // TODO
+            yield return null;
+        }
     }
 }

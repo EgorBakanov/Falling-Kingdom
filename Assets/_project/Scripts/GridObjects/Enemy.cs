@@ -33,7 +33,6 @@ namespace Nara.MFGJS2020.GridObjects
 
         public void Move(Tile tile)
         {
-            //Debug.Log($"{Tile.Grid.IndexToCoordinate(Tile.Index)} => {tile.Grid.IndexToCoordinate(tile.Index)}");
             Tile = tile;
             tile.GridObject = this;
         }

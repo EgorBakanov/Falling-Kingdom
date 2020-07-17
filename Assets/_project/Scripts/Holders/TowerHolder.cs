@@ -15,7 +15,6 @@ namespace Nara.MFGJS2020.Holders
 
         protected override void OnTileHeightChanged(int newHeight, int oldHeight)
         {
-            Debug.Log($"{TileHolder.GridHolder.Grid.IndexToCoordinate(TileHolder.Tile.Index)} <OnTileHeightChanged> : {oldHeight} => {newHeight}");
         }
 
         protected override void OnTileFall()

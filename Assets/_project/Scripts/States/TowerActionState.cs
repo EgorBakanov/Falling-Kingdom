@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
 
 namespace Nara.MFGJS2020.States
@@ -7,8 +8,11 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            // TODO TowerActionState
-            return base.Start();
+            var actionId = GameManager.Instance.SelectionManager.SelectedTowerActionId;
+            var action = GameManager.Instance.SelectionManager.SelectedTower.ActiveActions[actionId];
+            GameManager.Instance.CurrentMoney -= action.Cost;
+            yield return action.Execute();
+            GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
         }
     }
 }

@@ -8,10 +8,20 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            // TODO OnBeginPlayerTurnTowerActionState
+            var towers = GameManager.Instance.TowerManager.CurrentTowers;
+
+            foreach (var towerHolder in towers)
+            {
+                var tower = towerHolder.GridObject;
+                var action = tower.BeginPlayerTurnAction;
+                if (action != null)
+                {
+                    GameManager.Instance.SelectionManager.SelectedTower = tower;
+                    yield return action.Execute();
+                }
+            }
             
             GameManager.Instance.StateMachine.SetState(new BeginPlayerTurnState());
-            yield break;
         }
     }
 }

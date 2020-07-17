@@ -15,7 +15,7 @@ namespace Nara.MFGJS2020.Core
 
         public static IEnumerable<Tile> SquaredZone(Tile from, int size)
         {
-            var result = new List<Tile>();
+            var result = new HashSet<Tile>();
 
             var grid = from.Grid;
             (int x, int y) = grid.IndexToCoordinate(from.Index);

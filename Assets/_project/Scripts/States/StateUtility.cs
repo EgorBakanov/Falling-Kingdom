@@ -18,6 +18,7 @@ namespace Nara.MFGJS2020.States
         
         public static IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
         {
+            GameManager.Instance.SelectionManager.DeselectAll();
             var target = (Tower) tower;
             if(eventData.button != PointerEventData.InputButton.Left || tower == null)
                 yield break;
@@ -28,6 +29,7 @@ namespace Nara.MFGJS2020.States
         
         public static IEnumerator OnBuyTower(int id)
         {
+            GameManager.Instance.SelectionManager.DeselectAll();
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             var preset = GameManager.Instance.TowerManager.AvailableToBuildTowers[id];
             if (preset.Cost > GameManager.Instance.CurrentMoney)
@@ -39,6 +41,12 @@ namespace Nara.MFGJS2020.States
                 GameManager.Instance.SelectionManager.SelectedTowerPresetId = id;
                 GameManager.Instance.StateMachine.SetState(new TowerBuyChooseTileState());
             }
+        }
+
+        public static IEnumerator ReturnToWait()
+        {
+            GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
+            yield break;
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
+using Nara.MFGJS2020.Core;
 using UnityEngine;
 
 namespace Nara.MFGJS2020.Generators
 {
-    [CreateAssetMenu(fileName = "New Tower Preset", menuName = "Tower Preset")]
+    [CreateAssetMenu(fileName = "New Tower Preset", menuName = "MFGJS2020/Tower Preset")]
     public class TowerPreset : ScriptableObject
     {
         [Range(0, 100)] [SerializeField] private int cost;
@@ -13,7 +14,10 @@ namespace Nara.MFGJS2020.Generators
         [Range(0, 10)] [SerializeField] private int expandBuildZoneSize = 0;
         [SerializeField] private bool initialActivity = false;
         [SerializeField] private GameObject visualPrefab;
-        [TextArea][SerializeField] private String description;
+        [TextArea][SerializeField] private string description;
+        [SerializeField] private ActionBase[] activeActions;
+        [SerializeField] private NonTargetAction endPlayerTurnAction;
+        [SerializeField] private NonTargetAction beginPlayerTurnAction;
 
         public int Cost => cost;
         public int StartHealth => startHealth;
@@ -23,5 +27,8 @@ namespace Nara.MFGJS2020.Generators
         public int ExpandBuildZoneSize => expandBuildZoneSize;
         public GameObject VisualPrefab => visualPrefab;
         public string Description => description;
+        public ActionBase[] ActiveActions => activeActions;
+        public NonTargetAction BeginPlayerTurnAction => beginPlayerTurnAction;
+        public NonTargetAction EndPlayerTurnAction => endPlayerTurnAction;
     }
 }

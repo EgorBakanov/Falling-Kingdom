@@ -30,12 +30,25 @@ namespace Nara.MFGJS2020.Control
         public CameraController CameraController => cameraController;
         public SelectionManager SelectionManager => selectionManager;
         public bool HasNextLevel => _currentLevel < levelManager.Size;
-        public int CurrentMoney { get; set; }
+
+        public int CurrentMoney
+        {
+            get => _currentMoney;
+            set
+            {
+                var old = _currentMoney;
+                _currentMoney = value;
+                if (old != _currentMoney)
+                    StartCoroutine(UiManager.UpdateMoneyCounter());
+            }
+        }
+
         public int CurrentTurn { get; set; }
         
         private int _currentLevel = 0;
         private InputManager _inputManager;
-        
+        private int _currentMoney;
+
         public void NextLevel() => _currentLevel++;
         public Level GetCurrentLevel() => levelManager.Get(_currentLevel);
 

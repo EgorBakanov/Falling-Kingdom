@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Nara.MFGJS2020.Generators
 {
-    [CreateAssetMenu(fileName = "New Level", menuName = "Level")]
+    [CreateAssetMenu(fileName = "New Level", menuName = "MFGJS2020/Level")]
     public class Level : ScriptableObject
     {
         [Serializable]

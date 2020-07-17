@@ -10,24 +10,20 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
-            GameManager.Instance.SelectionManager.ShowZones = true;
+            GameManager.Instance.SelectionManager.TileSelection = SelectionManager.TileSelectionType.TowerBuy;
             yield return GameManager.Instance.UiManager.ShowCancelButton();
         }
 
-        public override IEnumerator OnBuyTower(int id)
-        {
-            GameManager.Instance.SelectionManager.DeselectAll();
-            yield return StateUtility.OnBuyTower(id);
-        }
-
+        public override IEnumerator OnBuyTower(int id) => StateUtility.OnBuyTower(id);
+        public override IEnumerator OnCancel() => StateUtility.ReturnToWait();
+        public override IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData) =>
+            StateUtility.OnTowerClick(tower, eventData);
         public override IEnumerator OnTileClick(Tile tile, PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left ||
                 !GameManager.Instance.GridHolder.Grid.BuildZone.Contains(tile))
             {
-                GameManager.Instance.SelectionManager.DeselectAll();
-                GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
-                yield break;
+                yield return StateUtility.ReturnToWait();
             }
             
             GameManager.Instance.SelectionManager.SelectedTile = tile;

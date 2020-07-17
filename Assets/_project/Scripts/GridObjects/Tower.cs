@@ -12,6 +12,9 @@ namespace Nara.MFGJS2020.GridObjects
         public int PathScore => Health;
         public int CantBuildZoneSize => Preset.CantBuildZoneSize;
         public int ExpandBuildZoneSize => Preset.ExpandBuildZoneSize;
+        public ActionBase[] ActiveActions => Preset.ActiveActions;
+        public NonTargetAction EndPlayerTurnAction => Preset.EndPlayerTurnAction;
+        public NonTargetAction BeginPlayerTurnAction => Preset.BeginPlayerTurnAction;
 
         public int Health
         {

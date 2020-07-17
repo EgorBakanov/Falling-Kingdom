@@ -50,7 +50,6 @@ namespace Nara.MFGJS2020.Holders
 
         private void SetPosition(int newHeight, int oldHeight)
         {
-            Debug.Log($"{TileHolder.GridHolder.Grid.IndexToCoordinate(TileHolder.Tile.Index)} <SetPosition> : {oldHeight} => {newHeight}");
             this.transform.position = GetPlacementPosition(TileHolder);
         }
 
