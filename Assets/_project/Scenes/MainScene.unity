@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 457707819}
   - component: {fileID: 457707824}
   - component: {fileID: 457707825}
+  - component: {fileID: 457707826}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -245,6 +246,9 @@ MonoBehaviour:
     type: 3}
   timeOnSpawnerCreate: 0.4
   timeOnSpawnerOpen: 0.4
+  timeOnCalculateMove: 0.5
+  timeToMove: 0.3
+  moveJumpPower: 0.5
 --- !u!114 &457707820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +296,7 @@ MonoBehaviour:
   towerManager: {fileID: 457707820}
   enemyManager: {fileID: 457707819}
   cameraController: {fileID: 1705913799}
+  selectionManager: {fileID: 457707826}
 --- !u!4 &457707823
 Transform:
   m_ObjectHideFlags: 0
@@ -330,6 +335,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba6875c8e2e45a6a193cc01bcad670a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &457707826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457707818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b33f6892e9540c88b74e9774dcc9597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineLayers: {fileID: 11400000, guid: 967bd4eef6132c44b8b7fbe0ebba0b66, type: 2}
+  buildZoneId: 0
+  cantBuildZoneId: 1
+  targetId: 2
+  enemyTargetId: 3
 --- !u!1 &1371121429
 GameObject:
   m_ObjectHideFlags: 0

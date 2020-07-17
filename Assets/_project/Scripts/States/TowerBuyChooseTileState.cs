@@ -17,7 +17,7 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator OnBuyTower(int id)
         {
             yield return GameManager.Instance.CameraController.UnoutlineZones();
-            GameManager.Instance.TowerManager.DeselectAll();
+            GameManager.Instance.SelectionManager.DeselectAll();
             yield return StateUtility.OnBuyTower(id);
         }
 
@@ -27,12 +27,12 @@ namespace Nara.MFGJS2020.States
             if (eventData.button != PointerEventData.InputButton.Left ||
                 !GameManager.Instance.GridHolder.Grid.BuildZone.Contains(tile))
             {
-                GameManager.Instance.TowerManager.DeselectAll();
+                GameManager.Instance.SelectionManager.DeselectAll();
                 GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
                 yield break;
             }
             
-            GameManager.Instance.TowerManager.SelectTile(tile);
+            GameManager.Instance.SelectionManager.SelectedTile = tile;
             GameManager.Instance.StateMachine.SetState(new CreateTowerState());
         }
     }

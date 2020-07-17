@@ -16,6 +16,7 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private EnemySpawnerHolder spawnerPrefab;
         [Range(.1f, 3f)] [SerializeField] private float timeOnSpawnerCreate = .4f;
         [Range(.1f, 3f)] [SerializeField] private float timeOnSpawnerOpen = .4f;
+        [Range(.1f, 3f)] [SerializeField] private float timeOnCalculateMove = .5f;
         [Range(.1f, 1f)] [SerializeField] private float timeToMove = .3f;
         [Range(0f, 2f)] [SerializeField] private float moveJumpPower = .5f;
 
@@ -126,9 +127,11 @@ namespace Nara.MFGJS2020.Control
             }
         }
 
-        public void CalculateNextMoves(IGridObject target)
+        public IEnumerator CalculateNextMoves(IGridObject target)
         {
             var targetTile = target.Tile;
+            var wait = new WaitForSeconds(timeOnCalculateMove);
+            yield return wait;
             foreach (var enemyHolder in CurrentEnemies)
             {
                 var enemy = enemyHolder.GridObject;
@@ -138,7 +141,12 @@ namespace Nara.MFGJS2020.Control
                 enemy.MoveIntention = path?.First();
 
                 enemy.MoveIntention = enemy.MoveIntention ?? GridUtility.FindFallbackMove(currentTile);
+
+                var targetHolder = enemyHolder.TileHolder.GridHolder.TileHolders[enemy.MoveIntention.Index];
+                GameManager.Instance.SelectionManager.AddToEnemyTarget(targetHolder.gameObject);
+                yield return wait;
             }
+            GameManager.Instance.SelectionManager.DeselectAll();
         }
 
         public IEnumerator PerformNextMoves()
@@ -153,10 +161,13 @@ namespace Nara.MFGJS2020.Control
                 if (target == null || !enemyHolder.GridObject.IsActive)
                     continue;
 
+                var targetHolder = enemyHolder.TileHolder.GridHolder.TileHolders[target.Index];
+                GameManager.Instance.SelectionManager.AddToEnemyTarget(targetHolder.gameObject);
+                
                 if (target.GridObject != null || target.Height - enemyHolder.TileHolder.Tile.Height > 1)
                 {
-                    target.Height--;
                     yield return wait;
+                    target.Height--;
                 }
                 else
                 {
@@ -164,6 +175,8 @@ namespace Nara.MFGJS2020.Control
                 }
 
                 enemyHolder.GridObject.IsActive = false;
+                
+                GameManager.Instance.SelectionManager.RemoveFromEnemyTarget(targetHolder.gameObject);
                 
                 // workaround if one enemy killed another
                 if (n == _currentEnemies.Count) continue;

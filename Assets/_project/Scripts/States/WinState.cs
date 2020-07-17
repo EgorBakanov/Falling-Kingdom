@@ -9,6 +9,7 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator Start()
         {
             yield return GameManager.Instance.UiManager.HideAllUI();
+            GameManager.Instance.SelectionManager.DeselectAll();
             yield return GameManager.Instance.UiManager.ShowWinMessage();
         }
 

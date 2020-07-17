@@ -10,8 +10,7 @@ namespace Nara.MFGJS2020.States
     {
         public static IEnumerator OnEndTurn()
         {
-            GameManager.Instance.TowerManager.DeselectPreset();
-            GameManager.Instance.TowerManager.DeselectTower();
+            GameManager.Instance.SelectionManager.DeselectAll();
             yield return GameManager.Instance.UiManager.HidePlayerUI();
             GameManager.Instance.StateMachine.SetState(new OnEndPlayerTurnTowerActionState());
         }
@@ -22,7 +21,7 @@ namespace Nara.MFGJS2020.States
             if(eventData.button != PointerEventData.InputButton.Left || tower == null)
                 yield break;
             
-            GameManager.Instance.TowerManager.SelectTower(target);
+            GameManager.Instance.SelectionManager.SelectedTower = target;
             GameManager.Instance.StateMachine.SetState(new WaitForPlayerPickTowerActionState());
         }
         
@@ -36,7 +35,7 @@ namespace Nara.MFGJS2020.States
             }
             else
             {
-                GameManager.Instance.TowerManager.SelectPreset(id);
+                GameManager.Instance.SelectionManager.SelectedTowerPresetId = id;
                 GameManager.Instance.StateMachine.SetState(new TowerBuyChooseTileState());
             }
         }

@@ -18,6 +18,7 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private TowerManager towerManager;
         [SerializeField] private EnemyManager enemyManager;
         [SerializeField] private CameraController cameraController;
+        [SerializeField] private SelectionManager selectionManager;
 
         public GridHolder GridHolder => gridHolder;
         public GameStateMachine StateMachine => stateMachine;
@@ -26,6 +27,7 @@ namespace Nara.MFGJS2020.Control
         public TowerManager TowerManager => towerManager;
         public EnemyManager EnemyManager => enemyManager;
         public CameraController CameraController => cameraController;
+        public SelectionManager SelectionManager => selectionManager;
         public bool HasNextLevel => _currentLevel < levelManager.Size;
         public int CurrentMoney { get; set; }
         public int CurrentTurn { get; set; }
@@ -81,25 +83,31 @@ namespace Nara.MFGJS2020.Control
         private void OnValidate()
         {
             if (stateMachine == null)
-                stateMachine = GetComponent<GameStateMachine>();
+                stateMachine = FindObjectOfType<GameStateMachine>();
 
             if (levelManager == null)
-                levelManager = GetComponent<LevelManager>();
+                levelManager = FindObjectOfType<LevelManager>();
 
             if (audioManager == null)
-                audioManager = GetComponent<AudioManager>();
+                audioManager = FindObjectOfType<AudioManager>();
 
             if (gridHolder == null)
-                gridHolder = GetComponent<GridHolder>();
+                gridHolder = FindObjectOfType<GridHolder>();
 
             if (uiManager == null)
-                uiManager = GetComponent<UIManager>();
+                uiManager = FindObjectOfType<UIManager>();
             
             if (towerManager == null)
-                towerManager = GetComponent<TowerManager>();
+                towerManager = FindObjectOfType<TowerManager>();
             
             if (enemyManager == null)
-                enemyManager = GetComponent<EnemyManager>();
+                enemyManager = FindObjectOfType<EnemyManager>();
+            
+            if (selectionManager == null)
+                selectionManager = FindObjectOfType<SelectionManager>();
+            
+            if (cameraController == null)
+                cameraController = FindObjectOfType<CameraController>();
         }
 #endif
     }

@@ -4,10 +4,11 @@ using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.GridObjects;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Holders
 {
-    public class EnemyHolder : GridObjectHolder<Enemy>
+    public class EnemyHolder : GridObjectHolder<Enemy> , IPointerEnterHandler, IPointerExitHandler
     {
         protected override void OnTileHeightChanged(int newHeight, int oldHeight)
         {
@@ -24,8 +25,18 @@ namespace Nara.MFGJS2020.Holders
             yield return transform.DOJump(GetPlacementPosition(tile), jumpPower, 1,duration).WaitForCompletion();
             TileHolder = TileHolder.GridHolder.TileHolders[tile.Index];
             GridObject.Move(tile);
+        }
 
-            
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            var target = TileHolder.GridHolder.TileHolders[GridObject.MoveIntention.Index];
+            GameManager.Instance.SelectionManager.AddToEnemyTarget(target.gameObject);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            var target = TileHolder.GridHolder.TileHolders[GridObject.MoveIntention.Index];
+            GameManager.Instance.SelectionManager.RemoveFromEnemyTarget(target.gameObject);
         }
     }
 }

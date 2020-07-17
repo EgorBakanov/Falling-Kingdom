@@ -13,9 +13,6 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private TowerHolder towerPrefab;
         [Range(.1f, 3f)] [SerializeField] private float timeOnTowerCreate = .4f;
 
-        private int _selectedPreset = -1;
-        private Tower _selectedTower;
-        private Tile _selectedTile;
         private List<TowerHolder> _currentTowers;
         private TowerHolder _currentTargetTower;
 
@@ -28,25 +25,11 @@ namespace Nara.MFGJS2020.Control
 
         private void Awake() => _currentTowers = new List<TowerHolder>();
         private void OnDestroy() => Clear();
-        public void SelectPreset(int i) => _selectedPreset = Mathf.Clamp(i, 0, AvailableToBuildTowers.Length - 1);
-        public void SelectTower(Tower tower) => _selectedTower = tower;
-        public void SelectTile(Tile tile) => _selectedTile = tile;
-        public void DeselectTile() => _selectedTile = null;
-        public void DeselectPreset() => _selectedPreset = -1;
-        public void DeselectTower() => _selectedTower = null;
-        public int SelectedPreset => _selectedPreset;
-
-        public void DeselectAll()
-        {
-            DeselectPreset();
-            DeselectTile();
-            DeselectTower();
-        }
-
+        
         public IEnumerator CreateSelectedTower()
         {
-            var tile = GameManager.Instance.GridHolder.TileHolders[_selectedTile.Index];
-            var preset = AvailableToBuildTowers[_selectedPreset];
+            var tile = GameManager.Instance.GridHolder.TileHolders[GameManager.Instance.SelectionManager.SelectedTile.Index];
+            var preset = AvailableToBuildTowers[GameManager.Instance.SelectionManager.SelectedTowerPresetId];
             var wait = new WaitForSeconds(timeOnTowerCreate);
 
             yield return CreateTower(preset, tile, wait);
