@@ -3,6 +3,7 @@ using DG.Tweening;
 using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.GridObjects;
+using UnityEngine;
 
 namespace Nara.MFGJS2020.Holders
 {
@@ -14,15 +15,17 @@ namespace Nara.MFGJS2020.Holders
 
         protected override void OnTileFall()
         {
+            Debug.Log("fall");
             GameManager.Instance.EnemyManager.DestroyEnemy(this);
         }
 
-        public IEnumerator Move(Tile tile)
+        public IEnumerator Move(Tile tile, float jumpPower, float duration)
         {
+            yield return transform.DOJump(GetPlacementPosition(tile), jumpPower, 1,duration).WaitForCompletion();
             TileHolder = TileHolder.GridHolder.TileHolders[tile.Index];
             GridObject.Move(tile);
 
-            yield return transform.DOJump(GetPlacementPosition(tile.Height), 1, 1,1f).WaitForCompletion();
+            
         }
     }
 }

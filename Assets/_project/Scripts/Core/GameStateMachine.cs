@@ -12,20 +12,18 @@ namespace Nara.MFGJS2020.Core
 
         public void Init(State startState, State onTargetTowerDestroyedState)
         {
-            if(_current != null)
-                StopCoroutine(_current);
+            StopAllCoroutines();
             _state = startState;
             this._onTargetTowerDestroyedState = onTargetTowerDestroyedState;
-            _current = StartCoroutine(SafeStart(_state.Start()));
+            StartCoroutine(SafeStart(_state.Start()));
         }
         
         public void SetState(State state)
         {
-            if(_current != null)
-                StopCoroutine(_current);
+            StopAllCoroutines();
             _state = state;
             Debug.Log(_state.GetType());
-            _current = StartCoroutine(SafeStart(_state.Start()));
+            StartCoroutine(SafeStart(_state.Start()));
         }
 
         public bool IsRunning { get; private set; }
@@ -35,7 +33,6 @@ namespace Nara.MFGJS2020.Core
         {
             IsRunning = true;
             yield return routine;
-            _current = null;
             IsRunning = false;
         }
         

@@ -16,6 +16,8 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private EnemySpawnerHolder spawnerPrefab;
         [Range(.1f, 3f)] [SerializeField] private float timeOnSpawnerCreate = .4f;
         [Range(.1f, 3f)] [SerializeField] private float timeOnSpawnerOpen = .4f;
+        [Range(.1f, 1f)] [SerializeField] private float timeToMove = .3f;
+        [Range(0f, 2f)] [SerializeField] private float moveJumpPower = .5f;
 
         private List<EnemyHolder> _currentEnemies;
         private List<EnemySpawnerHolder> _currentSpawners;
@@ -142,25 +144,31 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator PerformNextMoves()
         {
             var wait = new WaitForSeconds(timeOnSpawnerCreate);
-            foreach (var enemyHolder in CurrentEnemies)
+            int n = _currentEnemies.Count;
+            for (int i = 0; i < n ; i++)
             {
+                var enemyHolder = _currentEnemies[i];
                 var target = enemyHolder.GridObject.MoveIntention;
 
                 if (target == null || !enemyHolder.GridObject.IsActive)
                     continue;
 
-                if (target.GridObject != null)
+                if (target.GridObject != null || target.Height - enemyHolder.TileHolder.Tile.Height > 1)
                 {
                     target.Height--;
+                    yield return wait;
                 }
                 else
                 {
-                    yield return enemyHolder.Move(target);
+                    yield return enemyHolder.Move(target,moveJumpPower,timeToMove);
                 }
 
                 enemyHolder.GridObject.IsActive = false;
-
-                yield return wait;
+                
+                // workaround if one enemy killed another
+                if (n == _currentEnemies.Count) continue;
+                n = _currentEnemies.Count;
+                i--;
             }
         }
     }
