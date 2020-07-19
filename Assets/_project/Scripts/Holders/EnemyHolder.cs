@@ -17,6 +17,7 @@ namespace Nara.MFGJS2020.Holders
         protected override void OnTileFall()
         {
             Debug.Log("fall");
+            UnsubscribeOnTile(TileHolder.Tile);
             GameManager.Instance.EnemyManager.DestroyEnemy(this);
         }
 

@@ -21,8 +21,9 @@ namespace Nara.MFGJS2020.States
 
             GameManager.Instance.CurrentMoney = level.InitialMoney;
             GameManager.Instance.CurrentTurn = 0;
+            yield return GameManager.Instance.UiManager.UpdateRemainingTurnsCounter(level.TurnsToSurvive);
             yield return GameManager.Instance.UiManager.ShowRemainingTurnsCounter();
-            
+
             GameManager.Instance.StateMachine.SetState(new ShowNextEnemySpawnState());
         }
     }

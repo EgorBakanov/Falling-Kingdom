@@ -19,6 +19,7 @@ namespace Nara.MFGJS2020.States
             var action = tower.ActiveActions[id];
             if (action.Cost > GameManager.Instance.CurrentMoney)
             {
+                yield return GameManager.Instance.UiManager.HideTowerActionBar();
                 GameManager.Instance.StateMachine.SetState(new NotEnoughMoneyState());
             }
             else if (action.IsTarget)
@@ -27,16 +28,40 @@ namespace Nara.MFGJS2020.States
             }
             else
             {
+                yield return GameManager.Instance.UiManager.HideTowerActionBar();
                 GameManager.Instance.StateMachine.SetState(new TowerActionState());
             }
-            yield break;
         }
 
-        public override IEnumerator OnEndTurn() => StateUtility.OnEndTurn();
-        public override IEnumerator OnBuyTower(int id) => StateUtility.OnBuyTower(id);
-        public override IEnumerator OnTileClick(Tile tile, PointerEventData eventData) => StateUtility.ReturnToWait();
-        public override IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData) =>
-            StateUtility.OnTowerClick(tower, eventData);
-        public override IEnumerator OnCancel() => StateUtility.ReturnToWait();
+        public override IEnumerator OnEndTurn()
+        {
+            yield return GameManager.Instance.UiManager.HideTowerActionBar();
+            yield return StateUtility.OnEndTurn();
+        }
+
+        public override IEnumerator OnBuyTower(int id)
+        {
+            yield return GameManager.Instance.UiManager.HideTowerActionBar();
+            yield return StateUtility.OnBuyTower(id);
+        }
+
+        public override IEnumerator OnTileClick(Tile tile, PointerEventData eventData)
+        {
+            yield return GameManager.Instance.UiManager.HideTowerActionBar();
+            yield return StateUtility.ReturnToWait();
+        }
+
+        public override IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
+        {
+            yield return GameManager.Instance.UiManager.HideTowerActionBar();
+            yield return null;
+            yield return StateUtility.OnTowerClick(tower, eventData);
+        }
+
+        public override IEnumerator OnCancel()
+        {
+            yield return GameManager.Instance.UiManager.HideTowerActionBar();
+            yield return StateUtility.ReturnToWait();
+        }
     }
 }

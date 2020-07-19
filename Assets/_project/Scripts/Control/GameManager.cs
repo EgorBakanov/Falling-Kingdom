@@ -15,7 +15,7 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private GridHolder gridHolder;
         [SerializeField] private AudioManager audioManager;
-        [SerializeField] private UIManager uiManager;
+        [SerializeField] private UiManager uiManager;
         [SerializeField] private TowerManager towerManager;
         [SerializeField] private EnemyManager enemyManager;
         [SerializeField] private CameraController cameraController;
@@ -24,7 +24,7 @@ namespace Nara.MFGJS2020.Control
         public GridHolder GridHolder => gridHolder;
         public GameStateMachine StateMachine => stateMachine;
         public AudioManager AudioManager => audioManager;
-        public UIManager UiManager => uiManager;
+        public UiManager UiManager => uiManager;
         public TowerManager TowerManager => towerManager;
         public EnemyManager EnemyManager => enemyManager;
         public CameraController CameraController => cameraController;
@@ -115,7 +115,7 @@ namespace Nara.MFGJS2020.Control
                 gridHolder = FindObjectOfType<GridHolder>();
 
             if (uiManager == null)
-                uiManager = FindObjectOfType<UIManager>();
+                uiManager = FindObjectOfType<UiManager>();
             
             if (towerManager == null)
                 towerManager = FindObjectOfType<TowerManager>();

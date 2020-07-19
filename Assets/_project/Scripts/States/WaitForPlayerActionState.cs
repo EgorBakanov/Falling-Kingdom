@@ -16,10 +16,8 @@ namespace Nara.MFGJS2020.States
         }
 
         public override IEnumerator OnEndTurn() => StateUtility.OnEndTurn();
-
         public override IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData) =>
             StateUtility.OnTowerClick(tower, eventData);
-
         public override IEnumerator OnBuyTower(int id) => StateUtility.OnBuyTower(id);
     }
 }

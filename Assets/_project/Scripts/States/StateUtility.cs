@@ -2,6 +2,7 @@
 using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.GridObjects;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.States
@@ -12,16 +13,18 @@ namespace Nara.MFGJS2020.States
         {
             GameManager.Instance.SelectionManager.DeselectAll();
             GameManager.Instance.SelectionManager.WaitForPlayerSelection = false;
-            yield return GameManager.Instance.UiManager.HidePlayerUI();
+            yield return GameManager.Instance.UiManager.HidePlayerUi();
             GameManager.Instance.StateMachine.SetState(new OnEndPlayerTurnTowerActionState());
         }
         
         public static IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
         {
             GameManager.Instance.SelectionManager.DeselectAll();
-            var target = (Tower) tower;
-            if(eventData.button != PointerEventData.InputButton.Left || tower == null)
-                yield break;
+            Debug.Log(tower.Tile.Grid.IndexToCoordinate(tower.Tile.Index)); 
+            Debug.Log(eventData.button != PointerEventData.InputButton.Left); 
+            var target = tower as Tower;
+            if(eventData.button != PointerEventData.InputButton.Left || target == null)
+                yield return ReturnToWait();
             
             GameManager.Instance.SelectionManager.SelectedTower = target;
             GameManager.Instance.StateMachine.SetState(new WaitForPlayerPickTowerActionState());
@@ -30,7 +33,6 @@ namespace Nara.MFGJS2020.States
         public static IEnumerator OnBuyTower(int id)
         {
             GameManager.Instance.SelectionManager.DeselectAll();
-            yield return GameManager.Instance.UiManager.HideTowerActionBar();
             var preset = GameManager.Instance.TowerManager.AvailableToBuildTowers[id];
             if (preset.Cost > GameManager.Instance.CurrentMoney)
             {
@@ -41,6 +43,7 @@ namespace Nara.MFGJS2020.States
                 GameManager.Instance.SelectionManager.SelectedTowerPresetId = id;
                 GameManager.Instance.StateMachine.SetState(new TowerBuyChooseTileState());
             }
+            yield break;
         }
 
         public static IEnumerator ReturnToWait()

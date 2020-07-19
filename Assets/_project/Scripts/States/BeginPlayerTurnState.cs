@@ -10,7 +10,7 @@ namespace Nara.MFGJS2020.States
         {
             GameManager.Instance.AudioManager.PlayBeginTurnSound();
             yield return GameManager.Instance.UiManager.ShowBeginTurnMessage();
-            yield return GameManager.Instance.UiManager.ShowPlayerUI();
+            yield return GameManager.Instance.UiManager.ShowPlayerUi();
             GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
         }
     }
