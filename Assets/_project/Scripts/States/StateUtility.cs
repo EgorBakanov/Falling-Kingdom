@@ -20,8 +20,6 @@ namespace Nara.MFGJS2020.States
         public static IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
         {
             GameManager.Instance.SelectionManager.DeselectAll();
-            Debug.Log(tower.Tile.Grid.IndexToCoordinate(tower.Tile.Index)); 
-            Debug.Log(eventData.button != PointerEventData.InputButton.Left); 
             var target = tower as Tower;
             if(eventData.button != PointerEventData.InputButton.Left || target == null)
                 yield return ReturnToWait();

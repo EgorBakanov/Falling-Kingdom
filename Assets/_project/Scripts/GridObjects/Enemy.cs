@@ -33,6 +33,7 @@ namespace Nara.MFGJS2020.GridObjects
 
         public void Move(Tile tile)
         {
+            Tile.GridObject = null;
             Tile = tile;
             tile.GridObject = this;
         }

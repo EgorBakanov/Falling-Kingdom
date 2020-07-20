@@ -16,13 +16,13 @@ namespace Nara.MFGJS2020.Holders
 
         protected override void OnTileFall()
         {
-            Debug.Log("fall");
             UnsubscribeOnTile(TileHolder.Tile);
             GameManager.Instance.EnemyManager.DestroyEnemy(this);
         }
 
         public IEnumerator Move(TileHolder tile, float jumpPower, float duration)
         {
+            TileHolder = tile;
             yield return transform.DOJump(GetPlacementPosition(tile), jumpPower, 1,duration).WaitForCompletion();
             GridObject.Move(tile.Tile);
         }
