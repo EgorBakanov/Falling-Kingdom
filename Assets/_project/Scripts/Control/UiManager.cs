@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using DG.Tweening;
 using Nara.MFGJS2020.UI;
 using TMPro;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private UiTemporalSwitcher turnCounterUpdater;
         [SerializeField] private UiSwitcher player;
         [SerializeField] private UiSwitcher towerActionBar;
+        [SerializeField] private TMP_Text moneyCounterText;
+        [SerializeField] private TowerPresetCollectionView towerPresetCollectionView;
 
         private void Update()
         {
@@ -31,7 +34,12 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator ShowWinMessage() => winPopup.SwitchOn();
         public IEnumerator HideWinMessage() => winPopup.SwitchOff();
         public IEnumerator ShowBeginTurnMessage() => beginTurnMessage.Play();
-        public IEnumerator ShowPlayerUi() => player.SwitchOn();
+        public IEnumerator ShowPlayerUi()
+        {
+            moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
+            towerPresetCollectionView.Init(GameManager.Instance.GetCurrentLevel().AvailableToBuildTowers);
+            yield return player.SwitchOn();
+        }
 
         public IEnumerator UpdateRemainingTurnsCounter(int value)
         {
@@ -62,6 +70,7 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator UpdateMoneyCounter()
         {
             // TODO
+            moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
             yield return null;
         }
 

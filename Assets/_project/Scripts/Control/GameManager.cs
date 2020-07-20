@@ -70,7 +70,7 @@ namespace Nara.MFGJS2020.Control
         private void Update()
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame)
-                stateMachine.OnBuyTowerButtonClick(0);
+                StartCoroutine(uiManager.UpdateMoneyCounter());
         }
 
         private void Start()

@@ -80,6 +80,8 @@
               <e p="AlphaSwitchable.cs" t="Include" />
               <e p="PositionSwitchable.cs" t="Include" />
               <e p="ScaleSwitchable.cs" t="Include" />
+              <e p="TowerPresetCollectionView.cs" t="Include" />
+              <e p="TowerPresetView.cs" t="Include" />
               <e p="UiSwitchable.cs" t="Include" />
               <e p="UiSwitcher.cs" t="Include" />
               <e p="UiTemporalSwitcher.cs" t="Include" />

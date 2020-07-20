@@ -5,6 +5,7 @@ namespace Nara.MFGJS2020.Core
 {
     public abstract class ActionBase : ScriptableObject
     {
+        public abstract string Name { get; }
         public abstract int Cost { get; }
         public abstract IEnumerator Execute();
         public abstract bool IsTarget { get; }
