@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356962b2cdc140ad9c90551cd0060c17, type: 3}
   m_Name: Palace
   m_EditorClassIdentifier: 
+  name: Palace
+  cost: 50
   startHealth: 5
   maxHealth: 5
   cantBuildZoneSize: 1
@@ -20,3 +22,6 @@ MonoBehaviour:
   visualPrefab: {fileID: 299720366630296500, guid: ba2962d12268cc34dbb6ca531071cb36,
     type: 3}
   description: 
+  activeActions: []
+  endPlayerTurnAction: {fileID: 0}
+  beginPlayerTurnAction: {fileID: 0}

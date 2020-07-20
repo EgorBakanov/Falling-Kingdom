@@ -15,30 +15,35 @@ namespace Nara.MFGJS2020.States
         
         public override IEnumerator OnBuyTower(int id)
         {
+            yield return GameManager.Instance.UiManager.HideCancelButton();
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             yield return StateUtility.OnBuyTower(id);
         }
 
         public override IEnumerator OnCancel()
         {
+            yield return GameManager.Instance.UiManager.HideCancelButton();
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             yield return StateUtility.ReturnToWait();
         }
 
         public override IEnumerator OnEndTurn()
         {
+            yield return GameManager.Instance.UiManager.HideCancelButton();
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             yield return StateUtility.OnEndTurn();
         }
 
         public override IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
         {
+            yield return GameManager.Instance.UiManager.HideCancelButton();
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             yield return StateUtility.OnTowerClick(tower, eventData);
         }
 
         public override IEnumerator OnTileClick(Tile tile, PointerEventData eventData)
         {
+            yield return GameManager.Instance.UiManager.HideCancelButton();
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             var actionId = GameManager.Instance.SelectionManager.SelectedTowerActionId;
             var action = GameManager.Instance.SelectionManager.SelectedTower.ActiveActions[actionId] as TargetAction;

@@ -22,6 +22,12 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private UiSwitcher towerActionBar;
         [SerializeField] private TMP_Text moneyCounterText;
         [SerializeField] private TowerPresetCollectionView towerPresetCollectionView;
+        [SerializeField] private TowerActionBarView towerActionBarView;
+        [SerializeField] private UiSwitcher allInGameUi;
+        [SerializeField] private UiShaker notEnoughMoney;
+        [SerializeField] private UiShaker updateMoney;
+        [SerializeField] private Material notEnoughMoneyMaterial;
+        [SerializeField] private UiSwitcher cancelButton;
 
         private void Update()
         {
@@ -40,48 +46,38 @@ namespace Nara.MFGJS2020.Control
             towerPresetCollectionView.Init(GameManager.Instance.GetCurrentLevel().AvailableToBuildTowers);
             yield return player.SwitchOn();
         }
-
         public IEnumerator UpdateRemainingTurnsCounter(int value)
         {
             void UpdateCounter() => turnCounterText.text = value.ToString();
             yield return turnCounterUpdater.Play(UpdateCounter);
         }
-
         public IEnumerator ShowRemainingTurnsCounter() => turnCounter.SwitchOn();
-
-        public IEnumerator HideAllUi()
-        {
-            // TODO
-            yield return null;
-        }
-
+        public IEnumerator HideAllUi() => allInGameUi.SwitchOff();
         public IEnumerator HidePlayerUi() => player.SwitchOff();
         public IEnumerator ShowEndTurnMessage() => endTurnMessage.Play();
         public IEnumerator ShowLoseMessage() => losePopup.SwitchOn();
         public IEnumerator HideLoseMessage() => losePopup.SwitchOff();
         public IEnumerator ShowTitle() => titleMessage.Play();
-
         public IEnumerator ShowNotEnoughMoney()
         {
-            // TODO
-            yield return null;
+            var startMaterial = moneyCounterText.fontSharedMaterial;
+            moneyCounterText.fontSharedMaterial = notEnoughMoneyMaterial;
+            yield return notEnoughMoney.Play();
+            moneyCounterText.fontSharedMaterial = startMaterial;
         }
-
         public IEnumerator UpdateMoneyCounter()
         {
-            // TODO
             moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
-            yield return null;
+            yield return updateMoney.Play();
         }
-
         public IEnumerator HideTowerActionBar() => towerActionBar.SwitchOff();
-
-        public IEnumerator ShowCancelButton()
+        public IEnumerator ShowCancelButton() => cancelButton.SwitchOn();
+        public IEnumerator HideCancelButton() => cancelButton.SwitchOff();
+        public IEnumerator ShowTowerActionBar()
         {
-            // TODO
-            yield return null;
+            var preset = GameManager.Instance.SelectionManager.SelectedTower?.Preset;
+            towerActionBarView.Init(preset);
+            yield return towerActionBar.SwitchOn();
         }
-
-        public IEnumerator ShowTowerActionBar() => towerActionBar.SwitchOn();
     }
 }

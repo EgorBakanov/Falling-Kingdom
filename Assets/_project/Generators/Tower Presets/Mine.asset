@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356962b2cdc140ad9c90551cd0060c17, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
+  name: Mine
+  cost: 10
   startHealth: 2
   maxHealth: 2
   cantBuildZoneSize: 0
@@ -20,3 +22,6 @@ MonoBehaviour:
   visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
     type: 3}
   description: 
+  activeActions: []
+  endPlayerTurnAction: {fileID: 0}
+  beginPlayerTurnAction: {fileID: 0}
