@@ -10,7 +10,8 @@ namespace Nara.MFGJS2020.States
         {
             var id = GameManager.Instance.SelectionManager.SelectedTowerPresetId;
             var cost = GameManager.Instance.TowerManager.AvailableToBuildTowers[id].Cost;
-            GameManager.Instance.CurrentMoney -= cost;
+            var resultMoney = GameManager.Instance.CurrentMoney - cost;
+            yield return GameManager.Instance.SetMoney(resultMoney);
             yield return GameManager.Instance.TowerManager.CreateSelectedTower();
             GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
         }

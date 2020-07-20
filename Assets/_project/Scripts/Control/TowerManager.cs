@@ -25,10 +25,11 @@ namespace Nara.MFGJS2020.Control
 
         private void Awake() => _currentTowers = new List<TowerHolder>();
         private void OnDestroy() => Clear();
-        
+
         public IEnumerator CreateSelectedTower()
         {
-            var tile = GameManager.Instance.GridHolder.TileHolders[GameManager.Instance.SelectionManager.SelectedTile.Index];
+            var tile = GameManager.Instance.GridHolder.TileHolders[
+                GameManager.Instance.SelectionManager.SelectedTile.Index];
             var preset = AvailableToBuildTowers[GameManager.Instance.SelectionManager.SelectedTowerPresetId];
             var wait = new WaitForSeconds(timeOnTowerCreate);
 
@@ -99,6 +100,13 @@ namespace Nara.MFGJS2020.Control
                 _currentTargetTower = null;
                 GameManager.Instance.StateMachine.OnTargetTowerDestroyed();
             }
+        }
+
+        public void DestroyTower(Tower tower)
+        {
+            var towerHolder = _currentTowers.Find((holder) => holder.GridObject == tower);
+            if (towerHolder != null)
+                DestroyTower(towerHolder);
         }
 
         public void ActivateAll()

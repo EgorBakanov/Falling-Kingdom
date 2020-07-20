@@ -19,7 +19,7 @@ namespace Nara.MFGJS2020.States
             yield return GameManager.Instance.GridHolder.Init(grid, level.TileColorScheme);
             yield return GameManager.Instance.TowerManager.CreateInitialTowers();
 
-            GameManager.Instance.CurrentMoney = level.InitialMoney;
+            GameManager.Instance.InitMoney(level.InitialMoney);
             GameManager.Instance.CurrentTurn = 0;
             yield return GameManager.Instance.UiManager.UpdateRemainingTurnsCounter(level.TurnsToSurvive);
             yield return GameManager.Instance.UiManager.ShowRemainingTurnsCounter();

@@ -22,6 +22,8 @@ MonoBehaviour:
   visualPrefab: {fileID: 299720366630296500, guid: ba2962d12268cc34dbb6ca531071cb36,
     type: 3}
   description: 
-  activeActions: []
-  endPlayerTurnAction: {fileID: 0}
+  activeActions:
+  - {fileID: 11400000, guid: 05b2e3c94edacea4b911bd0f12b484f8, type: 2}
+  endPlayerTurnAction: {fileID: 11400000, guid: 2f84aed0ac9fb7040ad3d542fd69d3ba,
+    type: 2}
   beginPlayerTurnAction: {fileID: 0}

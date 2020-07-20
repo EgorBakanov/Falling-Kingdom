@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Nara.MFGJS2020.Control
 {
-    [CreateAssetMenu(fileName = "New Level Manager", menuName = "Level Manager")]
+    [CreateAssetMenu(fileName = "New Level Manager", menuName = "MFGJS2020/Level Manager")]
     public class LevelManager : ScriptableObject
     {
         [SerializeField] private Level[] levels;

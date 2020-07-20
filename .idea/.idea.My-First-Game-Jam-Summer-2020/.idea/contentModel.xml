@@ -76,6 +76,10 @@
               <e p="WaitForPlayerPickTowerActionState.cs" t="Include" />
               <e p="WinState.cs" t="Include" />
             </e>
+            <e p="TowerActions" t="Include">
+              <e p="AddMoneyAction.cs" t="Include" />
+              <e p="DestroyAction.cs" t="Include" />
+            </e>
             <e p="UI" t="Include">
               <e p="AlphaSwitchable.cs" t="Include" />
               <e p="PositionSwitchable.cs" t="Include" />

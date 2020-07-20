@@ -5,8 +5,11 @@ namespace Nara.MFGJS2020.Core
 {
     public abstract class ActionBase : ScriptableObject
     {
-        public abstract string Name { get; }
-        public abstract int Cost { get; }
+        [SerializeField] private new string name;
+        [SerializeField] private int cost;
+        
+        public string Name => name;
+        public int Cost => cost;
         public abstract IEnumerator Execute();
         public abstract bool IsTarget { get; }
     }

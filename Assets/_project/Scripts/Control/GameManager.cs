@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using Nara.MFGJS2020.Holders;
@@ -30,24 +31,24 @@ namespace Nara.MFGJS2020.Control
         public CameraController CameraController => cameraController;
         public SelectionManager SelectionManager => selectionManager;
         public bool HasNextLevel => _currentLevel < levelManager.Size;
-
-        public int CurrentMoney
+        
+        public void InitMoney(int val)
         {
-            get => _currentMoney;
-            set
-            {
-                var old = _currentMoney;
-                _currentMoney = value;
-                if (old != _currentMoney)
-                    StartCoroutine(UiManager.UpdateMoneyCounter());
-            }
+            CurrentMoney = val;
+        }
+        public IEnumerator SetMoney(int val)
+        {
+            var old = CurrentMoney;
+            CurrentMoney = val;
+            if (old != CurrentMoney)
+                yield return UiManager.UpdateMoneyCounter();
         }
 
+        public int CurrentMoney { get; private set; }
         public int CurrentTurn { get; set; }
         
         private int _currentLevel = 0;
         private InputManager _inputManager;
-        private int _currentMoney;
 
         public void NextLevel() => _currentLevel++;
         public Level GetCurrentLevel() => levelManager.Get(_currentLevel);
@@ -65,12 +66,6 @@ namespace Nara.MFGJS2020.Control
             {
                 _inputManager = new InputManager();
             }
-        }
-
-        private void Update()
-        {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
-                StartCoroutine(uiManager.UpdateMoneyCounter());
         }
 
         private void Start()
