@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110de73015b2411c97294aa579bacca3, type: 3}
   m_Name: Palace Fee 4
   m_EditorClassIdentifier: 
-  name: Palace Fee
+  name: Castle Fee
   cost: 0
   animationTime: 0.2
   amount: 4

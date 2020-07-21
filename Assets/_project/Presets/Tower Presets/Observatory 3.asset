@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 356962b2cdc140ad9c90551cd0060c17, type: 3}
-  m_Name: Observatory 2
+  m_Name: Observatory 3
   m_EditorClassIdentifier: 
-  name: College
+  name: University
   cost: 5
-  startHealth: 3
-  maxHealth: 3
+  startHealth: 4
+  maxHealth: 4
   cantBuildZoneSize: 0
-  expandBuildZoneSize: 3
+  expandBuildZoneSize: 4
   initialActivity: 0
   visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
     type: 3}
   description: 
   activeActions:
-  - {fileID: 11400000, guid: 887fec0b0fb386f45afdcfc5b979844b, type: 2}
-  - {fileID: 11400000, guid: ad7434878d38b2c4cb40b3fdc0ca5891, type: 2}
+  - {fileID: 11400000, guid: 51241346a4e5f0f4fbb4c25ff2fa3ed4, type: 2}
+  - {fileID: 11400000, guid: 4ccdb022cd662f0478ec237f180cfbb5, type: 2}
   - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}
   endPlayerTurnAction: {fileID: 0}
   beginPlayerTurnAction: {fileID: 0}

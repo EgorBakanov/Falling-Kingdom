@@ -247,7 +247,12 @@ MonoBehaviour:
   timeOnSpawnerOpen: 0.4
   timeOnCalculateMove: 0.5
   timeToMove: 0.3
+  timeToAttack: 0.3
   moveJumpPower: 0.5
+  attackPower: 1
+  attackElasticity: 1
+  attackVibrato: 5
+  attackOffset: {x: 0, y: 0.5, z: 0}
 --- !u!114 &457707820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,6 +1083,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 457707821}
+    - target: {fileID: 8286438445248646554, guid: 17f1c5320af6e4f45b228b3bdcb0a60a,
+        type: 3}
+      propertyPath: towerHeading
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286438445248646554, guid: 17f1c5320af6e4f45b228b3bdcb0a60a,
+        type: 3}
+      propertyPath: towerHeadingPrefab
+      value: 
+      objectReference: {fileID: 6193088028631651155, guid: 9822be6c2d845004dbc31ae5f419a192,
+        type: 3}
     - target: {fileID: 8286438445248646555, guid: 17f1c5320af6e4f45b228b3bdcb0a60a,
         type: 3}
       propertyPath: m_LocalPosition.x
