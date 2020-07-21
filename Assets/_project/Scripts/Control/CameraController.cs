@@ -22,6 +22,11 @@ namespace Nara.MFGJS2020.Control
             }
         }
 
+        public Vector3 WorldToScreenPoint(Vector3 pos)
+        {
+            return camera.WorldToScreenPoint(pos);
+        }
+
 #if UNITY_EDITOR
         private void OnValidate()
         {

@@ -91,6 +91,7 @@
               <e p="TowerActionBarView.cs" t="Include" />
               <e p="TowerActionView.cs" t="Include" />
               <e p="TowerActiveActionView.cs" t="Include" />
+              <e p="TowerHeadingView.cs" t="Include" />
               <e p="TowerPresetCollectionView.cs" t="Include" />
               <e p="TowerPresetView.cs" t="Include" />
               <e p="UiShaker.cs" t="Include" />

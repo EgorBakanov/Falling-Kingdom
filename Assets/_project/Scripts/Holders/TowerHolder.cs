@@ -12,6 +12,7 @@ namespace Nara.MFGJS2020.Holders
         {
             base.Init(obj, tileHolder);
             GridObject.OnDie += OnDie;
+            GridObject.OnHealthChanged += OnHealthChanged;
         }
 
         protected override void OnTileHeightChanged(int newHeight, int oldHeight)
@@ -27,16 +28,22 @@ namespace Nara.MFGJS2020.Holders
             GameManager.Instance.StateMachine.OnTowerClick(GridObject, eventData);
         }
 
-        public void OnDie()
+        private void OnDie()
         {
             UnsubscribeOnTile(TileHolder.Tile);
             GameManager.Instance.TowerManager.DestroyTower(this);
+        }
+
+        private void OnHealthChanged()
+        {
+            GameManager.Instance.UiManager.UpdateTowerHeading(this);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
             GridObject.OnDie -= OnDie;
+            GridObject.OnHealthChanged -= OnHealthChanged;
         }
 
         public void Replace(TowerPreset preset)
@@ -47,12 +54,12 @@ namespace Nara.MFGJS2020.Holders
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.UiManager.ShowTowerHeading(this);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.UiManager.HideTowerHeading(this);
         }
     }
 }

@@ -25,6 +25,9 @@ namespace Nara.MFGJS2020.TowerActions
             {
                 if (tile.GridObject is Tower tower)
                 {
+                    if(tower.Health == tower.MaxHealth)
+                        continue;
+                    
                     var tileHolder = GameManager.Instance.GridHolder.TileHolders[tile.Index];
                     GameManager.Instance.SelectionManager.AddToGoodTarget(tileHolder.gameObject);
                     yield return wait;

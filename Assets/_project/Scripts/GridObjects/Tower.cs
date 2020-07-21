@@ -21,9 +21,16 @@ namespace Nara.MFGJS2020.GridObjects
             get => _health;
             set
             {
+                var old = _health;
                 _health = Mathf.Clamp(value, 0, MaxHealth);
                 if (_health == 0)
+                {
                     Die();
+                }
+                else if(old != _health)
+                {
+                    OnHealthChanged?.Invoke();
+                }
             }
         }
 
@@ -37,6 +44,7 @@ namespace Nara.MFGJS2020.GridObjects
         public TowerPreset Preset { get; private set; }
 
         public event Action OnDie;
+        public event Action OnHealthChanged;
 
         private int _health;
 
@@ -62,6 +70,7 @@ namespace Nara.MFGJS2020.GridObjects
         {
             Preset = preset;
             Health = MaxHealth;
+            OnHealthChanged?.Invoke();
         }
     }
 }

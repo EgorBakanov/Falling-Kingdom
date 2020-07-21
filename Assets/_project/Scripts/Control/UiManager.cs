@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
+using Nara.MFGJS2020.Holders;
 using Nara.MFGJS2020.UI;
 using TMPro;
 using UnityEngine;
@@ -28,6 +30,10 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private UiShaker updateMoney;
         [SerializeField] private Material notEnoughMoneyMaterial;
         [SerializeField] private UiSwitcher cancelButton;
+        [SerializeField] private TowerHeadingView towerHeadingPrefab;
+
+        private readonly Dictionary<TowerHolder, TowerHeadingView> _towerHeadingViews = new Dictionary<TowerHolder, TowerHeadingView>();
+        
         public IEnumerator ShowWinMessage() => winPopup.SwitchOn();
         public IEnumerator HideWinMessage() => winPopup.SwitchOff();
         public IEnumerator ShowBeginTurnMessage() => beginTurnMessage.Play();
@@ -69,6 +75,33 @@ namespace Nara.MFGJS2020.Control
             var preset = GameManager.Instance.SelectionManager.SelectedTower?.Preset;
             towerActionBarView.Init(preset);
             yield return towerActionBar.SwitchOn();
+        }
+        public void ShowTowerHeading(TowerHolder towerHolder)
+        {
+            if (_towerHeadingViews.TryGetValue(towerHolder, out var view))
+            {
+                view.gameObject.SetActive(true);
+            }
+            else
+            {
+                view = Instantiate(towerHeadingPrefab, transform);
+                view.Init(towerHolder);
+                _towerHeadingViews[towerHolder] = view;
+            }
+        }
+        public void HideTowerHeading(TowerHolder towerHolder)
+        {
+            if (_towerHeadingViews.TryGetValue(towerHolder,out var view))
+            {
+                view.gameObject.SetActive(false);
+            }
+        }
+        public void UpdateTowerHeading(TowerHolder towerHolder)
+        {
+            if (_towerHeadingViews.TryGetValue(towerHolder,out var view))
+            {
+                view.UpdateValues();
+            }
         }
     }
 }
