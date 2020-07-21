@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356962b2cdc140ad9c90551cd0060c17, type: 3}
+  m_Name: Castle 1+
+  m_EditorClassIdentifier: 
+  name: Castle
+  cost: 0
+  startHealth: 5
+  maxHealth: 5
+  cantBuildZoneSize: 1
+  expandBuildZoneSize: 4
+  initialActivity: 0
+  visualPrefab: {fileID: 299720366630296500, guid: ba2962d12268cc34dbb6ca531071cb36,
+    type: 3}
+  description: 
+  activeActions:
+  - {fileID: 11400000, guid: de8f20694bb164a4e98bd44f75c9257e, type: 2}
+  - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}
+  endPlayerTurnAction: {fileID: 11400000, guid: 997b66ae127b188408ac92e8ffd672d9,
+    type: 2}
+  beginPlayerTurnAction: {fileID: 0}

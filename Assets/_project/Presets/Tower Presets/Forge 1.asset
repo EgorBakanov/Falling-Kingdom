@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356962b2cdc140ad9c90551cd0060c17, type: 3}
+  m_Name: Forge 1
+  m_EditorClassIdentifier: 
+  name: Forge
+  cost: 4
+  startHealth: 2
+  maxHealth: 2
+  cantBuildZoneSize: 0
+  expandBuildZoneSize: 2
+  initialActivity: 0
+  visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
+    type: 3}
+  description: 
+  activeActions:
+  - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}
+  endPlayerTurnAction: {fileID: 11400000, guid: 08db7da7aab41314e95171e5cee25019,
+    type: 2}
+  beginPlayerTurnAction: {fileID: 0}

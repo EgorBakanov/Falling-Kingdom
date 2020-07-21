@@ -26,7 +26,7 @@ MonoBehaviour:
   skyColor: {r: 0.08627451, g: 0.72156864, b: 0.9529412, a: 1}
   availableToBuildTowers:
   - {fileID: 11400000, guid: a8994bf79fb687c48a9c00aafe1f8ead, type: 2}
-  - {fileID: 11400000, guid: a8994bf79fb687c48a9c00aafe1f8ead, type: 2}
+  - {fileID: 11400000, guid: f328b7f451e7dea40b0eed99025d8b01, type: 2}
   - {fileID: 11400000, guid: d548f7b0b7fa70744919c20298b20ea5, type: 2}
   targetTower:
     preset: {fileID: 11400000, guid: d548f7b0b7fa70744919c20298b20ea5, type: 2}
