@@ -19,5 +19,13 @@ namespace Nara.MFGJS2020.Generators
         public GameObject VisualPrefab => visualPrefab;
         public string Description => description;
         public GameObject SpawnerVisualPrefab => spawnerVisualPrefab;
+        
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            if (string.IsNullOrEmpty(name))
+                name = base.name;
+        }
+#endif
     }
 }

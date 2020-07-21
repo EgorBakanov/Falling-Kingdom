@@ -34,12 +34,12 @@ namespace Nara.MFGJS2020.GridObjects
         }
 
         public int MaxHealth => Preset.MaxHealth;
-        public TowerPreset Preset { get; }
+        public TowerPreset Preset { get; private set; }
 
         public event Action OnDie;
-        
+
         private int _health;
-        
+
         public void OnTileHeightChanged(int newHeight, int oldHeight)
         {
             Health -= Mathf.Abs(oldHeight - newHeight);
@@ -56,6 +56,12 @@ namespace Nara.MFGJS2020.GridObjects
             Preset = preset;
             Health = Preset.StartHealth;
             IsActive = Preset.InitialActivity;
+        }
+
+        public void Replace(TowerPreset preset)
+        {
+            Preset = preset;
+            Health = MaxHealth;
         }
     }
 }

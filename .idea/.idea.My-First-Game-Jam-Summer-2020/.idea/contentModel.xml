@@ -78,7 +78,11 @@
             </e>
             <e p="TowerActions" t="Include">
               <e p="AddMoneyAction.cs" t="Include" />
+              <e p="ChangeTargetZoneHeightAction.cs" t="Include" />
+              <e p="ChangeTowerZoneHeightAction.cs" t="Include" />
               <e p="DestroyAction.cs" t="Include" />
+              <e p="RangeHealAction.cs" t="Include" />
+              <e p="ReplaceTowerAction.cs" t="Include" />
             </e>
             <e p="UI" t="Include">
               <e p="AlphaSwitchable.cs" t="Include" />

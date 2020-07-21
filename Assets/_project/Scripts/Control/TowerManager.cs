@@ -59,7 +59,7 @@ namespace Nara.MFGJS2020.Control
         {
             var tower = new Tower(preset, tile.Tile);
             var obj = Instantiate(TowerPrefab);
-            Instantiate(preset.VisualPrefab, obj.VisualRoot);
+            obj.SetVisual(preset.VisualPrefab);
             obj.Init(tower, tile);
             _currentTowers.Add(obj);
 
@@ -70,7 +70,7 @@ namespace Nara.MFGJS2020.Control
         {
             var tower = new Tower(preset, tile.Tile);
             var obj = Instantiate(TowerPrefab);
-            Instantiate(preset.VisualPrefab, obj.VisualRoot);
+            obj.SetVisual(preset.VisualPrefab);
             obj.Init(tower, tile);
             _currentTowers.Add(obj);
             _currentTargetTower = obj;
@@ -107,6 +107,18 @@ namespace Nara.MFGJS2020.Control
             var towerHolder = _currentTowers.Find((holder) => holder.GridObject == tower);
             if (towerHolder != null)
                 DestroyTower(towerHolder);
+        }
+
+        public void ReplaceTower(TowerHolder tower, TowerPreset preset)
+        {
+            tower.Replace(preset);
+        }
+
+        public void ReplaceTower(Tower tower, TowerPreset preset)
+        {
+            var towerHolder = _currentTowers.Find((holder) => holder.GridObject == tower);
+            if (towerHolder != null)
+                ReplaceTower(towerHolder, preset);
         }
 
         public void ActivateAll()

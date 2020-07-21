@@ -18,7 +18,12 @@ namespace Nara.MFGJS2020.Control
         [Range(.1f, 3f)] [SerializeField] private float timeOnSpawnerOpen = .4f;
         [Range(.1f, 3f)] [SerializeField] private float timeOnCalculateMove = .5f;
         [Range(.1f, 1f)] [SerializeField] private float timeToMove = .3f;
+        [Range(.1f, 1f)] [SerializeField] private float timeToAttack = .3f;
         [Range(0f, 2f)] [SerializeField] private float moveJumpPower = .5f;
+        [Range(0f, 2f)] [SerializeField] private float attackPower = 1f;
+        [Range(0f, 1f)] [SerializeField] private float attackElasticity = 1f;
+        [Range(0, 20)] [SerializeField] private int attackVibrato = 5;
+        [SerializeField] private Vector3 attackOffset = Vector3.up;
 
         private List<EnemyHolder> _currentEnemies;
         private List<EnemySpawnerHolder> _currentSpawners;
@@ -77,7 +82,7 @@ namespace Nara.MFGJS2020.Control
         {
             var spawner = new EnemySpawner(preset, tile.Tile);
             var obj = Instantiate(spawnerPrefab);
-            Instantiate(preset.SpawnerVisualPrefab, obj.VisualRoot);
+            obj.SetVisual(preset.VisualPrefab);
             obj.Init(spawner, tile);
             _currentSpawners.Add(obj);
             yield return wait;
@@ -101,7 +106,7 @@ namespace Nara.MFGJS2020.Control
         {
             var enemy = new Enemy(preset, tile.Tile);
             var obj = Instantiate(enemyPrefab);
-            Instantiate(preset.VisualPrefab, obj.VisualRoot);
+            obj.SetVisual(preset.VisualPrefab);
             obj.Init(enemy, tile);
             _currentEnemies.Add(obj);
             yield return wait;
@@ -168,7 +173,7 @@ namespace Nara.MFGJS2020.Control
                 
                 if (target.GridObject != null || target.Height - enemyHolder.TileHolder.Tile.Height > 1)
                 {
-                    target.Height--;
+                    yield return enemyHolder.Attack(targetHolder, attackOffset, timeToAttack,attackPower,attackElasticity,attackVibrato);
                 }
                 else
                 {

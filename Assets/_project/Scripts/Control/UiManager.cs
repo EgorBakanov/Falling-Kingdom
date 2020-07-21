@@ -28,18 +28,19 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private UiShaker updateMoney;
         [SerializeField] private Material notEnoughMoneyMaterial;
         [SerializeField] private UiSwitcher cancelButton;
-
-        private void Update()
-        {
-            if (Keyboard.current.aKey.isPressed)
-                StartCoroutine(ShowLoseMessage());
-            if (Keyboard.current.sKey.isPressed)
-                StartCoroutine(HideLoseMessage());
-        }
-
         public IEnumerator ShowWinMessage() => winPopup.SwitchOn();
         public IEnumerator HideWinMessage() => winPopup.SwitchOff();
         public IEnumerator ShowBeginTurnMessage() => beginTurnMessage.Play();
+        public IEnumerator ShowRemainingTurnsCounter() => turnCounter.SwitchOn();
+        public IEnumerator HideAllUi() => allInGameUi.SwitchOff();
+        public IEnumerator HidePlayerUi() => player.SwitchOff();
+        public IEnumerator ShowEndTurnMessage() => endTurnMessage.Play();
+        public IEnumerator ShowLoseMessage() => losePopup.SwitchOn();
+        public IEnumerator HideLoseMessage() => losePopup.SwitchOff();
+        public IEnumerator ShowTitle() => titleMessage.Play();
+        public IEnumerator HideTowerActionBar() => towerActionBar.SwitchOff();
+        public IEnumerator ShowCancelButton() => cancelButton.SwitchOn();
+        public IEnumerator HideCancelButton() => cancelButton.SwitchOff();
         public IEnumerator ShowPlayerUi()
         {
             moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
@@ -51,13 +52,6 @@ namespace Nara.MFGJS2020.Control
             void UpdateCounter() => turnCounterText.text = value.ToString();
             yield return turnCounterUpdater.Play(UpdateCounter);
         }
-        public IEnumerator ShowRemainingTurnsCounter() => turnCounter.SwitchOn();
-        public IEnumerator HideAllUi() => allInGameUi.SwitchOff();
-        public IEnumerator HidePlayerUi() => player.SwitchOff();
-        public IEnumerator ShowEndTurnMessage() => endTurnMessage.Play();
-        public IEnumerator ShowLoseMessage() => losePopup.SwitchOn();
-        public IEnumerator HideLoseMessage() => losePopup.SwitchOff();
-        public IEnumerator ShowTitle() => titleMessage.Play();
         public IEnumerator ShowNotEnoughMoney()
         {
             var startMaterial = moneyCounterText.fontSharedMaterial;
@@ -70,9 +64,6 @@ namespace Nara.MFGJS2020.Control
             moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
             yield return updateMoney.Play();
         }
-        public IEnumerator HideTowerActionBar() => towerActionBar.SwitchOff();
-        public IEnumerator ShowCancelButton() => cancelButton.SwitchOn();
-        public IEnumerator HideCancelButton() => cancelButton.SwitchOff();
         public IEnumerator ShowTowerActionBar()
         {
             var preset = GameManager.Instance.SelectionManager.SelectedTower?.Preset;

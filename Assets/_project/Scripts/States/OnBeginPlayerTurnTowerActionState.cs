@@ -21,7 +21,7 @@ namespace Nara.MFGJS2020.States
                 }
             }
             
-            GameManager.Instance.StateMachine.SetState(new BeginPlayerTurnState());
+            GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
         }
     }
 }

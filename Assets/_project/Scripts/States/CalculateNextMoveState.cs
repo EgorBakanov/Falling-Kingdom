@@ -11,7 +11,7 @@ namespace Nara.MFGJS2020.States
         {
             var target = GameManager.Instance.TowerManager.CurrentTargetTower;
             yield return GameManager.Instance.EnemyManager.CalculateNextMoves(target.GridObject);
-            GameManager.Instance.StateMachine.SetState(new OnBeginPlayerTurnTowerActionState());
+            GameManager.Instance.StateMachine.SetState(new BeginPlayerTurnState());
         }
     }
 }

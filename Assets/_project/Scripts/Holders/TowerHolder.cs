@@ -1,11 +1,12 @@
 ﻿using Nara.MFGJS2020.Control;
+using Nara.MFGJS2020.Generators;
 using Nara.MFGJS2020.GridObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Holders
 {
-    public class TowerHolder : GridObjectHolder<Tower>, IPointerClickHandler
+    public class TowerHolder : GridObjectHolder<Tower>, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         public override void Init(Tower obj, TileHolder tileHolder)
         {
@@ -36,6 +37,22 @@ namespace Nara.MFGJS2020.Holders
         {
             base.OnDestroy();
             GridObject.OnDie -= OnDie;
+        }
+
+        public void Replace(TowerPreset preset)
+        {
+            SetVisual(preset.VisualPrefab);
+            GridObject.Replace(preset);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

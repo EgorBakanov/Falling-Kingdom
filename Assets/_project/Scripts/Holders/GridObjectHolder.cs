@@ -7,6 +7,7 @@ namespace Nara.MFGJS2020.Holders
     public abstract class GridObjectHolder<T> : MonoBehaviour where T : IGridObject
     {
         [SerializeField] private Transform visualRoot;
+        private GameObject visual;
         private TileHolder _tileHolder;
         public virtual T GridObject { get; private set; }
 
@@ -21,8 +22,6 @@ namespace Nara.MFGJS2020.Holders
                 SubscribeOnTile(_tileHolder.Tile);
             }
         }
-
-        public Transform VisualRoot => visualRoot;
 
         public virtual void Init(T obj, TileHolder tileHolder)
         {
@@ -61,6 +60,16 @@ namespace Nara.MFGJS2020.Holders
         protected virtual void OnDestroy()
         {
             UnsubscribeOnTile(TileHolder.Tile);
+        }
+
+        public void SetVisual(GameObject visual)
+        {
+            if (this.visual != null)
+            {
+                Destroy(this.visual);
+            }
+
+            this.visual = Instantiate(visual, visualRoot);
         }
     }
 }

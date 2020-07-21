@@ -32,5 +32,13 @@ namespace Nara.MFGJS2020.Generators
         public ActionBase[] ActiveActions => activeActions;
         public NonTargetAction BeginPlayerTurnAction => beginPlayerTurnAction;
         public NonTargetAction EndPlayerTurnAction => endPlayerTurnAction;
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            if (string.IsNullOrEmpty(name))
+                name = base.name;
+        }
+#endif
     }
 }

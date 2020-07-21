@@ -13,7 +13,7 @@ namespace Nara.MFGJS2020.Core
             public Tile From;
         }
 
-        public static IEnumerable<Tile> SquaredZone(Tile from, int size)
+        public static HashSet<Tile> SquaredZone(Tile from, int size)
         {
             var result = new HashSet<Tile>();
 

@@ -9,8 +9,10 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator Start()
         {
             var actionId = GameManager.Instance.SelectionManager.SelectedTowerActionId;
-            var action = GameManager.Instance.SelectionManager.SelectedTower.ActiveActions[actionId];
+            var tower = GameManager.Instance.SelectionManager.SelectedTower;
+            var action = tower.ActiveActions[actionId];
             var resultMoney = GameManager.Instance.CurrentMoney - action.Cost;
+            tower.IsActive = false;
             yield return GameManager.Instance.SetMoney(resultMoney);
             yield return action.Execute();
             GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());

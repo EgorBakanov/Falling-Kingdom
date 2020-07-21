@@ -13,8 +13,8 @@ namespace Nara.MFGJS2020.States
         {
             GameManager.Instance.SelectionManager.DeselectAll();
             GameManager.Instance.SelectionManager.WaitForPlayerSelection = false;
-            yield return GameManager.Instance.UiManager.HidePlayerUi();
             GameManager.Instance.StateMachine.SetState(new OnEndPlayerTurnTowerActionState());
+            yield break;
         }
         
         public static IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)

@@ -28,7 +28,7 @@ namespace Nara.MFGJS2020.Control
         public bool WaitForPlayerSelection { get; set; } = false;
 
         public TileSelectionType TileSelection { get; set; } = TileSelectionType.None;
-
+        
         public void DeselectAll()
         {
             SelectedTile = null;
@@ -44,6 +44,10 @@ namespace Nara.MFGJS2020.Control
 
         public void AddToEnemyTarget(GameObject go) => outlineLayers[enemyTargetId].Add(go);
         public void RemoveFromEnemyTarget(GameObject go) => outlineLayers[enemyTargetId].Remove(go);
+        public void AddToGoodTarget(GameObject go) => outlineLayers[goodTargetId].Add(go);
+        public void RemoveFromGoodTarget(GameObject go) => outlineLayers[goodTargetId].Remove(go);
+        public void AddToBadTarget(GameObject go) => outlineLayers[badTargetId].Add(go);
+        public void RemoveFromBadTarget(GameObject go) => outlineLayers[badTargetId].Remove(go);
 
         public void AddTile(TileHolder tile)
         {
