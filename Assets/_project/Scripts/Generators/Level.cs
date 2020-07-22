@@ -56,7 +56,7 @@ namespace Nara.MFGJS2020.Generators
         [Range(1, 30)] [SerializeField] private int turnsToSurvive = 1;
         [Range(1, 50)] [SerializeField] private int x = 2;
         [Range(1, 50)] [SerializeField] private int y = 2;
-        [Range(1, 6)] [SerializeField] private int maxHeight = 4;
+        [Range(1, 6)] [SerializeField] private int maxHeight = 5;
 
         [SerializeField] private Int2D initialHeights;
         [SerializeField] private LevelColorScheme levelColorScheme;
@@ -105,7 +105,7 @@ namespace Nara.MFGJS2020.Generators
             var ty = Mathf.Clamp(targetTower.Position.y, 0, y - 1);
 
             targetTower.Position = new Vector2Int(tx, ty);
-            if (initialHeights[tx, ty] == 0)
+            if (initialHeights[tx, ty] == 0 && targetTower.Preset != null)
             {
                 Debug.Log($"Target tower <{targetTower.Preset.name}> will be destroyed on level start!");
             }
@@ -117,7 +117,7 @@ namespace Nara.MFGJS2020.Generators
                 var _y = Mathf.Clamp(tp.Position.y, 0, y - 1);
 
                 tp.Position = new Vector2Int(_x, _y);
-                if (initialHeights[_x, _y] == 0)
+                if (initialHeights[_x, _y] == 0&& tp.Preset != null)
                 {
                     Debug.Log($"Tower <{tp.Preset.name}> will be destroyed on level start!");
                 }
