@@ -54,6 +54,9 @@ namespace Nara.MFGJS2020.Holders
             if(Tile.Height == 0)
                 return;
             
+            // for faster prototyping
+            Debug.Log(Tile.Grid.IndexToCoordinate(Tile.Index));
+            
             GameManager.Instance.StateMachine.OnTileClick(Tile,eventData);
         }
 
