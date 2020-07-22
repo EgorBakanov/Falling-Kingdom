@@ -16,7 +16,7 @@ MonoBehaviour:
   cost: 3
   startHealth: 1
   maxHealth: 1
-  cantBuildZoneSize: 0
+  cantBuildZoneSize: 1
   expandBuildZoneSize: 2
   initialActivity: 0
   visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
