@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da367d1ec04d88442ab9fc8996d44b91, type: 3}
+  m_Name: mystery5
+  m_EditorClassIdentifier: 
+  skyColor: {r: 0.98039216, g: 0.73333335, b: 0.6627451, a: 1}
+  baseTileMaterial: {fileID: 2100000, guid: 29878d47b2568a345a0dca5773ed1168, type: 2}
+  tileColors:
+  - {r: 0.0627451, g: 0.14509805, b: 0.25882354, a: 1}
+  - {r: 0.007843138, g: 0.03137255, b: 0.4745098, a: 1}
+  - {r: 0.20392157, g: 0.16862746, b: 0.7137255, a: 1}
+  - {r: 0.44313726, g: 0.44313726, b: 0.75686276, a: 1}
+  - {r: 0.6, g: 0.6392157, b: 1, a: 1}

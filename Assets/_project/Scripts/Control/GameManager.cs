@@ -47,7 +47,7 @@ namespace Nara.MFGJS2020.Control
         public int CurrentMoney { get; private set; }
         public int CurrentTurn { get; set; }
         
-        private int _currentLevel = 0;
+        private int _currentLevel = -1;
         private InputManager _inputManager;
 
         public void NextLevel() => _currentLevel++;

@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Level Manager
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 11400000, guid: f4a5212f963bdbd40bd54df64de9bc39, type: 2}
-  - {fileID: 11400000, guid: f4a5212f963bdbd40bd54df64de9bc39, type: 2}
-  - {fileID: 11400000, guid: f4a5212f963bdbd40bd54df64de9bc39, type: 2}
+  - {fileID: 11400000, guid: f2f0312880563c24786c81622960f7aa, type: 2}

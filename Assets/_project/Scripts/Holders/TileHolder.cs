@@ -13,9 +13,9 @@ namespace Nara.MFGJS2020.Holders
         public Tile Tile { get; private set; }
         public GridHolder GridHolder { get; private set; }
 
-        private TileColorScheme _colorScheme;
+        private LevelColorScheme _colorScheme;
 
-        public void Init(Tile tile, GridHolder gridHolder, TileColorScheme colorScheme)
+        public void Init(Tile tile, GridHolder gridHolder, LevelColorScheme colorScheme)
         {
             Tile = tile;
             GridHolder = gridHolder;

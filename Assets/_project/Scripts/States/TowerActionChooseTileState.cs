@@ -12,7 +12,7 @@ namespace Nara.MFGJS2020.States
             GameManager.Instance.SelectionManager.TileSelection = SelectionManager.TileSelectionType.TowerAction;
             yield return GameManager.Instance.UiManager.ShowCancelButton();
         }
-        
+
         public override IEnumerator OnBuyTower(int id)
         {
             yield return GameManager.Instance.UiManager.HideCancelButton();
@@ -47,7 +47,7 @@ namespace Nara.MFGJS2020.States
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             var actionId = GameManager.Instance.SelectionManager.SelectedTowerActionId;
             var action = GameManager.Instance.SelectionManager.SelectedTower.ActiveActions[actionId] as TargetAction;
-            if (action == null || !action.CorrectTarget(tile))
+            if (action == null || !action.CorrectTarget(tile) || eventData.button != PointerEventData.InputButton.Left)
             {
                 yield return StateUtility.ReturnToWait();
             }

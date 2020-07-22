@@ -3,6 +3,7 @@ using DG.Tweening;
 using Nara.MFGJS2020.Utility;
 using Grid = Nara.MFGJS2020.Core.Grid;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nara.MFGJS2020.Generators
 {
@@ -52,26 +53,25 @@ namespace Nara.MFGJS2020.Generators
         }
 
         [SerializeField] private int initialMoney = 0;
-        [SerializeField] private int turnsToSurvive = 1;
-        [Range(1, 20)] [SerializeField] private int x = 2;
-        [Range(1, 20)] [SerializeField] private int y = 2;
+        [Range(1, 30)] [SerializeField] private int turnsToSurvive = 1;
+        [Range(1, 50)] [SerializeField] private int x = 2;
+        [Range(1, 50)] [SerializeField] private int y = 2;
         [Range(1, 6)] [SerializeField] private int maxHeight = 4;
 
         [SerializeField] private Int2D initialHeights;
-        [SerializeField] private TileColorScheme tileColorScheme;
-        [SerializeField] private Color skyColor = Color.white;
+        [SerializeField] private LevelColorScheme levelColorScheme;
+        
         [SerializeField] private TowerPreset[] availableToBuildTowers;
         [SerializeField] private TowerInPosition targetTower;
         [SerializeField] private TowerInPosition[] otherInitialTowers;
         [SerializeField] private EnemySpawnerScheduleElement[] enemySpawnerSchedule;
 
-        public TileColorScheme TileColorScheme => tileColorScheme;
+        public LevelColorScheme LevelColorScheme => levelColorScheme;
         public TowerPreset[] AvailableToBuildTowers => availableToBuildTowers;
         public TowerInPosition TargetTower => targetTower;
         public TowerInPosition[] OtherInitialTowers => otherInitialTowers;
         public int InitialMoney => initialMoney;
         public int TurnsToSurvive => turnsToSurvive;
-        public Color SkyColor => skyColor;
         public EnemySpawnerScheduleElement[] EnemySpawnerSchedule => enemySpawnerSchedule;
 
 #if UNITY_EDITOR
@@ -97,8 +97,8 @@ namespace Nara.MFGJS2020.Generators
                 }
             }
 
-            if (tileColorScheme != null)
-                if (tileColorScheme.Size != maxHeight)
+            if (levelColorScheme != null)
+                if (levelColorScheme.Size != maxHeight)
                     Debug.Log("Tile Color Scheme size is not Equal to maximum tile height!");
 
             var tx = Mathf.Clamp(targetTower.Position.x, 0, x - 1);

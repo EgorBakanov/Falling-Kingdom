@@ -15,8 +15,8 @@ namespace Nara.MFGJS2020.States
             var level = GameManager.Instance.GetCurrentLevel();
             var grid = level.GenerateGrid();
 
-            yield return GameManager.Instance.CameraController.SetBackground(level.SkyColor);
-            yield return GameManager.Instance.GridHolder.Init(grid, level.TileColorScheme);
+            yield return GameManager.Instance.CameraController.SetBackground(level.LevelColorScheme.SkyColor);
+            yield return GameManager.Instance.GridHolder.Init(grid, level.LevelColorScheme);
             yield return GameManager.Instance.TowerManager.CreateInitialTowers();
 
             GameManager.Instance.InitMoney(level.InitialMoney);

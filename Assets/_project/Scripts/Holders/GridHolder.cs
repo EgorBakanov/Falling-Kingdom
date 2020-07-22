@@ -14,7 +14,7 @@ namespace Nara.MFGJS2020.Holders
         public Grid Grid { get; private set; }
         public TileHolder[] TileHolders { get; private set; }
 
-        public IEnumerator Init(Grid grid, TileColorScheme tileColorScheme)
+        public IEnumerator Init(Grid grid, LevelColorScheme levelColorScheme)
         {
             if (Grid != null)
             {
@@ -35,7 +35,7 @@ namespace Nara.MFGJS2020.Holders
                 {
                     TileHolders[Grid.CoordinateToIndex(i, j)] = Instantiate<TileHolder>(tilePrefab, transform);
                     TileHolders[Grid.CoordinateToIndex(i, j)].transform.position = new Vector3(i, 0, j) * spacing;
-                    TileHolders[Grid.CoordinateToIndex(i, j)].Init(Grid[i, j], this, tileColorScheme);
+                    TileHolders[Grid.CoordinateToIndex(i, j)].Init(Grid[i, j], this, levelColorScheme);
                 }
 
                 yield return wait;

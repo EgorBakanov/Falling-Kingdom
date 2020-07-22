@@ -82,7 +82,7 @@ namespace Nara.MFGJS2020.Control
         {
             var spawner = new EnemySpawner(preset, tile.Tile);
             var obj = Instantiate(spawnerPrefab);
-            obj.SetVisual(preset.VisualPrefab);
+            obj.SetVisual(preset.SpawnerVisualPrefab);
             obj.Init(spawner, tile);
             _currentSpawners.Add(obj);
             yield return wait;

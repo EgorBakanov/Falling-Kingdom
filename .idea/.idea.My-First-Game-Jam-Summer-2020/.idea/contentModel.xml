@@ -34,7 +34,7 @@
             <e p="Generators" t="Include">
               <e p="EnemyPreset.cs" t="Include" />
               <e p="Level.cs" t="Include" />
-              <e p="TileColorScheme.cs" t="Include" />
+              <e p="LevelColorScheme.cs" t="Include" />
               <e p="TowerPreset.cs" t="Include" />
             </e>
             <e p="GridObjects" t="Include">
