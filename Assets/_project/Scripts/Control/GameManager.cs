@@ -6,6 +6,7 @@ using Nara.MFGJS2020.Holders;
 using Nara.MFGJS2020.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 namespace Nara.MFGJS2020.Control
 {
@@ -79,6 +80,8 @@ namespace Nara.MFGJS2020.Control
             _inputManager.Default.Cancel.performed += HandleCancel;
             _inputManager.Default.EndTurn.performed += HandleEndTurn;
             _inputManager.Default.Enable();
+
+            CameraController.FreeLookAction = _inputManager.Default.Camera;
         }
 
         private void OnDisable()
@@ -87,6 +90,8 @@ namespace Nara.MFGJS2020.Control
             _inputManager.Default.Cancel.performed -= HandleCancel;
             _inputManager.Default.EndTurn.performed -= HandleEndTurn;
             _inputManager.Default.Disable();
+
+            CameraController.FreeLookAction = null;
         }
 
         private void HandleSubmit(InputAction.CallbackContext obj) => stateMachine.OnSubmit();

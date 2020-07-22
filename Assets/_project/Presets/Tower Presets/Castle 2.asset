@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Palace
   cost: 0
-  startHealth: 7
-  maxHealth: 7
+  startHealth: 5
+  maxHealth: 5
   cantBuildZoneSize: 1
   expandBuildZoneSize: 6
   initialActivity: 0

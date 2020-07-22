@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133596102fc942678d1ef9e943b76a12, type: 3}
-  m_Name: test
+  m_Name: default-enemy
   m_EditorClassIdentifier: 
+  name: default
   cantBuildZoneSize: 0
   initialActivity: 0
   visualPrefab: {fileID: 8901094734648353985, guid: e1d2f76b42f730b4ea16457624c6db67,

@@ -100,6 +100,7 @@
               <e p="UiTemporalSwitcher.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
+              <e p="FilterByMouseRightProcessor.cs" t="Include" />
               <e p="Int2D.cs" t="Include" />
               <e p="PriorityQueue" t="Include">
                 <e p="GenericPriorityQueue.cs" t="Include" />

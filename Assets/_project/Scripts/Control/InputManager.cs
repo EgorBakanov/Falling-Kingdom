@@ -43,6 +43,14 @@ namespace Nara.MFGJS2020.Control
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""1167cb3a-9f6c-4617-b3bc-ff84259c5449"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -100,6 +108,127 @@ namespace Nara.MFGJS2020.Control
                     ""action"": ""EndTurn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""wasd"",
+                    ""id"": ""382ddf5a-3864-4c2b-bac9-ecb09c043692"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": ""InvertVector2(invertY=false)"",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""075b6bc0-8b73-4b37-8962-2e0d05a42548"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7f86d87a-327d-47dd-a7c4-799e6468c86b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5555f643-8022-489c-a69d-eaeec7bf8d2e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""38b4c892-1082-4be2-a50f-31cee178f13c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5764536f-1689-42d3-a8e2-e439cb7b5f73"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": ""FilterByMouseRight,InvertVector2(invertX=false)"",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""arrows"",
+                    ""id"": ""b989abe9-d381-4302-b784-30c10c49ebb5"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": ""InvertVector2(invertY=false)"",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8b1b3875-18c9-4e92-a820-98a1978aedba"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""79b3f7f6-637e-4831-9d0b-0f1d7fe57bf4"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c7cbc090-316f-49c5-a654-ab73c09b6e55"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2099234d-7fe5-4634-8535-f4ffa1004f34"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -128,6 +257,7 @@ namespace Nara.MFGJS2020.Control
             m_Default_Submit = m_Default.FindAction("Submit", throwIfNotFound: true);
             m_Default_Cancel = m_Default.FindAction("Cancel", throwIfNotFound: true);
             m_Default_EndTurn = m_Default.FindAction("EndTurn", throwIfNotFound: true);
+            m_Default_Camera = m_Default.FindAction("Camera", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -180,6 +310,7 @@ namespace Nara.MFGJS2020.Control
         private readonly InputAction m_Default_Submit;
         private readonly InputAction m_Default_Cancel;
         private readonly InputAction m_Default_EndTurn;
+        private readonly InputAction m_Default_Camera;
         public struct DefaultActions
         {
             private @InputManager m_Wrapper;
@@ -187,6 +318,7 @@ namespace Nara.MFGJS2020.Control
             public InputAction @Submit => m_Wrapper.m_Default_Submit;
             public InputAction @Cancel => m_Wrapper.m_Default_Cancel;
             public InputAction @EndTurn => m_Wrapper.m_Default_EndTurn;
+            public InputAction @Camera => m_Wrapper.m_Default_Camera;
             public InputActionMap Get() { return m_Wrapper.m_Default; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -205,6 +337,9 @@ namespace Nara.MFGJS2020.Control
                     @EndTurn.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnEndTurn;
                     @EndTurn.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnEndTurn;
                     @EndTurn.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnEndTurn;
+                    @Camera.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCamera;
+                    @Camera.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCamera;
+                    @Camera.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCamera;
                 }
                 m_Wrapper.m_DefaultActionsCallbackInterface = instance;
                 if (instance != null)
@@ -218,6 +353,9 @@ namespace Nara.MFGJS2020.Control
                     @EndTurn.started += instance.OnEndTurn;
                     @EndTurn.performed += instance.OnEndTurn;
                     @EndTurn.canceled += instance.OnEndTurn;
+                    @Camera.started += instance.OnCamera;
+                    @Camera.performed += instance.OnCamera;
+                    @Camera.canceled += instance.OnCamera;
                 }
             }
         }
@@ -236,6 +374,7 @@ namespace Nara.MFGJS2020.Control
             void OnSubmit(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
             void OnEndTurn(InputAction.CallbackContext context);
+            void OnCamera(InputAction.CallbackContext context);
         }
     }
 }

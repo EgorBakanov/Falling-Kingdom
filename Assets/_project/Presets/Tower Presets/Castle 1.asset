@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Castle
   cost: 0
-  startHealth: 5
-  maxHealth: 5
+  startHealth: 3
+  maxHealth: 3
   cantBuildZoneSize: 1
   expandBuildZoneSize: 4
   initialActivity: 0

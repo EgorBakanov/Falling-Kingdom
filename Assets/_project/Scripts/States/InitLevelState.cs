@@ -17,6 +17,8 @@ namespace Nara.MFGJS2020.States
 
             yield return GameManager.Instance.CameraController.SetBackground(level.LevelColorScheme.SkyColor);
             yield return GameManager.Instance.GridHolder.Init(grid, level.LevelColorScheme);
+            GameManager.Instance.CameraController.UpdateFreeLook();
+            GameManager.Instance.CameraController.IsFreeLook = true;
             yield return GameManager.Instance.TowerManager.CreateInitialTowers();
 
             GameManager.Instance.InitMoney(level.InitialMoney);

@@ -11,6 +11,11 @@ namespace Nara.MFGJS2020.Holders
         [SerializeField] private TileHolder tilePrefab;
         [Range(.05f, 3f)] [SerializeField] private float timeOnRowCreate = .1f;
 
+        [SerializeField] private Transform corner00;
+        [SerializeField] private Transform corner01;
+        [SerializeField] private Transform corner10;
+        [SerializeField] private Transform corner11;
+
         public Grid Grid { get; private set; }
         public TileHolder[] TileHolders { get; private set; }
 
@@ -54,6 +59,20 @@ namespace Nara.MFGJS2020.Holders
 
             TileHolders = null;
             Grid = null;
+        }
+
+        public float UpdateCorners()
+        {
+            var index00 = Grid.CoordinateToIndex(0, 0);
+            var index01 = Grid.CoordinateToIndex(0, Grid.SizeY - 1);
+            var index10 = Grid.CoordinateToIndex(Grid.SizeX - 1, 0);
+            var index11 = Grid.CoordinateToIndex(Grid.SizeX - 1, Grid.SizeY - 1);
+
+            corner00.position = TileHolders[index00].transform.position;
+            corner01.position = TileHolders[index01].transform.position;
+            corner10.position = TileHolders[index10].transform.position;
+            corner11.position = TileHolders[index11].transform.position;
+            return Vector3.Distance(corner00.position, corner11.position);
         }
     }
 }

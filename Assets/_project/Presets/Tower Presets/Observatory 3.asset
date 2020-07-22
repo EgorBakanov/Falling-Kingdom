@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: University
   cost: 5
-  startHealth: 4
-  maxHealth: 4
+  startHealth: 3
+  maxHealth: 3
   cantBuildZoneSize: 0
   expandBuildZoneSize: 4
   initialActivity: 0
