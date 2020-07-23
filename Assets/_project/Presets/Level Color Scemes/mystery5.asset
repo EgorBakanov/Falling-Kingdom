@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da367d1ec04d88442ab9fc8996d44b91, type: 3}
   m_Name: mystery5
   m_EditorClassIdentifier: 
-  skyColor: {r: 0.98039216, g: 0.73333335, b: 0.6627451, a: 1}
+  skyColor: {r: 0.9811321, g: 0.64637476, b: 0.5507298, a: 1}
   baseTileMaterial: {fileID: 2100000, guid: 29878d47b2568a345a0dca5773ed1168, type: 2}
   tileColors:
   - {r: 0.0627451, g: 0.14509805, b: 0.25882354, a: 1}
