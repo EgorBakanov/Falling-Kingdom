@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Upgrade
   cost: 8
   animationTime: 0.2
-  preset: {fileID: 11400000, guid: a005c751f11e494429bf367be0bd257d, type: 2}
+  preset: {fileID: 11400000, guid: c932e721d59c0a04d84f091d5a8a998f, type: 2}

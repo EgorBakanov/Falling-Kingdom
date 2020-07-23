@@ -25,8 +25,8 @@ MonoBehaviour:
   levelColorScheme: {fileID: 11400000, guid: 5cc8f4ca43ea8cc4b9037f81c730a880, type: 2}
   availableToBuildTowers:
   - {fileID: 11400000, guid: 918f1e14044b18e4d81abd0b904f8807, type: 2}
-  - {fileID: 11400000, guid: 251e7f75d27b6e840a9dd683f286bb2d, type: 2}
   - {fileID: 11400000, guid: 3c4ec84174a53c44f8799a5b42807ba3, type: 2}
+  - {fileID: 11400000, guid: 251e7f75d27b6e840a9dd683f286bb2d, type: 2}
   targetTower:
     preset: {fileID: 11400000, guid: 85d59aae92fc6554884ba18720b3f57d, type: 2}
     position: {x: 4, y: 2}
