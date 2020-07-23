@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mountains 1
   m_EditorClassIdentifier: 
   name: Build Mountains
-  cost: 7
+  cost: 5
   animationTime: 0.1
   size: 1
   amount: 1

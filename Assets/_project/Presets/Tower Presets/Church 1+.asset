@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Church 1+
   m_EditorClassIdentifier: 
   name: Church
-  cost: 5
+  cost: 4
   startHealth: 2
   maxHealth: 2
   cantBuildZoneSize: 0

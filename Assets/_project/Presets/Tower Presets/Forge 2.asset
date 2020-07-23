@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forge 2
   m_EditorClassIdentifier: 
   name: Blacksmith
-  cost: 4
+  cost: 6
   startHealth: 3
   maxHealth: 3
   cantBuildZoneSize: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     type: 3}
   description: 
   activeActions:
+  - {fileID: 11400000, guid: 009907fb070d9024ab6a3d035d63f7de, type: 2}
   - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}
-  endPlayerTurnAction: {fileID: 11400000, guid: 009907fb070d9024ab6a3d035d63f7de,
-    type: 2}
+  endPlayerTurnAction: {fileID: 0}
   beginPlayerTurnAction: {fileID: 0}

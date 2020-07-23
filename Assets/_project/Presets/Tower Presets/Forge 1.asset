@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forge 1
   m_EditorClassIdentifier: 
   name: Forge
-  cost: 4
+  cost: 6
   startHealth: 2
   maxHealth: 2
   cantBuildZoneSize: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     type: 3}
   description: 
   activeActions:
+  - {fileID: 11400000, guid: 08db7da7aab41314e95171e5cee25019, type: 2}
   - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}
-  endPlayerTurnAction: {fileID: 11400000, guid: 08db7da7aab41314e95171e5cee25019,
-    type: 2}
+  endPlayerTurnAction: {fileID: 0}
   beginPlayerTurnAction: {fileID: 0}

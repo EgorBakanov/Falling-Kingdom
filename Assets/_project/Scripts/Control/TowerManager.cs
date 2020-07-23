@@ -128,5 +128,51 @@ namespace Nara.MFGJS2020.Control
                 tower.GridObject.IsActive = true;
             }
         }
+
+        public IEnumerator PerformBeginTurnActions()
+        {
+            int n = _currentTowers.Count;
+
+            for (var i = 0; i < n; i++)
+            {
+                var towerHolder = _currentTowers[i];
+                var tower = towerHolder.GridObject;
+                var action = tower.BeginPlayerTurnAction;
+                if (action != null)
+                {
+                    GameManager.Instance.SelectionManager.SelectedTower = tower;
+                    yield return action.Execute();
+                }
+
+                // workaround if one tower killed another
+                if (n == _currentTowers.Count) continue;
+                n = _currentTowers.Count;
+                if (towerHolder != _currentTowers[i])
+                    i--;
+            }
+        }
+        
+        public IEnumerator PerformEndTurnActions()
+        {
+            int n = _currentTowers.Count;
+
+            for (var i = 0; i < n; i++)
+            {
+                var towerHolder = _currentTowers[i];
+                var tower = towerHolder.GridObject;
+                var action = tower.EndPlayerTurnAction;
+                if (action != null)
+                {
+                    GameManager.Instance.SelectionManager.SelectedTower = tower;
+                    yield return action.Execute();
+                }
+
+                // workaround if one tower killed another
+                if (n == _currentTowers.Count) continue;
+                n = _currentTowers.Count;
+                if (towerHolder != _currentTowers[i])
+                    i--;
+            }
+        }
     }
 }
