@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.Generators;
 using Nara.MFGJS2020.GridObjects;
@@ -135,8 +136,7 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator CalculateNextMoves(IGridObject target)
         {
             var targetTile = target.Tile;
-            var wait = new WaitForSeconds(timeOnCalculateMove);
-            yield return wait;
+            
             foreach (var enemyHolder in CurrentEnemies)
             {
                 var enemy = enemyHolder.GridObject;
@@ -144,13 +144,12 @@ namespace Nara.MFGJS2020.Control
                 var path = GridUtility.FindPath(currentTile, targetTile);
 
                 enemy.MoveIntention = path?.First();
-
                 enemy.MoveIntention = enemy.MoveIntention ?? GridUtility.FindFallbackMove(currentTile);
 
                 if (enemy.MoveIntention == null) continue;
                 var targetHolder = enemyHolder.TileHolder.GridHolder.TileHolders[enemy.MoveIntention.Index];
                 GameManager.Instance.SelectionManager.AddToEnemyTarget(targetHolder.gameObject);
-                yield return wait;
+                yield return enemyHolder.TurnTo(targetHolder, timeOnCalculateMove);
             }
             GameManager.Instance.SelectionManager.DeselectAll();
         }

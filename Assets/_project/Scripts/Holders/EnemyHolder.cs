@@ -52,5 +52,10 @@ namespace Nara.MFGJS2020.Holders
             var target = TileHolder.GridHolder.TileHolders[GridObject.MoveIntention.Index];
             GameManager.Instance.SelectionManager.RemoveFromEnemyTarget(target.gameObject);
         }
+
+        public IEnumerator TurnTo(TileHolder targetHolder, float duration)
+        {
+            yield return visualRoot.DOLookAt(targetHolder.transform.position,duration,AxisConstraint.Y).WaitForCompletion();
+        }
     }
 }

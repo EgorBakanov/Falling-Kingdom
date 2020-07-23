@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Far Heal
   cost: 8
-  animationTime: 0.1
+  animationTime: 0.15
   amount: 1
   range: 4

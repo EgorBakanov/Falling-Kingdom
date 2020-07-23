@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Heal
   cost: 5
-  animationTime: 0.1
+  animationTime: 0.15
   amount: 1
   range: 2

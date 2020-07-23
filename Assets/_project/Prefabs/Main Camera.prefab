@@ -151,9 +151,11 @@ MonoBehaviour:
   camera: {fileID: 2857645711846693438}
   colorChangeTime: 2
   freeLook: {fileID: 0}
+  defaultVCamera: {fileID: 0}
   offset: 2
   topRigMultiplier: 0.3
   middleRigMultiplier: 1.05
+  freeLookSpeed: 1
 --- !u!114 &8654188183555868090
 MonoBehaviour:
   m_ObjectHideFlags: 0

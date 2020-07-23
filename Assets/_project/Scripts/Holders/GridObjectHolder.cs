@@ -6,7 +6,7 @@ namespace Nara.MFGJS2020.Holders
 {
     public abstract class GridObjectHolder<T> : MonoBehaviour where T : IGridObject
     {
-        [SerializeField] private Transform visualRoot;
+        [SerializeField] protected Transform visualRoot;
         private GameObject visual;
         private TileHolder _tileHolder;
         public virtual T GridObject { get; private set; }
