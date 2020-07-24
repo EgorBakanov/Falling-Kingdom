@@ -55,11 +55,13 @@ namespace Nara.MFGJS2020.Holders
         public void OnPointerEnter(PointerEventData eventData)
         {
             GameManager.Instance.UiManager.ShowTowerHeading(this);
+            GameManager.Instance.UiManager.ShowDescriptor(GridObject.Preset.Name,UiManager.DescriptorTag.Tower,GridObject.Preset.Description);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             GameManager.Instance.UiManager.HideTowerHeading(this);
+            GameManager.Instance.UiManager.HideDescriptor();
         }
     }
 }

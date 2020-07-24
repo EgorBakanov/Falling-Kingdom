@@ -17,6 +17,7 @@ MonoBehaviour:
   initialActivity: 0
   visualPrefab: {fileID: 8901094734648353985, guid: e1d2f76b42f730b4ea16457624c6db67,
     type: 3}
+  spawnerName: default spawner
   spawnerVisualPrefab: {fileID: 6348122314209067083, guid: 7422f7f5309dc1d46917d7d30104bab6,
     type: 3}
   description: 

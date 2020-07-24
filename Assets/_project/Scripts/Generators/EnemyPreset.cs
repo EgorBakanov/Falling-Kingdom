@@ -10,10 +10,12 @@ namespace Nara.MFGJS2020.Generators
         [Range(0, 10)] [SerializeField] private int cantBuildZoneSize = 0;
         [SerializeField] private bool initialActivity = false;
         [SerializeField] private GameObject visualPrefab;
+        [SerializeField] private string spawnerName;
         [SerializeField] private GameObject spawnerVisualPrefab;
         [TextArea][SerializeField] private string description;
 
         public string Name => name;
+        public string SpawnerName => spawnerName;
         public int CantBuildZoneSize => cantBuildZoneSize;
         public bool InitialActivity => initialActivity;
         public GameObject VisualPrefab => visualPrefab;

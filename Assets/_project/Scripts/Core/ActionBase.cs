@@ -8,12 +8,13 @@ namespace Nara.MFGJS2020.Core
         [SerializeField] private new string name;
         [SerializeField] private int cost;
         [Range(0, 3)] [SerializeField] protected float animationTime = .2f;
+        [TextArea][SerializeField] private string description;
         
         public string Name => name;
         public int Cost => cost;
+        public string Description => description;
         public abstract IEnumerator Execute();
         public abstract bool IsTarget { get; }
-        
 #if UNITY_EDITOR
         private void OnValidate()
         {

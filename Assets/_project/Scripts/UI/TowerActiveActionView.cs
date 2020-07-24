@@ -23,5 +23,11 @@ namespace Nara.MFGJS2020.UI
             if(eventData.button == PointerEventData.InputButton.Left)
                 GameManager.Instance.StateMachine.OnTowerActionButtonClick(Id);
         }
+
+        protected override UiManager.DescriptorTag GetTags()
+        {
+            var tags = (Action.IsTarget) ? UiManager.DescriptorTag.Target : UiManager.DescriptorTag.None;
+            return base.GetTags() | UiManager.DescriptorTag.Active | UiManager.DescriptorTag.Cost | tags;
+        }
     }
 }

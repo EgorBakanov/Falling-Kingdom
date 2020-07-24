@@ -7,8 +7,8 @@ namespace Nara.MFGJS2020.UI
     public class TowerActionBarView : MonoBehaviour
     {
         [SerializeField] private TowerActiveActionView activeViewPrefab;
-        [SerializeField] private TowerActionView beginViewPrefab;
-        [SerializeField] private TowerActionView endViewPrefab;
+        [SerializeField] private TowerPassiveActionView beginViewPrefab;
+        [SerializeField] private TowerPassiveActionView endViewPrefab;
         [SerializeField] private RectTransform activeActionsContainer;
         [SerializeField] private RectTransform passiveActionsContainer;
 

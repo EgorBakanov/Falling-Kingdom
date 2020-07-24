@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.UI
 {
-    public class TowerActionView : MonoBehaviour
+    public abstract class TowerActionView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private new TMP_Text name;
         
@@ -19,6 +19,21 @@ namespace Nara.MFGJS2020.UI
             Id = id;
 
             name.text = action.Name;
+        }
+
+        protected virtual UiManager.DescriptorTag GetTags()
+        {
+            return UiManager.DescriptorTag.Action;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            GameManager.Instance.UiManager.ShowDescriptor(Action.Name,GetTags(),Action.Description,Action.Cost);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            GameManager.Instance.UiManager.HideDescriptor();
         }
     }
 }

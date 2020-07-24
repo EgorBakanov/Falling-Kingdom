@@ -12,6 +12,19 @@ namespace Nara.MFGJS2020.Control
 {
     public class UiManager : MonoBehaviour
     {
+        [Flags]
+        public enum DescriptorTag
+        {
+            None = 0,
+            Active = 1,
+            Target = 2,
+            Cost = 4,
+            Tower = 8,
+            Enemy = 16,
+            Spawner = 32,
+            Action = 64,
+        }
+        
         [SerializeField] private UiSwitcher winPopup;
         [SerializeField] private UiSwitcher losePopup;
         [SerializeField] private UiTemporalSwitcher beginTurnMessage;
@@ -31,6 +44,9 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private Material notEnoughMoneyMaterial;
         [SerializeField] private UiSwitcher cancelButton;
         [SerializeField] private TowerHeadingView towerHeadingPrefab;
+        [SerializeField] private Descriptor descriptor;
+        [SerializeField] private UiSwitchable descriptorSwitcher;
+        [Range(0, 1)] [SerializeField] private float descriptorTime;
 
         private readonly Dictionary<TowerHolder, TowerHeadingView> _towerHeadingViews = new Dictionary<TowerHolder, TowerHeadingView>();
         
@@ -47,6 +63,7 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator HideTowerActionBar() => towerActionBar.SwitchOff();
         public IEnumerator ShowCancelButton() => cancelButton.SwitchOn();
         public IEnumerator HideCancelButton() => cancelButton.SwitchOff();
+        public void HideDescriptor() => descriptorSwitcher.SwitchOff(descriptorTime);
         public IEnumerator ShowPlayerUi()
         {
             moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
@@ -102,6 +119,11 @@ namespace Nara.MFGJS2020.Control
             {
                 view.UpdateValues();
             }
+        }
+        public void ShowDescriptor(string title, DescriptorTag tags, string description, int cost = 0)
+        {
+            descriptor.Init(title,tags,description,cost);
+            descriptorSwitcher.SwitchOn(descriptorTime);
         }
     }
 }

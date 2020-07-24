@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777243534411645761}
   - component: {fileID: 6699545886625062969}
-  - component: {fileID: 7582757718951175361}
+  - component: {fileID: 5284566591160785792}
   m_Layer: 5
   m_Name: BeginActionView
   m_TagString: Untagged
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &7582757718951175361
+--- !u!114 &5284566591160785792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,11 +68,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2344942720005192455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83395601c4f4c5280c29f1ae12a194e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4162cac904f14e8795463740dac218ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: {fileID: 8149416264423187724}
-  cost: {fileID: 0}
+  onBeginTurn: 1
 --- !u!1 &6273363124549356270
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,10 +165,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 120
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 120
   m_fontStyle: 0
