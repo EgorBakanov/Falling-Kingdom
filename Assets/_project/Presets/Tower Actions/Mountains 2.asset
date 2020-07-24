@@ -15,5 +15,7 @@ MonoBehaviour:
   name: Build Mountains
   cost: 10
   animationTime: 0.1
+  description: Increase height of all tiles at a distance of 2 tile or less by 1.
+    Can't influence the height of source tower tile.
   size: 2
   amount: 1

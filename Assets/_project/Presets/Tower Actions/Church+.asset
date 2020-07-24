@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Upgrade
   cost: 7
   animationTime: 0.2
+  description: Upgrade to <color=green>Monastery</color>.
   preset: {fileID: 11400000, guid: 27a974241cc27634eaa4e3b2ecb75a05, type: 2}

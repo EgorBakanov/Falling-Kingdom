@@ -21,7 +21,10 @@ MonoBehaviour:
   initialActivity: 0
   visualPrefab: {fileID: 299720366630296500, guid: ba2962d12268cc34dbb6ca531071cb36,
     type: 3}
-  description: 
+  description: 'Your main building. Provides a lot of <color=yellow>gold</color>
+    every turn.
+
+    <b><color=blue>Upgradable!</color></b>'
   activeActions:
   - {fileID: 11400000, guid: de8f20694bb164a4e98bd44f75c9257e, type: 2}
   - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}

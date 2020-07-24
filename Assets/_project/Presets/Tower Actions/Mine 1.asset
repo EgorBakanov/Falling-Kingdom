@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Mine
   cost: 0
   animationTime: 0.2
+  description: Gain <color=yellow>1 gold</color>.
   amount: 1

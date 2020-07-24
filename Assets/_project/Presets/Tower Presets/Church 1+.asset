@@ -21,7 +21,9 @@ MonoBehaviour:
   initialActivity: 0
   visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
     type: 3}
-  description: 
+  description: 'Automatically restores all nearby <color=green>towers</color>.
+
+    <b><color=blue>Upgradable!</color></b>'
   activeActions:
   - {fileID: 11400000, guid: 6e3f7d5f76a17ab49a1d3a0d25c08d53, type: 2}
   - {fileID: 11400000, guid: ddbb87b45f3bb864c9a2f85ed344cd71, type: 2}

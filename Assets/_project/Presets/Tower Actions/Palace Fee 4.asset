@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Castle Fee
   cost: 0
   animationTime: 0.2
+  description: Gain <color=yellow>4 gold</color>.
   amount: 4

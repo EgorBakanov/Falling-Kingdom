@@ -47,7 +47,9 @@ namespace Nara.MFGJS2020.UI
 
             if (descriptorTag.HasFlag(UiManager.DescriptorTag.Cost))
             {
-                tagsText.AppendFormat("Cost: {0}", cost);
+                tagsText.Append("Cost: <color=yellow>");
+                tagsText.Append((cost > 0) ? $"{cost} gold" : "free");
+                tagsText.Append("</color>");
             }
 
             tags.text = tagsText.ToString();

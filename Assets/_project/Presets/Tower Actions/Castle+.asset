@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Upgrade
   cost: 12
   animationTime: 0.2
+  description: Upgrade to <color=green>Palace</color>.
   preset: {fileID: 11400000, guid: a4c96b2ec4c333743982c198b31a5968, type: 2}

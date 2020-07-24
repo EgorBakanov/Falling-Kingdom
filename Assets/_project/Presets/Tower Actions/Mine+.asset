@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Upgrade
   cost: 5
   animationTime: 0.2
+  description: Upgrade to <color=green>Quarry</color>.
   preset: {fileID: 11400000, guid: b84a5f440bcf2974db35f3f680312ab1, type: 2}

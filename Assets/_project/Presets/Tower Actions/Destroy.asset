@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Destroy
   cost: 0
   animationTime: 0.2
+  description: Destroy this <color=green>tower</color>.

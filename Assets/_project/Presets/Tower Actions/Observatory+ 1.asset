@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Upgrade
   cost: 8
   animationTime: 0.2
+  description: Upgrade to <color=green>College</color>.
   preset: {fileID: 11400000, guid: c932e721d59c0a04d84f091d5a8a998f, type: 2}

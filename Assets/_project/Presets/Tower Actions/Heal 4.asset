@@ -15,5 +15,7 @@ MonoBehaviour:
   name: Far Heal
   cost: 8
   animationTime: 0.15
+  description: Restore <color=green>1 health</color> to all <color=green>towers</color>
+    at a distance of 4 tiles.
   amount: 1
   range: 4

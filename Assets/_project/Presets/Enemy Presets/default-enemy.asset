@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133596102fc942678d1ef9e943b76a12, type: 3}
   m_Name: default-enemy
   m_EditorClassIdentifier: 
-  name: default
+  name: Giant Spider
   cantBuildZoneSize: 0
   initialActivity: 0
   visualPrefab: {fileID: 8901094734648353985, guid: e1d2f76b42f730b4ea16457624c6db67,
     type: 3}
-  spawnerName: default spawner
+  spawnerName: Mysterious Portal
   spawnerVisualPrefab: {fileID: 6348122314209067083, guid: 7422f7f5309dc1d46917d7d30104bab6,
     type: 3}
-  description: 
+  description: Giant and very angry spider.

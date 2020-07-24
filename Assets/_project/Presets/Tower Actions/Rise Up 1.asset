@@ -15,6 +15,9 @@ MonoBehaviour:
   name: Rise Up
   cost: 3
   animationTime: 0.2
+  description: 'Increase height of 1 tile by 1.
+
+    Maximum range: 3 tiles.'
   range: 3
   size: 0
   amount: 1

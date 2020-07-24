@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Upgrade
   cost: 7
   animationTime: 0.2
+  description: Upgrade to <color=green>Blacksmith</color>.
   preset: {fileID: 11400000, guid: 15dc15b0a27657a4faf2ca48fecba066, type: 2}

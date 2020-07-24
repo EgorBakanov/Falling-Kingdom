@@ -32,11 +32,12 @@ namespace Nara.MFGJS2020.Control
         public CameraController CameraController => cameraController;
         public SelectionManager SelectionManager => selectionManager;
         public bool HasNextLevel => _currentLevel < levelManager.Size;
-        
+
         public void InitMoney(int val)
         {
             CurrentMoney = val;
         }
+
         public IEnumerator SetMoney(int val)
         {
             var old = CurrentMoney;
@@ -47,7 +48,7 @@ namespace Nara.MFGJS2020.Control
 
         public int CurrentMoney { get; private set; }
         public int CurrentTurn { get; set; }
-        
+
         private int _currentLevel = -1;
         private InputManager _inputManager;
 
@@ -71,7 +72,7 @@ namespace Nara.MFGJS2020.Control
 
         private void Start()
         {
-            stateMachine.Init(new BeginState(),new LoseState());
+            stateMachine.Init(new BeginState(), new LoseState());
         }
 
         private void OnEnable()
@@ -98,6 +99,29 @@ namespace Nara.MFGJS2020.Control
         private void HandleCancel(InputAction.CallbackContext obj) => stateMachine.OnCancel();
         private void HandleEndTurn(InputAction.CallbackContext obj) => StateMachine.OnEndTurn();
 
+        private void Update()
+        {
+            // testing
+            if (Keyboard.current.numpad0Key.isPressed)
+                RunLevel(0);
+            if (Keyboard.current.numpad1Key.isPressed)
+                RunLevel(1);
+            if (Keyboard.current.numpad2Key.isPressed)
+                RunLevel(2);
+            if (Keyboard.current.numpad3Key.isPressed)
+                RunLevel(3);
+            if (Keyboard.current.numpad4Key.isPressed)
+                RunLevel(4);
+            if (Keyboard.current.numpadPlusKey.isPressed)
+                StartCoroutine(SetMoney(200));
+        }
+
+        private void RunLevel(int id)
+        {
+            _currentLevel = id;
+            stateMachine.SetState(new InitLevelState());
+        }
+
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -116,16 +140,16 @@ namespace Nara.MFGJS2020.Control
 
             if (uiManager == null)
                 uiManager = FindObjectOfType<UiManager>();
-            
+
             if (towerManager == null)
                 towerManager = FindObjectOfType<TowerManager>();
-            
+
             if (enemyManager == null)
                 enemyManager = FindObjectOfType<EnemyManager>();
-            
+
             if (selectionManager == null)
                 selectionManager = FindObjectOfType<SelectionManager>();
-            
+
             if (cameraController == null)
                 cameraController = FindObjectOfType<CameraController>();
         }

@@ -15,6 +15,9 @@ MonoBehaviour:
   name: Improved Collapse
   cost: 6
   animationTime: 0.2
+  description: 'Decrease height of 1 tiles by 2.
+
+    Maximum range: 4 tiles.'
   range: 4
   size: 0
   amount: -2

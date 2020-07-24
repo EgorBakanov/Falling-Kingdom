@@ -21,7 +21,10 @@ MonoBehaviour:
   initialActivity: 0
   visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
     type: 3}
-  description: 
+  description: 'Used to craft heavy armor and transform environment into mountains.
+    Too bad no one is using armor.
+
+    <b><color=blue>Upgradable!</color></b>'
   activeActions:
   - {fileID: 11400000, guid: 08db7da7aab41314e95171e5cee25019, type: 2}
   - {fileID: 11400000, guid: caa6dc7a8e21ead41a55fdbbbb470372, type: 2}

@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Palace Fee
   cost: 0
   animationTime: 0.2
+  description: Gain <color=yellow>6 gold</color>.
   amount: 6
