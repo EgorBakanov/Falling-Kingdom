@@ -19,7 +19,7 @@ MonoBehaviour:
   cantBuildZoneSize: 0
   expandBuildZoneSize: 2
   initialActivity: 0
-  visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
+  visualPrefab: {fileID: 3394510371283771854, guid: fac5e1107b776a449b419f173c1da7e5,
     type: 3}
   description: 'Used to craft heavy armor and transform environment into mountains.
     Too bad no one is using armor.

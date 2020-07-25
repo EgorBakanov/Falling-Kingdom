@@ -153,7 +153,7 @@ MonoBehaviour:
   colorChangeTime: 2
   freeLook: {fileID: 0}
   defaultVCamera: {fileID: 0}
-  offset: 2
+  offset: 1
   topRigMultiplier: 0.3
   middleRigMultiplier: 1.05
   freeLookSpeed: 1

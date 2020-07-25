@@ -19,7 +19,7 @@ MonoBehaviour:
   cantBuildZoneSize: 0
   expandBuildZoneSize: 2
   initialActivity: 0
-  visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
+  visualPrefab: {fileID: 3759479144636095314, guid: 6f570b926cea3604ca2e23c814e16a82,
     type: 3}
   description: Shelter of several terrain control mages.
   activeActions:

@@ -19,7 +19,7 @@ MonoBehaviour:
   cantBuildZoneSize: 0
   expandBuildZoneSize: 4
   initialActivity: 0
-  visualPrefab: {fileID: 8321293604524162915, guid: c60fba50afc796d41b012f87d8a65c90,
+  visualPrefab: {fileID: 2927343981243844516, guid: 0b9b68171c1378a49b95560b78775a45,
     type: 3}
   description: Automatically restores all nearby <color=green>towers</color>. Covers
     greater distance.
