@@ -102,6 +102,7 @@ namespace Nara.MFGJS2020.Control
         private void HandleCancel(InputAction.CallbackContext obj) => stateMachine.OnCancel();
         private void HandleEndTurn(InputAction.CallbackContext obj) => StateMachine.OnEndTurn();
 
+#if UNITY_EDITOR
         private void Update()
         {
             // testing
@@ -124,7 +125,7 @@ namespace Nara.MFGJS2020.Control
             _currentLevel = id;
             stateMachine.SetState(new InitLevelState());
         }
-
+#endif
 
 #if UNITY_EDITOR
         private void OnValidate()

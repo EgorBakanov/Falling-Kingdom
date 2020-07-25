@@ -25,8 +25,9 @@ namespace Nara.MFGJS2020.States
             GameManager.Instance.CurrentTurn = 0;
             yield return GameManager.Instance.UiManager.UpdateRemainingTurnsCounter(level.TurnsToSurvive);
             yield return GameManager.Instance.UiManager.ShowRemainingTurnsCounter();
+            yield return GameManager.Instance.UiManager.ShowLevelTitle(level.Title);
 
-            GameManager.Instance.StateMachine.SetState(new ShowNextEnemySpawnState());
+            GameManager.Instance.StateMachine.SetState(new IntroductionState());
         }
     }
 }

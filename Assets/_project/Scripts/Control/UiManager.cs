@@ -7,6 +7,8 @@ using Nara.MFGJS2020.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Nara.MFGJS2020.Control
 {
@@ -24,12 +26,15 @@ namespace Nara.MFGJS2020.Control
             Spawner = 32,
             Action = 64,
         }
-        
+
         [SerializeField] private UiSwitcher winPopup;
         [SerializeField] private UiSwitcher losePopup;
         [SerializeField] private UiTemporalSwitcher beginTurnMessage;
         [SerializeField] private UiTemporalSwitcher endTurnMessage;
-        [SerializeField] private UiTemporalSwitcher titleMessage;
+
+        [FormerlySerializedAs("titleMessage")] [SerializeField]
+        private UiTemporalSwitcher gameTitleMessage;
+
         [SerializeField] private UiSwitcher turnCounter;
         [SerializeField] private TMP_Text turnCounterText;
         [SerializeField] private UiTemporalSwitcher turnCounterUpdater;
@@ -47,9 +52,14 @@ namespace Nara.MFGJS2020.Control
         [SerializeField] private Descriptor descriptor;
         [SerializeField] private UiSwitchable descriptorSwitcher;
         [Range(0, 1)] [SerializeField] private float descriptorTime;
+        [SerializeField] private TMP_Text levelTitle;
+        [SerializeField] private UiTemporalSwitcher levelTitleSwitcher;
+        [SerializeField] private TMP_Text levelIntroduction;
+        [SerializeField] private UiSwitcher levelIntroductionSwitcher;
 
-        private readonly Dictionary<TowerHolder, TowerHeadingView> _towerHeadingViews = new Dictionary<TowerHolder, TowerHeadingView>();
-        
+        private readonly Dictionary<TowerHolder, TowerHeadingView> _towerHeadingViews =
+            new Dictionary<TowerHolder, TowerHeadingView>();
+
         public IEnumerator ShowWinMessage() => winPopup.SwitchOn();
         public IEnumerator HideWinMessage() => winPopup.SwitchOff();
         public IEnumerator ShowBeginTurnMessage() => beginTurnMessage.Play();
@@ -59,22 +69,26 @@ namespace Nara.MFGJS2020.Control
         public IEnumerator ShowEndTurnMessage() => endTurnMessage.Play();
         public IEnumerator ShowLoseMessage() => losePopup.SwitchOn();
         public IEnumerator HideLoseMessage() => losePopup.SwitchOff();
-        public IEnumerator ShowTitle() => titleMessage.Play();
+        public IEnumerator ShowTitle() => gameTitleMessage.Play();
         public IEnumerator HideTowerActionBar() => towerActionBar.SwitchOff();
         public IEnumerator ShowCancelButton() => cancelButton.SwitchOn();
         public IEnumerator HideCancelButton() => cancelButton.SwitchOff();
         public void HideDescriptor() => descriptorSwitcher.SwitchOff(descriptorTime);
+        public IEnumerator HideIntroduction() => levelIntroductionSwitcher.SwitchOff();
+
         public IEnumerator ShowPlayerUi()
         {
             moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
             towerPresetCollectionView.Init(GameManager.Instance.GetCurrentLevel().AvailableToBuildTowers);
             yield return player.SwitchOn();
         }
+
         public IEnumerator UpdateRemainingTurnsCounter(int value)
         {
             void UpdateCounter() => turnCounterText.text = value.ToString();
             yield return turnCounterUpdater.Play(UpdateCounter);
         }
+
         public IEnumerator ShowNotEnoughMoney()
         {
             var startMaterial = moneyCounterText.fontSharedMaterial;
@@ -82,17 +96,20 @@ namespace Nara.MFGJS2020.Control
             yield return notEnoughMoney.Play();
             moneyCounterText.fontSharedMaterial = startMaterial;
         }
+
         public IEnumerator UpdateMoneyCounter()
         {
             moneyCounterText.text = GameManager.Instance.CurrentMoney.ToString();
             yield return updateMoney.Play();
         }
+
         public IEnumerator ShowTowerActionBar()
         {
             var preset = GameManager.Instance.SelectionManager.SelectedTower?.Preset;
             towerActionBarView.Init(preset);
             yield return towerActionBar.SwitchOn();
         }
+
         public void ShowTowerHeading(TowerHolder towerHolder)
         {
             if (_towerHeadingViews.TryGetValue(towerHolder, out var view))
@@ -106,24 +123,49 @@ namespace Nara.MFGJS2020.Control
                 _towerHeadingViews[towerHolder] = view;
             }
         }
+
         public void HideTowerHeading(TowerHolder towerHolder)
         {
-            if (_towerHeadingViews.TryGetValue(towerHolder,out var view))
+            if (_towerHeadingViews.TryGetValue(towerHolder, out var view))
             {
                 view.gameObject.SetActive(false);
             }
         }
+
+        public void HideAllTowerHeadings()
+        {
+            foreach (var view in _towerHeadingViews.Values)
+            {
+                view.gameObject.SetActive(false);
+            }
+        }
+
         public void UpdateTowerHeading(TowerHolder towerHolder)
         {
-            if (_towerHeadingViews.TryGetValue(towerHolder,out var view))
+            if (_towerHeadingViews.TryGetValue(towerHolder, out var view))
             {
                 view.UpdateValues();
             }
         }
+
         public void ShowDescriptor(string title, DescriptorTag tags, string description, int cost = 0)
         {
-            descriptor.Init(title,tags,description,cost);
+            descriptor.Init(title, tags, description, cost);
             descriptorSwitcher.SwitchOn(descriptorTime);
+        }
+
+        public IEnumerator ShowIntroduction(string intro)
+        {
+            levelIntroduction.text = intro;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(levelIntroductionSwitcher.transform as RectTransform);
+            yield return levelIntroductionSwitcher.SwitchOn();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(levelIntroductionSwitcher.transform as RectTransform);
+        }
+
+        public IEnumerator ShowLevelTitle(string title)
+        {
+            this.levelTitle.text = title;
+            yield return levelTitleSwitcher.Play();
         }
     }
 }

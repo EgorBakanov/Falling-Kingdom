@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nara.MFGJS2020.Control
 {
@@ -19,7 +20,10 @@ namespace Nara.MFGJS2020.Control
         [Range(0, 1)] [SerializeField] private float moneyVolume = 1;
         [SerializeField] private AudioClip[] money;
         [Range(0, 1)] [SerializeField] private float notEnoughMoneyVolume = 1;
-        [SerializeField] private AudioClip[] notEnoughMoney;
+
+        [FormerlySerializedAs("notEnoughMoney")] [SerializeField]
+        private AudioClip[] fail;
+
         [Range(0, 1)] [SerializeField] private float enemyAttackVolume = 1;
         [SerializeField] private AudioClip[] enemyAttack;
         [Range(0, 1)] [SerializeField] private float beginTurnVolume = 1;
@@ -34,39 +38,39 @@ namespace Nara.MFGJS2020.Control
 
         public void PlayMoneyChange()
         {
-            PlayRandom(effectAudioSource,money,moneyVolume);
+            PlayRandom(effectAudioSource, money, moneyVolume);
         }
 
-        public void PlayNotEnoughMoney()
+        public void PlayFail()
         {
-            PlayRandom(effectAudioSource,notEnoughMoney,notEnoughMoneyVolume);
+            PlayRandom(effectAudioSource, fail, notEnoughMoneyVolume);
         }
 
         public void PlayEnemyAttack()
         {
-            PlayRandom(effectAudioSource,enemyAttack,enemyAttackVolume);
+            PlayRandom(effectAudioSource, enemyAttack, enemyAttackVolume);
         }
 
         public void PlayBeginTurn()
         {
-            PlayRandom(messageAudioSource,beginTurn,beginTurnVolume);
+            PlayRandom(messageAudioSource, beginTurn, beginTurnVolume);
         }
-        
+
         public IEnumerator PlayWin()
         {
-            yield return PlayMessage(win,winVolume);
+            yield return PlayMessage(win, winVolume);
         }
 
         public IEnumerator PlayLose()
         {
-            yield return PlayMessage(lose,loseVolume);
+            yield return PlayMessage(lose, loseVolume);
         }
 
         private IEnumerator PlayMessage(AudioClip clip, float volume)
         {
             backgroundAudioSource.Pause();
-            messageAudioSource.PlayOneShot(clip,volume);
-            yield return new WaitWhile(()=>messageAudioSource.isPlaying);
+            messageAudioSource.PlayOneShot(clip, volume);
+            yield return new WaitWhile(() => messageAudioSource.isPlaying);
             backgroundAudioSource.UnPause();
         }
 

@@ -17,10 +17,13 @@ namespace Nara.MFGJS2020.States
             GameManager.Instance.SelectionManager.SelectedTowerActionId = id;
             var tower = GameManager.Instance.SelectionManager.SelectedTower;
             var action = tower.ActiveActions[id];
-            
+
             if (!tower.IsActive)
+            {
+                GameManager.Instance.AudioManager.PlayFail();
                 yield break;
-            
+            }
+
             if (action.Cost > GameManager.Instance.CurrentMoney)
             {
                 yield return GameManager.Instance.UiManager.HideTowerActionBar();

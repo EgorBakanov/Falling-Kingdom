@@ -61,6 +61,7 @@
               <e p="EndPlayerTurnState.cs" t="Include" />
               <e p="EnemyTurnState.cs" t="Include" />
               <e p="InitLevelState.cs" t="Include" />
+              <e p="IntroductionState.cs" t="Include" />
               <e p="LoseState.cs" t="Include" />
               <e p="NotEnoughMoneyState.cs" t="Include" />
               <e p="OnBeginPlayerTurnTowerActionState.cs" t="Include" />

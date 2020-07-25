@@ -52,6 +52,7 @@ namespace Nara.MFGJS2020.Generators
             }
         }
 
+        [SerializeField] private string title;
         [SerializeField] private int initialMoney = 0;
         [Range(1, 30)] [SerializeField] private int turnsToSurvive = 1;
         [Range(1, 50)] [SerializeField] private int x = 2;
@@ -60,6 +61,7 @@ namespace Nara.MFGJS2020.Generators
 
         [SerializeField] private Int2D initialHeights;
         [SerializeField] private LevelColorScheme levelColorScheme;
+        [TextArea][SerializeField] private string introduction;
         
         [SerializeField] private TowerPreset[] availableToBuildTowers;
         [SerializeField] private TowerInPosition targetTower;
@@ -73,6 +75,8 @@ namespace Nara.MFGJS2020.Generators
         public int InitialMoney => initialMoney;
         public int TurnsToSurvive => turnsToSurvive;
         public EnemySpawnerScheduleElement[] EnemySpawnerSchedule => enemySpawnerSchedule;
+        public string Introduction => introduction;
+        public string Title => title;
 
 #if UNITY_EDITOR
         private void OnValidate()
