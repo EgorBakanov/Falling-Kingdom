@@ -30,6 +30,7 @@ namespace Nara.MFGJS2020.Holders
         public IEnumerator Attack(TileHolder tile, Vector3 offset, float duration, float power, float elasticity,
             int vibrato)
         {
+            GameManager.Instance.AudioManager.PlayEnemyAttack();
             yield return transform.DOPunchPosition((GetPlacementPosition(tile) + offset - transform.position) * power,
                 duration, vibrato, elasticity).WaitForCompletion();
             tile.Tile.Height--;

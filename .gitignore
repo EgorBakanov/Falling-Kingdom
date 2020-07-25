@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Cant share stuff
+/[Aa]ssets/_project/Audio/Cant share/*

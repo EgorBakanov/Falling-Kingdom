@@ -9,6 +9,7 @@ namespace Nara.MFGJS2020.States
         public override IEnumerator Start()
         {
             GameManager.Instance.CameraController.IsFreeLook = false;
+            GameManager.Instance.AudioManager.StartCoroutine(GameManager.Instance.AudioManager.PlayWin());
             yield return GameManager.Instance.UiManager.HideAllUi();
             GameManager.Instance.SelectionManager.DeselectAll();
             yield return GameManager.Instance.UiManager.ShowWinMessage();

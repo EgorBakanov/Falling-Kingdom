@@ -8,6 +8,7 @@ namespace Nara.MFGJS2020.States
     {
         public override IEnumerator Start()
         {
+            GameManager.Instance.AudioManager.PlayNotEnoughMoney();
             yield return GameManager.Instance.UiManager.ShowNotEnoughMoney();
             GameManager.Instance.StateMachine.SetState(new WaitForPlayerActionState());
         }

@@ -43,7 +43,10 @@ namespace Nara.MFGJS2020.Control
             var old = CurrentMoney;
             CurrentMoney = val;
             if (old != CurrentMoney)
+            {
+                AudioManager.PlayMoneyChange();
                 yield return UiManager.UpdateMoneyCounter();
+            }
         }
 
         public int CurrentMoney { get; private set; }
