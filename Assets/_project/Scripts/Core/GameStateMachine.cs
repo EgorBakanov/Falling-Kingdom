@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.Core
@@ -47,6 +48,7 @@ namespace Nara.MFGJS2020.Core
         {
             if(IsRunning)
                 return;
+            Assert.AreEqual(PointerEventData.InputButton.Left,eventData.button);
             StartCoroutine(SafeStart(_state.OnTowerClick(tower, eventData)));
         }
 

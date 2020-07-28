@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.States
@@ -60,6 +61,7 @@ namespace Nara.MFGJS2020.States
 
         public override IEnumerator OnTowerClick(IGridObject tower, PointerEventData eventData)
         {
+            Assert.AreEqual(PointerEventData.InputButton.Left,eventData.button);
             yield return GameManager.Instance.UiManager.HideTowerActionBar();
             yield return null;
             yield return StateUtility.OnTowerClick(tower, eventData);

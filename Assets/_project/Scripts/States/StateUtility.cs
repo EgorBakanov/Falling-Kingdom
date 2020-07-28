@@ -3,6 +3,7 @@ using Nara.MFGJS2020.Control;
 using Nara.MFGJS2020.Core;
 using Nara.MFGJS2020.GridObjects;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 namespace Nara.MFGJS2020.States
@@ -21,6 +22,7 @@ namespace Nara.MFGJS2020.States
         {
             GameManager.Instance.SelectionManager.DeselectAll();
             var target = tower as Tower;
+            Assert.AreEqual(PointerEventData.InputButton.Left,eventData.button);
             if(eventData.button != PointerEventData.InputButton.Left || target == null)
                 yield return ReturnToWait();
             
